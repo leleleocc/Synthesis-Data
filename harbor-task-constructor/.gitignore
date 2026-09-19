@@ -1,0 +1,31 @@
+/.venv/
+/.worktrees/
+/.pytest_cache/
+/.env
+/.env.*
+!/.env.example
+# 凭证文件一律不进仓库：接入方的 .env，以及业务方交过来的 task.env（只在主机侧读、
+# 注入成沙箱环境变量，本体不进沙箱也不进仓库）。不加锚点，所以任意深度的子目录都挡得住
+# ——每个租户在 sandbox/aio/tenants/<name>/ 下有自己的 task.env。
+*.env
+!*.env.example
+/sandbox/aio/tasks/
+/sandbox/aio/.venv/
+/jobs/
+/artifacts/
+/candidates-*/
+/instances/
+/instances-*/
+/exports/
+/docs/superpowers/plans/
+__pycache__/
+*.py[cod]
+.coverage
+coverage.xml
+htmlcov/
+*.log
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo

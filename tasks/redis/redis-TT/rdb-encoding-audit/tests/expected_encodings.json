@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "file": "hash-zipmap.rdb",
+      "key": "hash",
+      "type": "hash",
+      "default_encoding": "listpack",
+      "tight_encoding": "hashtable",
+      "fields": {"f1": "v1", "f2": "v2"}
+    },
+    {
+      "file": "hash-ziplist.rdb",
+      "key": "hash",
+      "type": "hash",
+      "default_encoding": "listpack",
+      "tight_encoding": "hashtable",
+      "fields": {"f1": "v1", "f2": "v2"}
+    },
+    {
+      "file": "zset-ziplist.rdb",
+      "key": "zset",
+      "type": "zset",
+      "default_encoding": "listpack",
+      "tight_encoding": "skiplist",
+      "fields": [
+        {"member": "one", "score": 1},
+        {"member": "two", "score": 2}
+      ]
+    },
+    {
+      "file": "list-quicklist.rdb",
+      "key": "list",
+      "type": "list",
+      "default_encoding": "listpack",
+      "tight_encoding": "listpack",
+      "fields": ["7"]
+    }
+  ]
+}

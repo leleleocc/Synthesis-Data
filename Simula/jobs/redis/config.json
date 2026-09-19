@@ -1,0 +1,17 @@
+{
+    "job_name": "2026-09-18__13-25-38",
+    "environment": {
+        "type": "daytona"
+    },
+    "agents": [
+        {
+            "name": "claude-code",
+            "model_name": "grok-4.6"
+        }
+    ],
+    "tasks": [
+        {
+            "path": "simula-v0"
+        }
+    ]
+}

@@ -1,0 +1,127 @@
+schema_version = "1.4"
+multi_step_reward_strategy = "mean"
+artifacts = [
+  "/synthesis/input/target_spec.json",
+]
+
+[task]
+name = "terminaltraj/single-repo-synthesis"
+version = "0.2.0"
+description = "Generate one or more executable Harbor tasks from one repository and a target specification."
+authors = [{ name = "TerminalTraj prototype" }]
+keywords = ["terminaltraj", "synthesis", "repository", "multi-step"]
+
+[metadata]
+difficulty = "hard"
+category = "agentic-data-synthesis"
+tags = ["terminal", "docker", "query-generation", "verifier-generation"]
+
+[environment]
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+workdir = "/synthesis"
+
+[[steps]]
+name = "01_repo_profile"
+min_reward = 1.0
+artifacts = [
+  "/synthesis/state/01_repo_profile.json",
+]
+
+[[steps]]
+name = "02_repo_gate"
+min_reward = 1.0
+artifacts = [
+  "/synthesis/state/01_repo_profile.json",
+  "/synthesis/state/02_repo_gate.json",
+  "/synthesis/state/.integrity",
+]
+
+[[steps]]
+name = "03_environment"
+min_reward = 1.0
+artifacts = [
+  "/synthesis/state/01_repo_profile.json",
+  "/synthesis/state/02_repo_gate.json",
+  "/synthesis/state/03_environment.json",
+  "/synthesis/state/.integrity",
+  "/synthesis/output/environment",
+  "/synthesis/logs/build.log",
+]
+
+[[steps]]
+name = "04_task_design"
+min_reward = 1.0
+artifacts = [
+  "/synthesis/state/01_repo_profile.json",
+  "/synthesis/state/02_repo_gate.json",
+  "/synthesis/state/03_environment.json",
+  "/synthesis/state/04_task_design.json",
+  "/synthesis/state/.integrity",
+  "/synthesis/output/environment",
+  "/synthesis/output/candidates",
+]
+
+[[steps]]
+name = "05_task_review"
+min_reward = 1.0
+artifacts = [
+  "/synthesis/state/01_repo_profile.json",
+  "/synthesis/state/02_repo_gate.json",
+  "/synthesis/state/03_environment.json",
+  "/synthesis/state/04_task_design.json",
+  "/synthesis/state/05_task_review.json",
+  "/synthesis/state/.integrity",
+  "/synthesis/output/environment",
+  "/synthesis/output/candidates",
+]
+
+[[steps]]
+name = "06_verifier_generation"
+min_reward = 1.0
+artifacts = [
+  "/synthesis/state/01_repo_profile.json",
+  "/synthesis/state/02_repo_gate.json",
+  "/synthesis/state/03_environment.json",
+  "/synthesis/state/04_task_design.json",
+  "/synthesis/state/05_task_review.json",
+  "/synthesis/state/06_verifier.json",
+  "/synthesis/state/.integrity",
+  "/synthesis/output/environment",
+  "/synthesis/output/candidates",
+]
+
+[[steps]]
+name = "07_verifier_review"
+min_reward = 1.0
+artifacts = [
+  "/synthesis/state/01_repo_profile.json",
+  "/synthesis/state/02_repo_gate.json",
+  "/synthesis/state/03_environment.json",
+  "/synthesis/state/04_task_design.json",
+  "/synthesis/state/05_task_review.json",
+  "/synthesis/state/06_verifier.json",
+  "/synthesis/state/07_verifier_review.json",
+  "/synthesis/state/.integrity",
+  "/synthesis/output/environment",
+  "/synthesis/output/candidates",
+]
+
+[[steps]]
+name = "08_package"
+min_reward = 1.0
+artifacts = [
+  "/synthesis/state/01_repo_profile.json",
+  "/synthesis/state/02_repo_gate.json",
+  "/synthesis/state/03_environment.json",
+  "/synthesis/state/04_task_design.json",
+  "/synthesis/state/05_task_review.json",
+  "/synthesis/state/06_verifier.json",
+  "/synthesis/state/07_verifier_review.json",
+  "/synthesis/state/.integrity",
+  "/synthesis/output/environment",
+  "/synthesis/output/candidates",
+  "/synthesis/output/generated_task",
+]

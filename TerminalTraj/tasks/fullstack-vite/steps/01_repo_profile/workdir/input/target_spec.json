@@ -1,0 +1,64 @@
+{
+  "source_repo": {
+    "path": "/synthesis/input/repository",
+    "url": "https://github.com/vitejs/vite",
+    "commit": "434e8e9495436a60789f2b588a04a6a24a3d1661"
+  },
+  "target": {
+    "languages": [
+      "typescript",
+      "javascript",
+      "shell"
+    ],
+    "domains": [
+      "software"
+    ],
+    "subdomains": [
+      "frontend",
+      "languages",
+      "systems"
+    ],
+    "tags": [
+      "frontend",
+      "web",
+      "typescript",
+      "javascript",
+      "build",
+      "build-system",
+      "cli",
+      "configuration",
+      "api",
+      "http",
+      "html",
+      "css",
+      "dependency-management",
+      "package-management",
+      "debugging",
+      "repair",
+      "refactoring",
+      "implementation",
+      "feature",
+      "performance",
+      "optimization",
+      "testing",
+      "snapshot-testing",
+      "ast",
+      "parsing",
+      "tool-use",
+      "integration",
+      "troubleshooting",
+      "release-engineering"
+    ],
+    "difficulty": "hard",
+    "oracle_types": [
+      "result",
+      "state",
+      "behavior"
+    ]
+  },
+  "generation": {
+    "allow_external_assets": false,
+    "max_candidates": 6,
+    "min_repo_score": 0.2
+  }
+}

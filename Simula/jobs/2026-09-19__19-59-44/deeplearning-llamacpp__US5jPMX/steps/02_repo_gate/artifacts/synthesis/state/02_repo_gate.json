@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "hard_checks": {
+    "source_present": true,
+    "executable_logic": true,
+    "build_or_runtime_path": true,
+    "target_alignment": true,
+    "license_known": true
+  },
+  "blockers": [],
+  "repo_score": 0.92,
+  "buildability_score": 0.9,
+  "task_potential_score": 0.93,
+  "decision": "accept"
+}

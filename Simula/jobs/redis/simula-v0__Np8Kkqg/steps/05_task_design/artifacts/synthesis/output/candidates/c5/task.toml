@@ -1,0 +1,33 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/c5"
+description = "Build Redis and run the WAIT/WAITAOF unit tests that configure AOF fsync and replica links."
+keywords = ["software", "databases", "configuration", "replication", "testing", "runtest", "waitaof"]
+authors = ["TerminalTraj Synthesis"]
+
+[metadata]
+difficulty = "hard"
+category = "Software"
+subcategory = "Databases"
+tags = ["configuration", "replication", "testing"]
+domains = ["software"]
+subdomains = ["systems", "databases"]
+languages = ["c", "shell"]
+oracle_types = ["result", "state"]
+expert_time_estimate_min = 220
+junior_time_estimate_min = 440
+
+[agent]
+timeout_sec = 13200
+
+[verifier]
+timeout_sec = 900
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 4096
+storage_mb = 8192
+workdir = "/app"

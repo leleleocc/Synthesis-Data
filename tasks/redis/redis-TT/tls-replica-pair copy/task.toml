@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/tls-replica-pair"
+description = "Build Redis with OpenSSL TLS and run a TLS-only master/replica pair that replicates and serves a probe key."
+keywords = ["software", "systems", "redis", "tls", "replication", "build", "makefile", "configuration"]
+authors = [{ name = "terminaltraj" }]
+
+[metadata]
+candidate_id = "c1"
+package_slug = "tls-replica-pair"
+difficulty = "hard"
+category = "Software"
+subcategory = "Systems"
+tags = ["build", "configuration", "replication", "redis", "linux", "makefile"]
+domains = ["software"]
+subdomains = ["systems", "databases"]
+languages = ["c", "shell"]
+oracle_types = ["result", "state", "behavior"]
+expert_time_estimate_min = 210
+junior_time_estimate_min = 420
+
+[agent]
+timeout_sec = 12600.0
+
+[verifier]
+timeout_sec = 600.0
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 4096
+storage_mb = 8192
+workdir = "/app"

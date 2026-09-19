@@ -1,0 +1,2 @@
+- [ospolicy helper tool](ospolicy-helper-tool.md) — standalone /results/ospolicy ports Suricata's host-OS-policy + CIDR helpers; keep it, don't re-port
+- [Suricata C oracle technique](suricata-c-oracle-technique.md) — compile real /app/src sources against shim headers to get a ground-truth oracle

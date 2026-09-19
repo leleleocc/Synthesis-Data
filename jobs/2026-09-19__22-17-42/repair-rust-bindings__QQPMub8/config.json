@@ -1,0 +1,16 @@
+{
+    "task": {
+        "path": "tasks\\suricata\\suricata-SM\\repair-rust-bindings",
+        "source": "suricata-SM"
+    },
+    "trial_name": "repair-rust-bindings__QQPMub8",
+    "trials_dir": "jobs\\2026-09-19__22-17-42",
+    "agent": {
+        "name": "claude-code",
+        "model_name": "claude-opus-5"
+    },
+    "environment": {
+        "type": "daytona"
+    },
+    "job_id": "ca991cb9-e34e-414f-a56b-dea58a968b12"
+}

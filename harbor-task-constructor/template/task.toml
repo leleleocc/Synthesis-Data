@@ -1,0 +1,51 @@
+schema_version = "1.3"
+
+[task]
+name = "harbor-task-constructor/construct-model-separating-task"
+version = "1.0.0"
+description = "Construct and measure a real Harbor task whose programmatic score separates a fixed target model from a fixed solver model"
+authors = []
+keywords = ["failure-reproduction", "sop", "rewardkit", "arm-gap", "custom-verifier"]
+
+[metadata]
+difficulty = "hard"
+category = "construction"
+tags = ["sop-allinone", "real-arms", "programmatic-gap"]
+
+[verifier]
+timeout_sec = 600.0
+collect = []
+
+[verifier.env]
+
+[agent]
+timeout_sec = 28800.0
+
+[environment]
+# This public baseline applies to environment build, agent, and verifier phases.
+network_mode = "public"
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+mcp_servers = []
+
+# Nested Harbor receives every credential and model bundle from the outer dispatch.
+[environment.env]
+DAYTONA_API_KEY = "${DAYTONA_API_KEY}"
+HARBOR_TARGET_MODEL_NAME = "${HARBOR_TARGET_MODEL_NAME}"
+HARBOR_TARGET_BASE_URL = "${HARBOR_TARGET_BASE_URL}"
+HARBOR_TARGET_AUTH_TOKEN = "${HARBOR_TARGET_AUTH_TOKEN}"
+HARBOR_TARGET_REASONING_EFFORT = "${HARBOR_TARGET_REASONING_EFFORT}"
+HARBOR_SOLVER_MODEL_NAME = "${HARBOR_SOLVER_MODEL_NAME}"
+HARBOR_SOLVER_BASE_URL = "${HARBOR_SOLVER_BASE_URL}"
+HARBOR_SOLVER_AUTH_TOKEN = "${HARBOR_SOLVER_AUTH_TOKEN}"
+HARBOR_SOLVER_REASONING_EFFORT = "${HARBOR_SOLVER_REASONING_EFFORT}"
+HARBOR_JUDGE_BASE_URL = "${HARBOR_JUDGE_BASE_URL}"
+HARBOR_JUDGE_AUTH_TOKEN = "${HARBOR_JUDGE_AUTH_TOKEN}"
+
+[solution.env]
+
+[[artifacts]]
+source = "/app/build"
+destination = "build"

@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/repair-rdb-checksum"
+description = "Repair RDB CRC64 checksum callbacks and audit the on-disk contract for redis-check-rdb."
+keywords = ["software", "databases", "debugging", "persistence", "rdb", "Makefile"]
+authors = ["TerminalTraj Synthesis"]
+
+[metadata]
+candidate_id = "c2"
+package_slug = "repair-rdb-checksum"
+difficulty = "hard"
+category = "Software"
+subcategory = "Databases"
+tags = ["debugging", "repair", "persistence"]
+domains = ["software"]
+subdomains = ["systems", "databases"]
+languages = ["c", "shell"]
+oracle_types = ["state", "behavior"]
+expert_time_estimate_min = 210
+junior_time_estimate_min = 360
+
+[agent]
+timeout_sec = 12600
+
+[verifier]
+timeout_sec = 180
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 4096
+storage_mb = 8192
+workdir = "/app"

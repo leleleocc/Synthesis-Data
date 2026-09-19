@@ -1,0 +1,128 @@
+{
+  "reviews": [
+    {
+      "candidate_id": "c1",
+      "approved": true,
+      "syntax_ok": true,
+      "checks": {
+        "verifiable": {
+          "outcome": "pass",
+          "explanation": "Repair of aof.c, ELF redis-server, sealed /src hashes, empty /data, live WAITAOF arrays, and leftover-process cleanup are all directly checkable with python3 plus the rebuilt binary."
+        },
+        "test_instruction_alignment": {
+          "outcome": "pass",
+          "explanation": "check_aof.py covers every instruction success condition: BIO fsync/close offsets, always-path and rewrite pending offset, rebuild ELF, do-not-modify /src and /data, always/everysec/no WAITAOF, rewrite then replica WAITAOF, and no leftover redis-server."
+        },
+        "functional_verification": {
+          "outcome": "pass",
+          "explanation": "Source-string checks reject the overlay zeros; a live master/replica RESP probe then requires [1,0] for always and everysec, local ack 0 under appendfsync no, [1,0] after BGREWRITEAOF, and [1,1] with a replica."
+        },
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Overlay zeros offsets in both /app and /src and strips git. Passing requires restored identifiers in /app/src/aof.c plus a working rebuilt ELF; redis.conf is not the success path and /src hashes must stay overlay-broken."
+        },
+        "outcome_verified": {
+          "outcome": "pass",
+          "explanation": "WAITAOF arrays, INFO persistence readiness, replica link-up, ELF magic, and SHA-256 of sealed files are exact outcomes. Timeouts (80/1000/4000/10000 ms) match the named fsync policies rather than incidental formatting."
+        },
+        "binary_reward": {
+          "outcome": "pass",
+          "explanation": "test.sh uses set -uo pipefail (no -e), writes 1 or 0 to /logs/verifier/reward.txt, and the EXIT trap writes 0 if the python oracle aborts before write_reward."
+        },
+        "do_not_modify_enforced": {
+          "outcome": "pass",
+          "explanation": "SHA-256 of /src/src/aof.c, /src/redis.conf, and sealed zmalloc files must match overlay goldens; /data must stay empty."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "No verify-time package installs. Oracle uses python3 and the agent-built redis-server from oracle_tools/entrypoints. Identifier matches and RESP arrays are host-stable; tmp dirs and ports are fixed."
+        }
+      },
+      "edits": [],
+      "issues": []
+    },
+    {
+      "candidate_id": "c2",
+      "approved": true,
+      "syntax_ok": true,
+      "checks": {
+        "verifiable": {
+          "outcome": "pass",
+          "explanation": "rdb.c callback restoration, ELF binaries, UTF-8 JSON with required key order, redis-check-rdb help capture, non-zero RDB CRC64, sealed /src hashes, empty /data, and leftover-process cleanup are all checkable."
+        },
+        "test_instruction_alignment": {
+          "outcome": "pass",
+          "explanation": "check_rdb.py plus expected_rdb_audit.json encode the instruction schema (rdb_version 11, magic REDIS, opcodes, checksum_min_rdbver 5, zero-checksum skip, checksum_uses_rio_update true), the help-file capture, rebuild of both binaries, and do-not-modify /src and /data."
+        },
+        "functional_verification": {
+          "outcome": "pass",
+          "explanation": "Source checks require rioGenericUpdateChecksum on save and load and reject the overlay NULL/(void)buf path; SAVE of a key must produce REDIS magic and a non-zero trailing CRC64."
+        },
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Git is stripped and /src rdb.c stays overlay-broken. A plausible JSON without restoring callbacks fails the SAVE CRC64 probe; help text is re-run against the built binary with argv[0] normalized."
+        },
+        "outcome_verified": {
+          "outcome": "pass",
+          "explanation": "Golden values come from sealed rdb.h/rdb.c (RDB_VERSION 11, opcodes, rdbver>=5 checksum, cksum==0 skip). Help matching accepts merged or concatenated stdout/stderr as the instruction allows a non-zero exit."
+        },
+        "binary_reward": {
+          "outcome": "pass",
+          "explanation": "test.sh uses set -uo pipefail (no -e), writes 1 or 0 to /logs/verifier/reward.txt, and traps uncaught failures to 0."
+        },
+        "do_not_modify_enforced": {
+          "outcome": "pass",
+          "explanation": "SHA-256 of /src/src/rdb.c, /src/src/rdb.h, and /src/redis.conf must match overlay goldens; /data must stay empty."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "No verify-time installs. python3 plus rebuilt redis-server/redis-check-rdb only. JSON comparison has no tolerance; help comparison normalizes only the argv[0] usage path."
+        }
+      },
+      "edits": [],
+      "issues": []
+    },
+    {
+      "candidate_id": "c3",
+      "approved": true,
+      "syntax_ok": true,
+      "checks": {
+        "verifiable": {
+          "outcome": "pass",
+          "explanation": "Makefile OPTIMIZATION/-O2, REDIS_CFLAGS frame-pointer channel, jemalloc vs libc invariant, ELF binary, build-report.json schema, INFO memory jemalloc, SHUTDOWN cleanup, and sealed /src hashes are all checkable."
+        },
+        "test_instruction_alignment": {
+          "outcome": "pass",
+          "explanation": "check_build.py asserts the first uncommented OPTIMIZATION is -O2, -fno-omit-frame-pointer on REDIS_CFLAGS not new CFLAGS, no USE_JEMALLOC=no/SANITIZER/libc, intact zmalloc, rebuilt ELF, JSON key order/types/values, jemalloc mem_allocator, and no leftover server."
+        },
+        "functional_verification": {
+          "outcome": "pass",
+          "explanation": "Makefile parse plus .make-settings reject libc/SANITIZER/-O3 leftovers; the verifier starts /app/src/redis-server and requires mem_allocator to contain jemalloc, then SHUTDOWN NOSAVE."
+        },
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Forcing libc via SANITIZER or USE_JEMALLOC=no fails Makefile, zmalloc hashes, JSON malloc/use_jemalloc_macro, and runtime INFO. Frame-pointer on CFLAGS (dependency channel) fails unless it is already in the sealed Makefile."
+        },
+        "outcome_verified": {
+          "outcome": "pass",
+          "explanation": "JSON values are the instruction literals; malloc must be jemalloc on this Linux host as specified. Runtime uses substring jemalloc because Redis reports jemalloc-<version>. Does not require gcc producer strings."
+        },
+        "binary_reward": {
+          "outcome": "pass",
+          "explanation": "test.sh uses set -uo pipefail (no -e), writes 1 or 0 to /logs/verifier/reward.txt, and traps uncaught failures to 0."
+        },
+        "do_not_modify_enforced": {
+          "outcome": "pass",
+          "explanation": "SHA-256 of /src/src/Makefile and both /app and /src zmalloc.c/h must match sealed goldens; /data must stay empty."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "No verify-time installs. python3, make-built ELF, and gcc are in oracle_tools/entrypoints. Makefile text and jemalloc-on-Linux are host-stable on the sealed Ubuntu image."
+        }
+      },
+      "edits": [],
+      "issues": []
+    }
+  ],
+  "approved_candidate_ids": ["c1", "c2", "c3"]
+}

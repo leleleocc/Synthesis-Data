@@ -1,0 +1,66 @@
+{
+  "deployment_mode": "single",
+  "base_image": "docker.io/ubuntu:24.04@sha256:008173c23f95b170204355c12626cb5a965d779a7e1283b09e9cffbb1bf33ca3",
+  "services": [
+    {
+      "name": "main",
+      "image_or_build": "synth-env:03",
+      "ports": [],
+      "healthcheck": "bash /opt/env/smoke_test.sh"
+    }
+  ],
+  "dependencies": {
+    "system": [
+      "build-essential",
+      "gcc-14",
+      "g++-14",
+      "cmake",
+      "ninja-build",
+      "git",
+      "libssl-dev",
+      "libcurl4-openssl-dev",
+      "libgomp1",
+      "python3",
+      "python3-pip",
+      "python3-venv",
+      "ccache",
+      "pkg-config",
+      "jq",
+      "curl"
+    ],
+    "language": [
+      "numpy==2.2.6",
+      "tqdm==4.67.1",
+      "pyyaml==6.0.2",
+      "requests==2.32.3",
+      "sentencepiece==0.2.0",
+      "protobuf==5.29.3",
+      "safetensors==0.5.2",
+      "gguf==0.19.0"
+    ],
+    "pinned": true
+  },
+  "asset_paths": [],
+  "network_policy": "build_only",
+  "workdir": "/app",
+  "data_dir": "/data",
+  "results_dir": "/results",
+  "entrypoints": [
+    "llama-cli",
+    "llama-server",
+    "llama-quantize",
+    "llama-bench",
+    "llama-tokenize",
+    "cmake",
+    "python3",
+    "convert_hf_to_gguf.py"
+  ],
+  "build": {
+    "status": "failed",
+    "mode": "docker",
+    "buildable": false,
+    "smoke_test": false,
+    "build_seconds": null,
+    "failures": ["build not yet run"]
+  }
+}

@@ -1,0 +1,3 @@
+Dockerfile must obtain the source with git clone https://github.com/ggml-org/llama.cpp (pinned commit)
+Dockerfile must check out the pinned commit b29c606e28a01b1bc8c1351026a0fa6e616bf6c4
+environment contract or build report failed; see the specific check above

@@ -1,0 +1,15 @@
+{
+    "task": {
+        "path": "tasks\\deeplearning-llamacpp"
+    },
+    "trial_name": "deeplearning-llamacpp__US5jPMX",
+    "trials_dir": "jobs\\2026-09-19__19-59-44",
+    "agent": {
+        "name": "claude-code",
+        "model_name": "claude-opus-5"
+    },
+    "environment": {
+        "type": "daytona"
+    },
+    "job_id": "45f0612e-488f-4939-86d4-e75873129cad"
+}

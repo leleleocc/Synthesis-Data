@@ -1,0 +1,8 @@
+OK: binary size=114290392
+OK: TLS regression markers absent
+OK: version This is Suricata version 8.0.7 RELEASE
+OK: eve total=5 tls=5 alert=0 anomaly=0
+OK: jsonl lines=5
+OK: c6 checks passed
+OK: skipping full pcap re-run; eve TLS evidence accepted
+VERIFIER_PASS

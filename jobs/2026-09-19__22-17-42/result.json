@@ -1,0 +1,63 @@
+{
+    "id": "ca991cb9-e34e-414f-a56b-dea58a968b12",
+    "started_at": "2026-09-19T22:17:46.294024",
+    "updated_at": "2026-09-19T22:45:07.934417",
+    "finished_at": "2026-09-19T22:45:07.934417",
+    "n_total_trials": 20,
+    "stats": {
+        "n_completed_trials": 20,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "claude-code__claude-opus-5__suricata-SM": {
+                "n_trials": 20,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.95
+                    }
+                ],
+                "pass_at_k": {
+                    "2": 1.0,
+                    "4": 1.0
+                },
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "build-suricata-engine__xr9tTEC",
+                            "migrate-yaml-config__bM6YYig",
+                            "repair-rust-bindings__NMQd6Vk",
+                            "repair-tls-decoder__DaJuCHX",
+                            "build-suricata-engine__McPLukZ",
+                            "migrate-yaml-config__zHhm9Eh",
+                            "repair-http-rules__9MNZ8os",
+                            "repair-rust-bindings__jwCsPk5",
+                            "repair-tls-decoder__J8uS7iY",
+                            "build-suricata-engine__9wfA25H",
+                            "migrate-yaml-config__YZBe5eV",
+                            "repair-http-rules__o47syMW",
+                            "repair-rust-bindings__QQPMub8",
+                            "repair-tls-decoder__TfZbCLu",
+                            "build-suricata-engine__UcwVJM8",
+                            "migrate-yaml-config__wZLCSfE",
+                            "repair-http-rules__k2KHiia",
+                            "repair-rust-bindings__aSrCu2j",
+                            "repair-tls-decoder__QZeeJbv"
+                        ],
+                        "0.0": [
+                            "repair-http-rules__5m2FcwS"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null
+    }
+}

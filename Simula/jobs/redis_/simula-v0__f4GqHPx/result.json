@@ -1,0 +1,324 @@
+{
+    "id": "0605c97e-886c-4d5f-b499-285d5487ea74",
+    "task_name": "terminaltraj/single-repo-synthesis",
+    "trial_name": "simula-v0__f4GqHPx",
+    "trial_uri": "file:///D:/Code/Synthesis-Data/Simula/jobs/2026-09-18__13-29-48/simula-v0__f4GqHPx",
+    "task_id": {
+        "path": "simula-v0"
+    },
+    "source": null,
+    "task_checksum": "9e6f9b36356153f62a02c1c9220cdf776161d3afc138210161338584b299d4cd",
+    "config": {
+        "task": {
+            "path": "simula-v0",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "simula-v0__f4GqHPx",
+        "trials_dir": "jobs\\2026-09-18__13-29-48",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "claude-code",
+            "import_path": null,
+            "model_name": "grok-4.6",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "daytona",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "5789d013-6422-460e-8547-d795ebfc3256"
+    },
+    "agent_info": {
+        "name": "claude-code",
+        "version": "2.1.276",
+        "model_info": {
+            "name": "grok-4.6",
+            "provider": null
+        }
+    },
+    "agent_result": null,
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-09-18T05:29:56.546547Z",
+    "finished_at": "2026-09-18T09:23:56.799778Z",
+    "environment_setup": {
+        "started_at": "2026-09-18T05:29:58.168936Z",
+        "finished_at": "2026-09-18T05:30:49.055441Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-09-18T05:30:49.055507Z",
+        "finished_at": "2026-09-18T05:31:07.556450Z"
+    },
+    "agent_execution": null,
+    "verifier": null,
+    "step_results": [
+        {
+            "step_name": "01_repo_profile",
+            "agent_result": {
+                "n_input_tokens": null,
+                "n_cache_tokens": null,
+                "n_output_tokens": null,
+                "cost_usd": null,
+                "rollout_details": null,
+                "metadata": null
+            },
+            "verifier_result": {
+                "rewards": {
+                    "reward": 1.0
+                }
+            },
+            "exception_info": null,
+            "agent_execution": {
+                "started_at": "2026-09-18T05:31:17.945345Z",
+                "finished_at": "2026-09-18T05:36:22.700855Z"
+            },
+            "verifier": {
+                "started_at": "2026-09-18T05:36:56.154874Z",
+                "finished_at": "2026-09-18T05:37:16.827851Z"
+            }
+        },
+        {
+            "step_name": "02_repo_gate",
+            "agent_result": {
+                "n_input_tokens": null,
+                "n_cache_tokens": null,
+                "n_output_tokens": null,
+                "cost_usd": null,
+                "rollout_details": null,
+                "metadata": null
+            },
+            "verifier_result": {
+                "rewards": {
+                    "reward": 1.0
+                }
+            },
+            "exception_info": null,
+            "agent_execution": {
+                "started_at": "2026-09-18T05:37:18.748923Z",
+                "finished_at": "2026-09-18T05:39:17.240800Z"
+            },
+            "verifier": {
+                "started_at": "2026-09-18T05:39:53.172260Z",
+                "finished_at": "2026-09-18T05:40:12.121340Z"
+            }
+        },
+        {
+            "step_name": "03_environment",
+            "agent_result": {
+                "n_input_tokens": null,
+                "n_cache_tokens": null,
+                "n_output_tokens": null,
+                "cost_usd": null,
+                "rollout_details": null,
+                "metadata": null
+            },
+            "verifier_result": {
+                "rewards": {
+                    "reward": 1.0
+                }
+            },
+            "exception_info": null,
+            "agent_execution": {
+                "started_at": "2026-09-18T05:40:15.410591Z",
+                "finished_at": "2026-09-18T05:51:59.316259Z"
+            },
+            "verifier": {
+                "started_at": "2026-09-18T05:53:02.999340Z",
+                "finished_at": "2026-09-18T05:53:23.136759Z"
+            }
+        },
+        {
+            "step_name": "04_simula_plan",
+            "agent_result": {
+                "n_input_tokens": null,
+                "n_cache_tokens": null,
+                "n_output_tokens": null,
+                "cost_usd": null,
+                "rollout_details": null,
+                "metadata": null
+            },
+            "verifier_result": {
+                "rewards": {
+                    "reward": 1.0
+                }
+            },
+            "exception_info": null,
+            "agent_execution": {
+                "started_at": "2026-09-18T05:53:26.537864Z",
+                "finished_at": "2026-09-18T05:59:02.884583Z"
+            },
+            "verifier": {
+                "started_at": "2026-09-18T06:00:00.371766Z",
+                "finished_at": "2026-09-18T06:00:18.051034Z"
+            }
+        },
+        {
+            "step_name": "05_task_design",
+            "agent_result": {
+                "n_input_tokens": null,
+                "n_cache_tokens": null,
+                "n_output_tokens": null,
+                "cost_usd": null,
+                "rollout_details": null,
+                "metadata": null
+            },
+            "verifier_result": {
+                "rewards": {
+                    "reward": 1.0
+                }
+            },
+            "exception_info": null,
+            "agent_execution": {
+                "started_at": "2026-09-18T06:00:21.834975Z",
+                "finished_at": "2026-09-18T06:58:23.635450Z"
+            },
+            "verifier": {
+                "started_at": "2026-09-18T06:59:51.772591Z",
+                "finished_at": "2026-09-18T07:00:15.477525Z"
+            }
+        },
+        {
+            "step_name": "06_task_review",
+            "agent_result": {
+                "n_input_tokens": null,
+                "n_cache_tokens": null,
+                "n_output_tokens": null,
+                "cost_usd": null,
+                "rollout_details": null,
+                "metadata": null
+            },
+            "verifier_result": {
+                "rewards": {
+                    "reward": 1.0
+                }
+            },
+            "exception_info": null,
+            "agent_execution": {
+                "started_at": "2026-09-18T07:00:18.015967Z",
+                "finished_at": "2026-09-18T07:31:41.627062Z"
+            },
+            "verifier": {
+                "started_at": "2026-09-18T07:33:18.018354Z",
+                "finished_at": "2026-09-18T07:33:47.126575Z"
+            }
+        },
+        {
+            "step_name": "07_verifier_generation",
+            "agent_result": {
+                "n_input_tokens": null,
+                "n_cache_tokens": null,
+                "n_output_tokens": null,
+                "cost_usd": null,
+                "rollout_details": null,
+                "metadata": null
+            },
+            "verifier_result": {
+                "rewards": {
+                    "reward": 1.0
+                }
+            },
+            "exception_info": null,
+            "agent_execution": {
+                "started_at": "2026-09-18T07:33:50.452520Z",
+                "finished_at": "2026-09-18T08:21:36.752557Z"
+            },
+            "verifier": {
+                "started_at": "2026-09-18T08:23:28.637368Z",
+                "finished_at": "2026-09-18T08:23:54.131837Z"
+            }
+        },
+        {
+            "step_name": "08_verifier_review",
+            "agent_result": {
+                "n_input_tokens": null,
+                "n_cache_tokens": null,
+                "n_output_tokens": null,
+                "cost_usd": null,
+                "rollout_details": null,
+                "metadata": null
+            },
+            "verifier_result": {
+                "rewards": {
+                    "reward": 1.0
+                }
+            },
+            "exception_info": null,
+            "agent_execution": {
+                "started_at": "2026-09-18T08:23:58.629483Z",
+                "finished_at": "2026-09-18T09:17:16.230686Z"
+            },
+            "verifier": {
+                "started_at": "2026-09-18T09:19:28.073491Z",
+                "finished_at": "2026-09-18T09:19:57.310376Z"
+            }
+        },
+        {
+            "step_name": "09_package",
+            "agent_result": {
+                "n_input_tokens": null,
+                "n_cache_tokens": null,
+                "n_output_tokens": null,
+                "cost_usd": null,
+                "rollout_details": null,
+                "metadata": null
+            },
+            "verifier_result": {
+                "rewards": {
+                    "reward": 1.0
+                }
+            },
+            "exception_info": null,
+            "agent_execution": {
+                "started_at": "2026-09-18T09:20:00.271113Z",
+                "finished_at": "2026-09-18T09:21:28.491123Z"
+            },
+            "verifier": {
+                "started_at": "2026-09-18T09:23:17.350109Z",
+                "finished_at": "2026-09-18T09:23:41.501632Z"
+            }
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+  "generated_tasks": [
+    {
+      "candidate_id": "c1",
+      "path": "repair-waitaof-aof",
+      "deployment_mode": "single",
+      "source_commit": "335554f18caf7bbf6b0ac2b3548133d750f00a1b"
+    },
+    {
+      "candidate_id": "c2",
+      "path": "repair-rdb-checksum",
+      "deployment_mode": "single",
+      "source_commit": "335554f18caf7bbf6b0ac2b3548133d750f00a1b"
+    },
+    {
+      "candidate_id": "c3",
+      "path": "o2-jemalloc-build",
+      "deployment_mode": "single",
+      "source_commit": "335554f18caf7bbf6b0ac2b3548133d750f00a1b"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+OK: rustc: rustc 1.98.0 (88d9e12ae 2026-08-18)
+OK: cbindgen: cbindgen 0.27.0
+OK: /app/configure size=1037809
+OK: configure.stdout present (19495 bytes)
+OK: config.status present
+OK: repair-report.json cross-checks passed
+VERIFIER_PASS

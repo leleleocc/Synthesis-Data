@@ -1,0 +1,16 @@
+{
+    "task": {
+        "path": "redis\\redis-TT\\tls-jemalloc-prefix",
+        "source": "redis-TT"
+    },
+    "trial_name": "tls-jemalloc-prefix__7SbQYfo",
+    "trials_dir": "jobs\\2026-09-19__16-12-44",
+    "agent": {
+        "name": "claude-code",
+        "model_name": "claude-opus-5"
+    },
+    "environment": {
+        "type": "daytona"
+    },
+    "job_id": "026143ee-a5a1-4abb-af4b-b56562f384a8"
+}

@@ -1,0 +1,64 @@
+{
+  "candidates": [
+    {
+      "id": "c1",
+      "tags": ["debugging", "repair", "persistence", "troubleshooting"],
+      "domains": ["software"],
+      "subdomains": ["systems", "databases"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["state", "behavior"],
+      "env_build": "passed",
+      "oracle_tools": ["redis-server", "redis-cli"]
+    },
+    {
+      "id": "c2",
+      "tags": ["debugging", "repair", "persistence", "troubleshooting"],
+      "domains": ["software"],
+      "subdomains": ["systems", "databases"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["state", "behavior"],
+      "env_build": "passed",
+      "oracle_tools": ["redis-server", "redis-cli", "redis-check-rdb"]
+    },
+    {
+      "id": "c3",
+      "tags": ["build", "build-system", "makefile", "optimization"],
+      "domains": ["software"],
+      "subdomains": ["systems", "databases"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["result", "behavior"],
+      "env_build": "passed",
+      "oracle_tools": ["Makefile", "redis-server", "redis-cli"]
+    },
+    {
+      "id": "c4",
+      "tags": ["build", "build-system", "makefile", "optimization"],
+      "domains": ["software"],
+      "subdomains": ["systems", "databases"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["result", "behavior"],
+      "env_build": "passed",
+      "oracle_tools": ["Makefile", "redis-server", "redis-cli"]
+    },
+    {
+      "id": "c5",
+      "tags": ["caching", "linux", "redis", "configuration", "cli"],
+      "domains": ["software"],
+      "subdomains": ["systems", "databases"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["result", "state"],
+      "env_build": "passed",
+      "oracle_tools": ["redis-server", "redis-cli"]
+    },
+    {
+      "id": "c6",
+      "tags": ["caching", "linux", "redis", "configuration", "cli"],
+      "domains": ["software"],
+      "subdomains": ["systems", "databases"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["result", "state"],
+      "env_build": "passed",
+      "oracle_tools": ["redis-server", "redis-cli"]
+    }
+  ]
+}

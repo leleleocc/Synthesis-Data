@@ -1,0 +1,66 @@
+{
+    "id": "2bd1d7b2-c1b3-4474-af55-97a266a67fcb",
+    "started_at": "2026-09-19T21:54:28.660517",
+    "updated_at": "2026-09-19T22:06:26.256827",
+    "finished_at": "2026-09-19T22:06:26.256827",
+    "n_total_trials": 20,
+    "stats": {
+        "n_completed_trials": 20,
+        "n_errored_trials": 16,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "claude-code__claude-opus-5__suricata-SM": {
+                "n_trials": 4,
+                "n_errors": 16,
+                "metrics": [
+                    {
+                        "mean": 0.15
+                    }
+                ],
+                "pass_at_k": {
+                    "2": 0.2,
+                    "4": 0.2
+                },
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "migrate-yaml-config__WMpfwm4",
+                            "migrate-yaml-config__26AocP2",
+                            "migrate-yaml-config__6pAvPpC"
+                        ],
+                        "0.0": [
+                            "migrate-yaml-config__xYBF5FV"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "DaytonaBadRequestError": [
+                        "build-suricata-engine__Ct8Y26F",
+                        "repair-http-rules__FeaqSh4",
+                        "repair-rust-bindings__8VhH69i",
+                        "repair-tls-decoder__auaAzSX",
+                        "build-suricata-engine__mbvNUWg",
+                        "repair-http-rules__PgdAAtY",
+                        "repair-rust-bindings__hGgzWW7",
+                        "repair-tls-decoder__CGUjkDE",
+                        "build-suricata-engine__urk6roF",
+                        "repair-http-rules__apw3hjy",
+                        "repair-rust-bindings__E3RgFJK",
+                        "repair-tls-decoder__DmGkexq",
+                        "build-suricata-engine__2KJurhL",
+                        "repair-http-rules__DgvPRKF",
+                        "repair-rust-bindings__x35tDKY",
+                        "repair-tls-decoder__AADpWEu"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null
+    }
+}

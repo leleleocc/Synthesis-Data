@@ -1,0 +1,52 @@
+{
+  "db": 0,
+  "keys": [
+    {
+      "name": "catalog:featured",
+      "type": "list",
+      "value": ["sku1", "sku2", "sku3"]
+    },
+    {
+      "name": "catalog:meta",
+      "type": "hash",
+      "value": {
+        "brand": "Acme",
+        "sku_count": "3"
+      }
+    },
+    {
+      "name": "catalog:prices",
+      "type": "zset",
+      "value": [
+        {"member": "sku1", "score": 9.99},
+        {"member": "sku2", "score": 12.5},
+        {"member": "sku3", "score": 7.5}
+      ]
+    },
+    {
+      "name": "catalog:sku1",
+      "type": "string",
+      "value": "Widget-Blue"
+    },
+    {
+      "name": "catalog:sku2",
+      "type": "string",
+      "value": "Widget-Red"
+    },
+    {
+      "name": "catalog:sku3",
+      "type": "string",
+      "value": "Widget-Green"
+    },
+    {
+      "name": "catalog:tags",
+      "type": "set",
+      "value": ["sale", "spring", "winter"]
+    },
+    {
+      "name": "ops:last_rewrite",
+      "type": "string",
+      "value": "ok"
+    }
+  ]
+}

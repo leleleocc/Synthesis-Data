@@ -1,0 +1,114 @@
+{
+  "verifiers": [
+    {
+      "candidate_id": "c1",
+      "checked_requirements": [
+        {
+          "requirement": "Repair /app/src/aof.c so BIO fsync/close jobs, the always-fsync path, and the AOF rewrite INCR handoff all publish the replica offset used by WAITAOF.",
+          "assertion": "check_aof.py requires bioCreateFsyncJob/bioCreateCloseAofJob to pass server.master_repl_offset and at least two atomicSet(fsynced_reploff_pending, server.master_repl_offset) sites, and rejects the overlay's offset-zeroing jobs.",
+          "oracle": "Pristine overlay-broken snippets vs the restored aof.c text under /app/src/aof.c. Exact identifier match; no whitespace normalization beyond reading the file as UTF-8."
+        },
+        {
+          "requirement": "Rebuild from /app with make so /app/src/redis-server is a newly linked ELF built from the repaired sources, keeping /app/src/aof.c as the source of truth.",
+          "assertion": "The path /app/src/redis-server exists, is a 4-byte ELF, and is executable.",
+          "oracle": "ELF magic b'\\x7fELF' and the execute bit. Does not require a particular compiler banner or mtime ordering."
+        },
+        {
+          "requirement": "Do not modify files under /src or /data, and do not paper over the invariant by only changing /app/redis.conf.",
+          "assertion": "SHA-256 of /src/src/aof.c, /src/redis.conf, and sealed zmalloc files must match the overlay-broken goldens; /data must stay empty; redis.conf is not used as the success path.",
+          "oracle": "SHA-256 hashes captured from synth-overlay:c1 (aof.c b84e0113..., redis.conf 319286fc..., zmalloc.c c01552d1..., zmalloc.h 911a3c1e...). Empty /data directory listing."
+        },
+        {
+          "requirement": "A server started with appendonly enabled must still advance the fsynced replica offset when appendfsync is always.",
+          "assertion": "After CONFIG SET appendfsync always and INCR, WAITAOF 1 0 1000 returns [1, 0].",
+          "oracle": "Live RESP to a verifier-started /app/src/redis-server on 127.0.0.1:17379. Exact array [1, 0]; timeout 1000 ms."
+        },
+        {
+          "requirement": "Background fsync jobs must record the offset they actually synced so WAITAOF local copies complete after fsync-policy changes instead of blocking until timeout or acknowledging too early.",
+          "assertion": "appendfsync no + INCR + WAITAOF 1 0 80 returns local ack 0; appendfsync everysec + INCR + WAITAOF 1 0 4000 returns [1, 0].",
+          "oracle": "Same live server. Negative: local ack must be 0 under appendfsync no (80 ms timeout). Positive: everysec must ack locally within 4000 ms, matching Redis everysec BIO fsync publishing job->fd_args.offset."
+        },
+        {
+          "requirement": "WAITAOF local and replica copies can complete after fsync-policy changes, including after AOF rewrite seeds the pending offset before the new INCR file is used.",
+          "assertion": "BGREWRITEAOF then INCR then WAITAOF 1 0 1000 returns [1, 0]; a replica with appendfsync always then WAITAOF 1 1 4000 returns [1, 1].",
+          "oracle": "Master 17379 plus replica 17380 started from the rebuilt ELF. INFO persistence aof_last_bgrewrite_status=ok before the rewrite check. Exact [1, 0] / [1, 1] arrays."
+        },
+        {
+          "requirement": "Leave no redis-server process running.",
+          "assertion": "After SHUTDOWN NOSAVE, /proc contains no redis-server command lines.",
+          "oracle": "/proc/<pid>/cmdline scan. Binary reward 0 if any leftover pid remains."
+        }
+      ]
+    },
+    {
+      "candidate_id": "c2",
+      "checked_requirements": [
+        {
+          "requirement": "Repair /app/src/rdb.c so save and load again feed CRC64 through the rio checksum callback when rdb-checksum is enabled.",
+          "assertion": "rdb.c contains rdb->update_cksum = rioGenericUpdateChecksum and rioGenericUpdateChecksum(r, buf, len); it must not still assign NULL or skip the load callback with (void)buf.",
+          "oracle": "UTF-8 text of /app/src/rdb.c compared to the overlay-broken assignments. Combined with a SAVE of a key whose trailing 8-byte CRC64 is not all zeros."
+        },
+        {
+          "requirement": "Use /app/Makefile to rebuild /app/src/redis-server and /app/src/redis-check-rdb from the repaired sources.",
+          "assertion": "Both binaries exist, are ELF, and are executable.",
+          "oracle": "ELF magic and execute bits on /app/src/redis-server and /app/src/redis-check-rdb."
+        },
+        {
+          "requirement": "Do not modify files under /src or /data.",
+          "assertion": "SHA-256 of /src/src/rdb.c, /src/src/rdb.h, and /src/redis.conf match overlay goldens; /data is empty.",
+          "oracle": "Hashes from synth-overlay:c2 (rdb.c 0a8253be..., rdb.h 40acb977..., redis.conf 319286fc...)."
+        },
+        {
+          "requirement": "Write /results/rdb-audit.json as UTF-8 JSON with a trailing newline and exactly the listed top-level keys in order, reporting the restored on-disk contract (RDB version 11, magic REDIS, opcodes, checksum_min_rdbver 5, zero checksum skips validation, checksum_uses_rio_update true).",
+          "assertion": "check_rdb.py parses UTF-8 JSON, requires a trailing newline, exact key order, types, and values equal to tests/expected_rdb_audit.json.",
+          "oracle": "Golden tests/expected_rdb_audit.json derived from sealed rdb.h/rdb.c (RDB_VERSION 11, RDB_OPCODE_*, checksum verify if rdbver >= 5, cksum == 0 skips). No tolerance; key order is required by the instruction."
+        },
+        {
+          "requirement": "Write /results/rdb-check-help.txt as the complete stdout+stderr of /app/src/redis-check-rdb with no arguments (process may exit non-zero).",
+          "assertion": "File is non-empty, contains Usage:, and matches a verifier re-run of the built binary with stdout/stderr merged or concatenated.",
+          "oracle": "Re-execute /app/src/redis-check-rdb with no args; accept merged STDOUT, stdout+stderr, or stderr+stdout. Usage comes from stderr in redis-check-rdb.c."
+        },
+        {
+          "requirement": "Leave no redis-server or redis-check-rdb process running.",
+          "assertion": "After the SAVE/SHUTDOWN probe, /proc has no redis-server or redis-check-rdb command lines.",
+          "oracle": "/proc cmdline scan."
+        }
+      ]
+    },
+    {
+      "candidate_id": "c3",
+      "checked_requirements": [
+        {
+          "requirement": "Change the default OPTIMIZATION in /app/src/Makefile to -O2.",
+          "assertion": "The first uncommented OPTIMIZATION assignment is -O2.",
+          "oracle": "Parse /app/src/Makefile; no extra whitespace beyond the assignment. JSON optimization must also equal -O2."
+        },
+        {
+          "requirement": "Compile Redis objects with -fno-omit-frame-pointer via the Redis-only flag channel, not by forcing those flags into dependency builds.",
+          "assertion": "An uncommented Makefile line contains both REDIS_CFLAGS and -fno-omit-frame-pointer; new CFLAGS+= frame-pointer lines that are not on REDIS_CFLAGS and not in the sealed Makefile fail.",
+          "oracle": "Diff against sealed /src/src/Makefile (sha256 64cba186...). REDIS_CFLAGS is the Redis-only channel named in the instruction."
+        },
+        {
+          "requirement": "Do not switch the Linux allocator to libc, do not set USE_JEMALLOC=no, do not enable SANITIZER, and leave zmalloc.c / zmalloc.h allocator selection intact.",
+          "assertion": "Makefile does not force USE_JEMALLOC=no or SANITIZER; Linux jemalloc selection remains; SHA-256 of /app and /src zmalloc.c/h match the sealed files; .make-settings must not record libc-only MALLOC or SANITIZER.",
+          "oracle": "zmalloc.c sha256 c01552d1..., zmalloc.h 911a3c1e..., Makefile 64cba186... for /src. Runtime INFO memory mem_allocator must contain jemalloc."
+        },
+        {
+          "requirement": "Compile with gcc by running make from /app so /app/src/redis-server is a newly linked ELF. Do not modify files under /src or /data.",
+          "assertion": "/app/src/redis-server is an executable ELF; /src/src/Makefile hash is unchanged; /data is empty.",
+          "oracle": "ELF magic plus sealed Makefile hash. Does not inspect gcc producer strings."
+        },
+        {
+          "requirement": "Write /results/build-report.json as UTF-8 JSON with a trailing newline and exactly keys optimization, frame_pointer_flag, malloc, use_jemalloc_macro, binary in that order with the specified types/values.",
+          "assertion": "Trailing newline, UTF-8, exact key order, optimization='-O2', frame_pointer_flag='-fno-omit-frame-pointer', malloc='jemalloc', use_jemalloc_macro=true, binary='/app/src/redis-server'.",
+          "oracle": "Instruction schema. malloc is jemalloc because this host is Linux and libc is forbidden. No extra keys; JSON key order is required."
+        },
+        {
+          "requirement": "After the build, /app/src/redis-server must start, report a jemalloc mem_allocator in INFO memory, then exit cleanly on SHUTDOWN; leave no server process running.",
+          "assertion": "Verifier starts the ELF on 127.0.0.1:17382, reads INFO memory, requires 'jemalloc' in mem_allocator, sends SHUTDOWN NOSAVE, and checks /proc for leftovers.",
+          "oracle": "Live RESP INFO memory field mem_allocator. Substring match on 'jemalloc' (Redis reports jemalloc-<version>). Exact process cleanup."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "deployment_mode": "single",
+  "base_image": "ubuntu:24.04",
+  "services": [
+    {
+      "name": "main",
+      "image_or_build": "synth-env:03",
+      "ports": [],
+      "healthcheck": "bash /opt/env/smoke_test.sh"
+    }
+  ],
+  "dependencies": {
+    "system": [
+      "build-essential",
+      "autoconf",
+      "automake",
+      "libtool",
+      "pkg-config",
+      "gcc",
+      "g++",
+      "make",
+      "git",
+      "curl",
+      "python3",
+      "python3-yaml",
+      "python3-setuptools",
+      "zlib1g-dev",
+      "libpcre2-dev",
+      "libyaml-dev",
+      "libjansson-dev",
+      "libpcap-dev",
+      "libcap-ng-dev",
+      "libmagic-dev",
+      "libnet1-dev",
+      "liblz4-dev",
+      "libnspr4-dev",
+      "libnss3-dev",
+      "libevent-dev",
+      "libmaxminddb-dev",
+      "libhiredis-dev",
+      "libnetfilter-queue-dev",
+      "tcpdump",
+      "tshark",
+      "jq",
+      "gdb",
+      "strace"
+    ],
+    "language": [
+      "rustc=1.98.0",
+      "cargo=1.98.0",
+      "cbindgen=0.27.0",
+      "python3"
+    ],
+    "pinned": true
+  },
+  "asset_paths": [
+    "/synthesis/output/environment/assets/README.md"
+  ],
+  "network_policy": "build_only",
+  "workdir": "/app",
+  "data_dir": "/data",
+  "results_dir": "/results",
+  "entrypoints": [
+    "/app/autogen.sh",
+    "gcc",
+    "g++",
+    "make",
+    "pkg-config",
+    "autoconf",
+    "automake",
+    "rustc",
+    "cargo",
+    "cbindgen",
+    "python3",
+    "tcpdump",
+    "git"
+  ],
+  "build": {
+    "status": "passed",
+    "mode": "docker",
+    "buildable": true,
+    "smoke_test": true,
+    "build_seconds": 101,
+    "failures": []
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "global": [
+    {
+      "id": "g1",
+      "tags": ["build", "repair", "debugging", "configuration"],
+      "domains": ["software", "security"],
+      "subdomains": ["systems", "network-security"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["result", "behavior"],
+      "primary_entrypoint": "make"
+    },
+    {
+      "id": "g2",
+      "tags": ["protocol", "http", "tls", "alerting", "log-analysis"],
+      "domains": ["security", "software"],
+      "subdomains": ["network-security", "forensics"],
+      "languages": ["c", "python"],
+      "oracle_types": ["state", "result"],
+      "primary_entrypoint": "python3"
+    },
+    {
+      "id": "g3",
+      "tags": ["network-forensics", "tcpdump", "incident-response", "troubleshooting", "parsing"],
+      "domains": ["security", "software"],
+      "subdomains": ["forensics", "systems"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["behavior", "state"],
+      "primary_entrypoint": "tcpdump"
+    }
+  ],
+  "slots": [
+    {
+      "id": "c1",
+      "global_id": "g1",
+      "tags": ["build", "repair", "debugging", "configuration"],
+      "domains": ["software", "security"],
+      "subdomains": ["systems", "network-security"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["result", "behavior"],
+      "scenario_angle": "incident-cleanup",
+      "output_shape": "repaired-configure-tree",
+      "primary_entrypoint": "autogen.sh",
+      "primary_input": "/app/configure.ac",
+      "complexified": true,
+      "complexity_delta": "preserve rust cbindgen bindings while regenerating autotools"
+    },
+    {
+      "id": "c2",
+      "global_id": "g1",
+      "tags": ["build", "repair", "debugging", "configuration"],
+      "domains": ["software", "security"],
+      "subdomains": ["systems", "network-security"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["result", "behavior"],
+      "scenario_angle": "onboarding",
+      "output_shape": "compiled-suricata-binary",
+      "primary_entrypoint": "make",
+      "primary_input": "/app/Makefile.am",
+      "complexified": false,
+      "complexity_delta": ""
+    },
+    {
+      "id": "c3",
+      "global_id": "g2",
+      "tags": ["protocol", "http", "tls", "alerting", "log-analysis"],
+      "domains": ["security", "software"],
+      "subdomains": ["network-security", "forensics"],
+      "languages": ["c", "python"],
+      "oracle_types": ["state", "result"],
+      "scenario_angle": "audit",
+      "output_shape": "eve-json-alerts",
+      "primary_entrypoint": "python3",
+      "primary_input": "/data/rules/http-events.rules",
+      "complexified": true,
+      "complexity_delta": "keep TLS handshake metadata while fixing HTTP rule side effects"
+    },
+    {
+      "id": "c4",
+      "global_id": "g2",
+      "tags": ["protocol", "http", "tls", "alerting", "log-analysis"],
+      "domains": ["security", "software"],
+      "subdomains": ["network-security", "forensics"],
+      "languages": ["c", "python"],
+      "oracle_types": ["state", "result"],
+      "scenario_angle": "migration",
+      "output_shape": "updated-yaml-config",
+      "primary_entrypoint": "pkg-config",
+      "primary_input": "/data/etc/suricata.yaml.in",
+      "complexified": false,
+      "complexity_delta": ""
+    },
+    {
+      "id": "c5",
+      "global_id": "g3",
+      "tags": ["network-forensics", "tcpdump", "incident-response", "troubleshooting", "parsing"],
+      "domains": ["security", "software"],
+      "subdomains": ["forensics", "systems"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["behavior", "state"],
+      "scenario_angle": "reproduction",
+      "output_shape": "pcap-decode-report",
+      "primary_entrypoint": "tcpdump",
+      "primary_input": "/data/etc/threshold.config",
+      "complexified": false,
+      "complexity_delta": ""
+    },
+    {
+      "id": "c6",
+      "global_id": "g3",
+      "tags": ["network-forensics", "tcpdump", "incident-response", "troubleshooting", "parsing"],
+      "domains": ["security", "software"],
+      "subdomains": ["forensics", "systems"],
+      "languages": ["c", "shell"],
+      "oracle_types": ["behavior", "state"],
+      "scenario_angle": "integration",
+      "output_shape": "decoder-event-log",
+      "primary_entrypoint": "gcc",
+      "primary_input": "/app/src/app-layer-ssl.c",
+      "complexified": false,
+      "complexity_delta": ""
+    }
+  ]
+}

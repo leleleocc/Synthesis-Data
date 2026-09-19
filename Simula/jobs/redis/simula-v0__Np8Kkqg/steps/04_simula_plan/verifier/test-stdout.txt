@@ -1,0 +1,1 @@
+simula plan has exactly max_candidates grounded slots

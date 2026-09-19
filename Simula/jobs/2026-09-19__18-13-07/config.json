@@ -1,0 +1,17 @@
+{
+    "job_name": "2026-09-19__18-13-07",
+    "environment": {
+        "type": "daytona"
+    },
+    "agents": [
+        {
+            "name": "claude-code",
+            "model_name": "claude-opus-5"
+        }
+    ],
+    "datasets": [
+        {
+            "path": "tasks"
+        }
+    ]
+}

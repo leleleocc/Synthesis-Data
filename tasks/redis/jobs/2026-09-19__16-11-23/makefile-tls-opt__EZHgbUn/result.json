@@ -1,0 +1,111 @@
+{
+    "id": "6a08d7d9-e857-4929-a2f5-875813decd5c",
+    "task_name": "terminaltraj/makefile-tls-opt",
+    "trial_name": "makefile-tls-opt__EZHgbUn",
+    "trial_uri": "file:///D:/Code/Synthesis-Data/jobs/2026-09-19__16-11-23/makefile-tls-opt__EZHgbUn",
+    "task_id": {
+        "path": "redis\\redis-SM\\makefile-tls-opt"
+    },
+    "source": "redis-SM",
+    "task_checksum": "78d1e897cc85349a44c8caa3dab558a0dd42a85db6bc5a05339853eaec8c2cb8",
+    "config": {
+        "task": {
+            "path": "redis\\redis-SM\\makefile-tls-opt",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "redis-SM"
+        },
+        "trial_name": "makefile-tls-opt__EZHgbUn",
+        "trials_dir": "jobs\\2026-09-19__16-11-23",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "claude-code",
+            "import_path": null,
+            "model_name": "claude-opus-5",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "daytona",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "bb232425-bffc-4905-91fb-b0f0fc8eaded"
+    },
+    "agent_info": {
+        "name": "claude-code",
+        "version": "2.1.278",
+        "model_info": {
+            "name": "claude-opus-5",
+            "provider": null
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-09-19T08:11:29.564672Z",
+    "finished_at": "2026-09-19T08:42:16.003658Z",
+    "environment_setup": {
+        "started_at": "2026-09-19T08:11:30.505373Z",
+        "finished_at": "2026-09-19T08:12:53.546557Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-09-19T08:12:53.546588Z",
+        "finished_at": "2026-09-19T08:13:14.933603Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-09-19T08:13:14.933713Z",
+        "finished_at": "2026-09-19T08:41:37.478348Z"
+    },
+    "verifier": {
+        "started_at": "2026-09-19T08:41:51.591894Z",
+        "finished_at": "2026-09-19T08:42:15.280102Z"
+    },
+    "step_results": null
+}

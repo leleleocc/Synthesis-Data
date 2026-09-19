@@ -1,0 +1,100 @@
+[
+  {
+    "source": "/logs/artifacts",
+    "destination": "artifacts/logs/artifacts",
+    "type": "directory",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/input/target_spec.json",
+    "destination": "artifacts/synthesis/input/target_spec.json",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/state/01_repo_profile.json",
+    "destination": "artifacts/synthesis/state/01_repo_profile.json",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/state/02_repo_gate.json",
+    "destination": "artifacts/synthesis/state/02_repo_gate.json",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/state/03_environment.json",
+    "destination": "artifacts/synthesis/state/03_environment.json",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/state/04_simula_plan.json",
+    "destination": "artifacts/synthesis/state/04_simula_plan.json",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/state/05_task_design.json",
+    "destination": "artifacts/synthesis/state/05_task_design.json",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/state/06_task_review.json",
+    "destination": "artifacts/synthesis/state/06_task_review.json",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/state/07_verifier.json",
+    "destination": "artifacts/synthesis/state/07_verifier.json",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/state/08_verifier_review.json",
+    "destination": "artifacts/synthesis/state/08_verifier_review.json",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/state/.integrity",
+    "destination": "artifacts/synthesis/state/.integrity",
+    "type": "directory",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/output/environment",
+    "destination": "artifacts/synthesis/output/environment",
+    "type": "directory",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/output/candidates",
+    "destination": "artifacts/synthesis/output/candidates",
+    "type": "directory",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/synthesis/output/generated_task",
+    "destination": "artifacts/synthesis/output/generated_task",
+    "type": "directory",
+    "status": "ok",
+    "service": null
+  }
+]

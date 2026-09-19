@@ -1,0 +1,5 @@
+name	dimension	observable	weight
+store_is_created	store	store_created_when_absent	1.0
+add_reports_its_id	add	add_prints_assigned_id	1.0
+list_renders_a_line	report	list_line_format	1.0
+sum_has_two_decimals	report	sum_two_decimals	1.0

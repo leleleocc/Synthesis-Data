@@ -1,0 +1,96 @@
+{
+    "id": "e8c9da8b-dead-47fa-85c1-ba067521ac31",
+    "task_name": "terminaltraj/build-suricata-engine",
+    "trial_name": "build-suricata-engine__Ct8Y26F",
+    "trial_uri": "file:///D:/Code/Synthesis-Data/jobs/2026-09-19__21-54-24/build-suricata-engine__Ct8Y26F",
+    "task_id": {
+        "path": "tasks\\suricata\\suricata-SM\\build-suricata-engine"
+    },
+    "source": "suricata-SM",
+    "task_checksum": "1f76854f3a2919b2b51b6223d46e3b043fd607d852946a496d152ea950cac828",
+    "config": {
+        "task": {
+            "path": "tasks\\suricata\\suricata-SM\\build-suricata-engine",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "suricata-SM"
+        },
+        "trial_name": "build-suricata-engine__Ct8Y26F",
+        "trials_dir": "jobs\\2026-09-19__21-54-24",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "claude-code",
+            "import_path": null,
+            "model_name": "claude-opus-5",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "daytona",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "2bd1d7b2-c1b3-4474-af55-97a266a67fcb"
+    },
+    "agent_info": {
+        "name": "claude-code",
+        "version": "unknown",
+        "model_info": {
+            "name": "claude-opus-5",
+            "provider": null
+        }
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "DaytonaBadRequestError",
+        "exception_message": "Failed to create sandbox: Disk request 20GB exceeds maximum allowed per sandbox (10GB).\nNeed higher resource limits per-sandbox? Contact us at support@daytona.io and let us know about your use case.",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\daytona\\_utils\\errors.py\", line 211, in async_wrapper\n    return await async_func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\daytona\\_utils\\timeout.py\", line 432, in async_wrapper\n    return await asyncio.wait_for(task, timeout=timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\python\\cpython-3.13.3-windows-x86_64-none\\Lib\\asyncio\\tasks.py\", line 507, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\daytona\\_utils\\otel_decorator.py\", line 129, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\daytona\\_utils\\otel_decorator.py\", line 257, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\daytona\\_async\\daytona.py\", line 583, in create\n    return await self._create(params, timeout=timeout, on_snapshot_create_logs=on_snapshot_create_logs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\daytona\\_async\\daytona.py\", line 693, in _create\n    response = await self._sandbox_api.create_sandbox(sandbox_data, _request_timeout=http_timeout(timeout))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\pydantic\\_internal\\_validate_call.py\", line 35, in wrapper_function\n    return await wrapper(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\daytona_api_client_async\\api\\sandbox_api.py\", line 689, in create_sandbox\n    return self.api_client.response_deserialize(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        response_data=response_data,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        response_types_map=_response_types_map,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ).data\n    ^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\daytona_api_client_async\\api_client.py\", line 328, in response_deserialize\n    raise ApiException.from_response(\n          ~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        http_resp=response_data,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n        body=response_text,\n        ^^^^^^^^^^^^^^^^^^^\n        data=return_data,\n        ^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\daytona_api_client_async\\exceptions.py\", line 142, in from_response\n    raise BadRequestException(http_resp=http_resp, body=body, data=data)\ndaytona_api_client_async.exceptions.BadRequestException: (400)\nReason: Bad Request\nHTTP response headers: <CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '287', 'Connection': 'keep-alive', 'Date': 'Sat, 19 Sep 2026 13:54:52 GMT', 'Etag': 'W/\"11f-k7fD75OxGn5Ztqchrp/A7TuJopY\"', 'X-Powered-By': 'Express', 'Vary': 'Origin', 'X-Daytona-Api-Version': 'v0.215.0', 'X-RateLimit-Limit-sandbox-create': '600', 'X-RateLimit-Remaining-sandbox-create': '560', 'X-RateLimit-Reset-sandbox-create': '38', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 dbc786a660288cedcfebaefbb9f95a4a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'LAX54-P12', 'X-Amz-Cf-Id': 'M9COwe8kyyBu4EKycVTkkfmR_fGfQNKg_fz9kFJQeOR9z9CI6Ovqyw==', 'X-Frame-Options': 'DENY', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Content-Security-Policy': \"frame-ancestors 'none'\", 'X-Content-Type-Options': 'nosniff', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload')>\nHTTP response body: {\"path\":\"/api/sandbox\",\"timestamp\":\"2026-09-19T13:54:52.557Z\",\"statusCode\":400,\"error\":\"Bad Request\",\"message\":\"Disk request 20GB exceeds maximum allowed per sandbox (10GB).\\nNeed higher resource limits per-sandbox? Contact us at support@daytona.io and let us know about your use case.\"}\n\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 350, in run\n    await self._prepare()\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 379, in _prepare\n    await self._setup_agent_environment()\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 1097, in _setup_agent_environment\n    await self._start_agent_environment()\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 1103, in _start_agent_environment\n    await asyncio.wait_for(\n    ...<4 lines>...\n    )\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\python\\cpython-3.13.3-windows-x86_64-none\\Lib\\asyncio\\tasks.py\", line 507, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\environments\\daytona\\environment.py\", line 1901, in start\n    return await self._strategy.start(force_build)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\environments\\daytona\\environment.py\", line 326, in start\n    await env._create_sandbox(params=params, daytona=daytona)\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\tenacity\\asyncio\\__init__.py\", line 193, in async_wrapped\n    return await copy(fn, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\tenacity\\asyncio\\__init__.py\", line 112, in __call__\n    do = await self.iter(retry_state=retry_state)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\tenacity\\asyncio\\__init__.py\", line 157, in iter\n    result = await action(retry_state)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\tenacity\\_utils.py\", line 111, in inner\n    return call(*args, **kwargs)\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\tenacity\\__init__.py\", line 393, in <lambda>\n    self._add_action_func(lambda rs: rs.outcome.result())\n                                     ~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\python\\cpython-3.13.3-windows-x86_64-none\\Lib\\concurrent\\futures\\_base.py\", line 449, in result\n    return self.__get_result()\n           ~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\python\\cpython-3.13.3-windows-x86_64-none\\Lib\\concurrent\\futures\\_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\tenacity\\asyncio\\__init__.py\", line 116, in __call__\n    result = await fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\environments\\daytona\\environment.py\", line 1460, in _create_sandbox\n    self._sandbox = await asyncio.shield(create_task)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\daytona\\_utils\\errors.py\", line 213, in async_wrapper\n    process_n_raise_exception(e)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\kiyou\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\daytona\\_utils\\errors.py\", line 156, in process_n_raise_exception\n    raise create_daytona_error(\n    ...<5 lines>...\n    ) from e\ndaytona.common.errors.DaytonaBadRequestError: Failed to create sandbox: Disk request 20GB exceeds maximum allowed per sandbox (10GB).\nNeed higher resource limits per-sandbox? Contact us at support@daytona.io and let us know about your use case.\n",
+        "occurred_at": "2026-09-19T21:54:50.896571"
+    },
+    "started_at": "2026-09-19T13:54:29.223015Z",
+    "finished_at": "2026-09-19T13:54:50.979090Z",
+    "environment_setup": {
+        "started_at": "2026-09-19T13:54:30.279280Z",
+        "finished_at": "2026-09-19T13:54:50.890323Z"
+    },
+    "agent_setup": null,
+    "agent_execution": null,
+    "verifier": null,
+    "step_results": null
+}

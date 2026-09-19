@@ -1,0 +1,71 @@
+{
+    "id": "bb232425-bffc-4905-91fb-b0f0fc8eaded",
+    "started_at": "2026-09-19T16:11:28.056223",
+    "updated_at": "2026-09-19T16:42:35.395061",
+    "finished_at": "2026-09-19T16:42:35.395061",
+    "n_total_trials": 28,
+    "stats": {
+        "n_completed_trials": 28,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "claude-code__claude-opus-5__redis-SM": {
+                "n_trials": 28,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.5714285714285714
+                    }
+                ],
+                "pass_at_k": {
+                    "2": 0.5714285714285714,
+                    "4": 0.5714285714285714
+                },
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "aof-replica-offset__5bagXHQ",
+                            "rdb-integrity__ZKocGqv",
+                            "sentinel-failover__PWdGHpd",
+                            "aof-replica-offset__4gg4GLF",
+                            "rdb-integrity__NRNmpXd",
+                            "sentinel-failover__2nzirzQ",
+                            "aof-replica-offset__ETFqzLE",
+                            "rdb-integrity__TW8hxKV",
+                            "sentinel-failover__oubfC5D",
+                            "aof-replica-offset__eP6UpzL",
+                            "rdb-integrity__mFa9wWy",
+                            "sentinel-failover__yhXUzTe"
+                        ],
+                        "1.0": [
+                            "makefile-tls-opt__q9sj5Ex",
+                            "o2-jemalloc-build__uQDQwzD",
+                            "repair-rdb-checksum__9PEucqL",
+                            "repair-waitaof-aof__A6EjYgK",
+                            "makefile-tls-opt__EZHgbUn",
+                            "o2-jemalloc-build__MmQYAA3",
+                            "repair-rdb-checksum__ukV6eL2",
+                            "repair-waitaof-aof__AyEkZ4c",
+                            "makefile-tls-opt__qPPXjvw",
+                            "o2-jemalloc-build__FKBjRB4",
+                            "repair-rdb-checksum__DDayFBV",
+                            "repair-waitaof-aof__yxRxB2L",
+                            "makefile-tls-opt__F9x5GBZ",
+                            "o2-jemalloc-build__JUVDz4x",
+                            "repair-rdb-checksum__CQCFw3A",
+                            "repair-waitaof-aof__zBHg8yj"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null
+    }
+}

@@ -1,0 +1,18 @@
+[judge]
+# FIXED: this scaffold supports agent judge, not direct LLM judge.
+judge = "claude-code"
+# FIXED: fixed rubric weight
+weight = 0.15
+model = "anthropic/claude-opus-4-8"
+# FIXED: the known-good anchor evaluates all criteria in one agent session.
+mode = "batched"
+timeout = 600
+
+[scoring]
+aggregation = "threshold"
+threshold = 1.0
+
+[[criterion]]
+name = "answer_matches_instruction"
+type = "binary"
+description = "The file /workspace/answer.txt exists and contains exactly ready followed by one newline."

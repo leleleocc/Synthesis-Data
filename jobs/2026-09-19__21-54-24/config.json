@@ -1,0 +1,19 @@
+{
+    "job_name": "2026-09-19__21-54-24",
+    "n_attempts": 4,
+    "n_concurrent_trials": 16,
+    "environment": {
+        "type": "daytona"
+    },
+    "agents": [
+        {
+            "name": "claude-code",
+            "model_name": "claude-opus-5"
+        }
+    ],
+    "datasets": [
+        {
+            "path": "tasks\\suricata\\suricata-SM"
+        }
+    ]
+}

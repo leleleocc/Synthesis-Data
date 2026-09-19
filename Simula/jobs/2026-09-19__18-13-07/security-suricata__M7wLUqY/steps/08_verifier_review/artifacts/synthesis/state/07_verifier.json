@@ -1,0 +1,134 @@
+{
+  "verifiers": [
+    {
+      "candidate_id": "c1",
+      "checked_requirements": [
+        {
+          "requirement": "Run /app/autogen.sh so a working /app/configure exists (restore incident-damaged autogen)",
+          "assertion": "test.sh fails if autogen.sh still contains cleanup stub or lacks autoreconf/autoconf; requires /app/configure exists as non-trivial autotools script (>=10kB)",
+          "oracle": "behavior+state: inspect /app/autogen.sh and /app/configure file presence/size"
+        },
+        {
+          "requirement": "complete ./configure --prefix=/usr/local from /app without error; configure_ok true; leave /results/configure.stdout",
+          "assertion": "repair-report.json configure_ok===true; /results/configure.stdout non-empty; stdout must not show cbindgen 99.x failure; Rust enablement evidence in stdout or config.log",
+          "oracle": "result: /results/configure.stdout + report field; behavior heuristics on configure output"
+        },
+        {
+          "requirement": "Rust and cbindgen remain usable on PATH; rustc_version and cbindgen_version are first lines of --version",
+          "assertion": "command -v rustc/cbindgen; report strings match live `rustc --version` / `cbindgen --version` first lines",
+          "oracle": "behavior: live toolchain invocation; result: report fields cross-checked"
+        },
+        {
+          "requirement": "Suricata Rust binding header generation emits non-empty rust-bindings.h under /app/rust/gen or /app/rust/dist; bindings_header absolute path; bindings_bytes>0 matching file size; have_rust true",
+          "assertion": "report schema exact keys; header path under allowed prefixes; file exists non-empty; bytes match stat; have_rust true; header not Cython-looking",
+          "oracle": "state: header file on disk; result: repair-report.json; reject Cython language left in cbindgen.toml and min_cbindgen_version=99.0.0"
+        },
+        {
+          "requirement": "Do not replace project with unrelated build system; do not modify /data; write repair-report.json with exact keys and trailing newline; autogen_ok true",
+          "assertion": "configure.ac still Suricata-like; no results under /data; JSON exact key set/types; trailing newline; autogen_ok true",
+          "oracle": "state+result: /app/configure.ac, /results/repair-report.json"
+        }
+      ]
+    },
+    {
+      "candidate_id": "c2",
+      "checked_requirements": [
+        {
+          "requirement": "Build main engine binary at /app/src/suricata; binary_bytes>0",
+          "assertion": "file exists regular non-empty; build-info.binary_bytes equals actual size and >0; binary_path resolves under /app",
+          "oracle": "state: /app/src/suricata size; result: build-info.json"
+        },
+        {
+          "requirement": "/app/src/suricata -V succeeds and prints a line containing Suricata; version_line is full first line",
+          "assertion": "execute binary -V; output must contain Suricata; report version_line contains Suricata",
+          "oracle": "behavior: run -V; result: version_line"
+        },
+        {
+          "requirement": "Minimal valid /results/suricata.yaml and /results/suricata-log; -T -c yaml -l logdir exits 0; config_test_exit must be 0",
+          "assertion": "yaml non-empty; log dir exists; verifier re-runs suricata -T and requires exit 0; report config_test_exit==0 matches live rc",
+          "oracle": "behavior: live -T; result: build-info.config_test_exit"
+        },
+        {
+          "requirement": "build-info.json exact keys including configure_args string; trailing newline; do not modify /data",
+          "assertion": "exact key set/types; configure_args non-empty; trailing newline; no results artifacts under /data",
+          "oracle": "result: /results/build-info.json"
+        }
+      ]
+    },
+    {
+      "candidate_id": "c3",
+      "checked_requirements": [
+        {
+          "requirement": "Corrected /results/http-events.rules keeps every original stock HTTP event sid, valid Suricata syntax, removes TLS-collision bogus rule; does not disable TLS coverage",
+          "assertion": "parse alert rules; stock HTTP sids subset of repaired; sid 2221003 present; 2221099 absent; 2221015 is alert http without tls.invalid_sni_length; 2221000 not content:BROKEN/tcp corruption; sid:N; well-formed; not identical to broken /data golden",
+          "oracle": "state: compare to tests/stock-http-events.rules and tests/data-http-events.rules.golden"
+        },
+        {
+          "requirement": "/results/tls-events.rules based on stock with no functional loss of TLS event coverage",
+          "assertion": "all stock TLS sids present; alert rule count >= stock",
+          "oracle": "state: tests/stock-tls-events.rules"
+        },
+        {
+          "requirement": "/results/suricata.yaml offline pcap profile: eve-log to eve.json regular; types alert, http extended yes, tls extended yes; default-rule-path /results; rule-files list both rules; default-log-dir /results/suricata-log; vars HOME_NET present",
+          "assertion": "YAML parse via python3-yaml; check outputs.eve-log enabled/filetype/filename/types extended; paths and rule-files membership; vars.address-groups.HOME_NET",
+          "oracle": "state: /results/suricata.yaml structure"
+        },
+        {
+          "requirement": "Run engine over /data/pcaps/session.pcap producing /results/eve.json JSONL; audit-summary counts and flags (eve_records>=1, tls_extended_fields_present true, rules_load_ok true) match artifacts; trailing newline; do not modify /data",
+          "assertion": "parse eve JSONL; require >=1 records; tls object with sni|version|subject; summary exact keys/types; cross-check http_rule_count/tls_rule_count/eve_* against parsed artifacts; /data hashes match tests/data.sha256 goldens",
+          "oracle": "result: eve.json + audit-summary.json; state: /data sha256 vs tests goldens"
+        }
+      ]
+    },
+    {
+      "candidate_id": "c4",
+      "checked_requirements": [
+        {
+          "requirement": "Produce /results/suricata.yaml with every Autoconf @IDENTIFIER@ resolved; placeholder_remaining==0 (not unrelated @ in comments); mirror identical bytes to /results/etc/suricata.yaml",
+          "assertion": "regex @[A-Za-z_][A-Za-z0-9_]*@ count 0 on yaml; cmp -s both yaml paths; report placeholder_remaining==0",
+          "oracle": "state: yaml files; result: migration-report.json; golden /data template unmutated via sha256"
+        },
+        {
+          "requirement": "Create /results/{etc,log,rules,run,data}; copy classification/reference/threshold into /results/etc; install /data/rules/*.rules into /results/rules",
+          "assertion": "directories exist; etc configs cmp to tests/etc goldens; every /data/rules file present under /results/rules; rules_dir_count matches find *.rules",
+          "oracle": "state: filesystem layout vs tests goldens and live /data"
+        },
+        {
+          "requirement": "Enable eve-log eve.json with types alert,http,tls,stats; enable fast.log; HOME_NET [10.0.0.0/8,192.168.0.0/16]; EXTERNAL_NET !$HOME_NET; hardware plugins not enabled",
+          "assertion": "YAML parse; outputs eve-log/fast enabled with required types/filenames; HOME_NET CIDRs and EXTERNAL_NET; fail if pfring/dpdk/napatech enabled yes",
+          "oracle": "state: parsed suricata.yaml"
+        },
+        {
+          "requirement": "migration-report.json keys: rule_files_listed, rules_dir_count, pkg_config_libpcap/libyaml live values, yaml_parse_ok, eve_enabled, fast_enabled; trailing newline; do not modify /data",
+          "assertion": "exact key set/types; cross-check counts and pkg-config --modversion libpcap/yaml-0.1; booleans true; /data sha256 vs tests/data.sha256",
+          "oracle": "result: report; behavior: pkg-config; state: /data immutability"
+        }
+      ]
+    },
+    {
+      "candidate_id": "c6",
+      "checked_requirements": [
+        {
+          "requirement": "Fix SSL/TLS app-layer regression under /app/src/app-layer-ssl*; ssl_source_touched true",
+          "assertion": "SURICATA_INCIDENT_TLS_REGRESSION and planted bodies absent; file not identical to tests/app-layer-ssl.c.damaged; summary.ssl_source_touched is true",
+          "oracle": "state: compare live ssl.c to tests damaged/pristine goldens"
+        },
+        {
+          "requirement": "Build engine to /app/src/suricata; version_line from -V contains Suricata; binary_path valid",
+          "assertion": "binary exists non-empty; run -V; report version_line/binary_path cross-checked",
+          "oracle": "behavior: -V; state: binary"
+        },
+        {
+          "requirement": "/results/suricata.yaml enables eve-log to eve.json with alert, tls extended yes, anomaly; default-log-dir /results/suricata-log; loads tls-events.rules and decoder-events.rules from /data/rules or /results/rules",
+          "assertion": "YAML parse checks for paths, rule-files membership, eve types and tls.extended",
+          "oracle": "state: /results/suricata.yaml"
+        },
+        {
+          "requirement": "Run pcap to completion exit 0 producing eve.json with >=1 tls event; decoder-event-log.jsonl derived with exact keys; repair-summary run_exit=0, eve_tls_count>=1 matching artifacts; trailing newlines; do not modify /data",
+          "assertion": "parse eve; require tls records; jsonl keys exactly event_type,src_ip,dest_ip,app_proto,tls_sni; line count equals filtered eve; event_type sequence match; summary counters match; /data pcap/rules sha256 vs goldens",
+          "oracle": "result: eve.json, decoder-event-log.jsonl, repair-summary.json; state: /data immutability goldens"
+        }
+      ]
+    }
+  ]
+}

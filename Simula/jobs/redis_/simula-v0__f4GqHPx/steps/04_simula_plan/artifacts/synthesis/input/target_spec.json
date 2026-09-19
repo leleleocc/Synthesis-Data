@@ -1,0 +1,51 @@
+{
+  "source_repo": {
+    "path": "/synthesis/input/repository",
+    "url": "https://github.com/redis/redis",
+    "commit": "335554f18caf7bbf6b0ac2b3548133d750f00a1b"
+  },
+  "target": {
+    "languages": [
+      "c",
+      "shell"
+    ],
+    "domains": [
+      "software"
+    ],
+    "subdomains": [
+      "systems",
+      "databases"
+    ],
+    "tags": [
+      "build",
+      "build-system",
+      "caching",
+      "cli",
+      "concurrency",
+      "configuration",
+      "debugging",
+      "linux",
+      "makefile",
+      "memory-management",
+      "optimization",
+      "performance",
+      "persistence",
+      "redis",
+      "repair",
+      "replication",
+      "testing",
+      "troubleshooting"
+    ],
+    "difficulty": "hard",
+    "oracle_types": [
+      "result",
+      "state",
+      "behavior"
+    ]
+  },
+  "generation": {
+    "allow_external_assets": false,
+    "max_candidates": 6,
+    "min_repo_score": 0.2
+  }
+}

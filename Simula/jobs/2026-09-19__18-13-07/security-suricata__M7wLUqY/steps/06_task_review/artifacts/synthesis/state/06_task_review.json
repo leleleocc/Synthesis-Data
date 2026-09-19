@@ -1,0 +1,351 @@
+{
+  "reviews": [
+    {
+      "candidate_id": "c1",
+      "approved": true,
+      "scores": {
+        "verifiable": 0.92,
+        "well_specified": 0.9,
+        "solvable": 0.86,
+        "difficult": 0.88,
+        "interesting": 0.9,
+        "outcome_verified": 0.86,
+        "spec_alignment": 0.95
+      },
+      "checks": {
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Success requires a working /app/configure, non-empty rust-bindings.h under the Rust tree, and a report whose fields can be cross-checked against those artifacts. /data is off-limits and the project cannot be replaced with an unrelated build system."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "Overlay damage is fixed (autogen stub, cbindgen floor, cbindgen language). Toolchain versions and header generation are deterministic on the sealed base."
+        },
+        "essential_difficulty": {
+          "outcome": "pass",
+          "explanation": "Hard parts interact: restore autogen, fix configure.ac cbindgen constraints, and repair Rust FFI header generation so configure enables Rust. Not a formatting checklist."
+        },
+        "novel": {
+          "outcome": "pass",
+          "explanation": "Incident-damaged autotools plus cbindgen FFI wiring is a realistic Suricata onboarding failure mode, not a generic make exercise."
+        },
+        "agentic": {
+          "outcome": "pass",
+          "explanation": "Agent must inspect multiple build files, iterate autogen/configure, and produce bindings without a prescribed patch sequence."
+        },
+        "instruction_concision": {
+          "outcome": "pass",
+          "explanation": "Three short paragraphs cover goal, constraints, and JSON schema without step-by-step remediation."
+        },
+        "structured_data_schema": {
+          "outcome": "pass",
+          "explanation": "repair-report.json keys, types, and constraints (bindings_bytes > 0, trailing newline) are fully specified; configure.stdout path is named."
+        },
+        "task_security": {
+          "outcome": "pass",
+          "explanation": "Local build repair only; no network abuse, credentials, or destructive system targets. network_mode is public for Harbor agent install."
+        },
+        "typos": {
+          "outcome": "pass",
+          "explanation": "ASCII-only instruction and task.toml; paths and key names are consistent."
+        }
+      },
+      "edits": [
+        {
+          "path": "/synthesis/output/candidates/c1/instruction.md",
+          "reason": "Named absolute rust-bindings.h locations under /app/rust/gen or /app/rust/dist"
+        }
+      ],
+      "blocking_issues": []
+    },
+    {
+      "candidate_id": "c2",
+      "approved": true,
+      "scores": {
+        "verifiable": 0.93,
+        "well_specified": 0.91,
+        "solvable": 0.84,
+        "difficult": 0.85,
+        "interesting": 0.88,
+        "outcome_verified": 0.9,
+        "spec_alignment": 0.95
+      },
+      "checks": {
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Requires a real /app/src/suricata that prints Suricata on -V and passes -T with the shipped yaml and log dir. Binary size and exit code are checkable end-state properties."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "Makefile.am SUBDIRS defect is deterministic; same source and toolchain yield a stable binary and config-test outcome."
+        },
+        "essential_difficulty": {
+          "outcome": "pass",
+          "explanation": "Full Suricata configure/build plus a valid runtime yaml and config test is genuine hard systems work, with a planted automake onboarding break."
+        },
+        "novel": {
+          "outcome": "pass",
+          "explanation": "Onboarding a large IDS codebase with a broken SUBDIRS line matches real packager pain rather than a toy compile."
+        },
+        "agentic": {
+          "outcome": "pass",
+          "explanation": "Agent diagnoses build failure, configures features for the local libs, builds, and authors a minimal accepted config without a fixed recipe."
+        },
+        "instruction_concision": {
+          "outcome": "pass",
+          "explanation": "Compact instruction with clear binary path, test command, and build-info.json schema."
+        },
+        "structured_data_schema": {
+          "outcome": "pass",
+          "explanation": "build-info.json enumerates typed keys including configure_args, config_test_exit must be 0, and binary_bytes > 0."
+        },
+        "task_security": {
+          "outcome": "pass",
+          "explanation": "Source build and local config test only; no offensive or exfiltration objectives."
+        },
+        "typos": {
+          "outcome": "pass",
+          "explanation": "No typos or non-ASCII punctuation in instruction.md or task.toml."
+        }
+      },
+      "edits": [],
+      "blocking_issues": []
+    },
+    {
+      "candidate_id": "c3",
+      "approved": true,
+      "scores": {
+        "verifiable": 0.91,
+        "well_specified": 0.9,
+        "solvable": 0.82,
+        "difficult": 0.9,
+        "interesting": 0.92,
+        "outcome_verified": 0.86,
+        "spec_alignment": 0.96
+      },
+      "checks": {
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Requires repaired rules under /results, a run-produced eve.json, and summary counters that must match those artifacts including tls_extended_fields_present true and rules_load_ok true. /data is immutable."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "Broken rules and session.pcap are fixed fixtures; the same engine config and pcap yield stable eve event classes."
+        },
+        "essential_difficulty": {
+          "outcome": "pass",
+          "explanation": "Compound hard work: multi-sid HTTP rule repair without harming TLS coverage, eve logging profile, optional full engine build, and pcap replay validation."
+        },
+        "novel": {
+          "outcome": "pass",
+          "explanation": "HTTP event rule corruption that collides with TLS metadata is a realistic NDR triage scenario on Suricata."
+        },
+        "agentic": {
+          "outcome": "pass",
+          "explanation": "Agent must audit broken rules, craft yaml, build or locate the engine, and validate eve output iteratively."
+        },
+        "instruction_concision": {
+          "outcome": "pass",
+          "explanation": "Goal, rule constraints, yaml requirements, and audit-summary schema are stated without a scripted fix order."
+        },
+        "structured_data_schema": {
+          "outcome": "pass",
+          "explanation": "audit-summary.json keys and types are explicit, including mandatory eve_records >= 1 and tls_extended_fields_present true."
+        },
+        "task_security": {
+          "outcome": "pass",
+          "explanation": "Offline pcap and rule repair in a sandbox; no live attack or credential handling."
+        },
+        "typos": {
+          "outcome": "pass",
+          "explanation": "Instruction and task.toml are clean ASCII with consistent paths."
+        }
+      },
+      "edits": [
+        {
+          "path": "/synthesis/output/candidates/c3/instruction.md",
+          "reason": "Required eve_records >= 1, tls_extended_fields_present true, and rules_load_ok true for verifiable success"
+        }
+      ],
+      "blocking_issues": []
+    },
+    {
+      "candidate_id": "c4",
+      "approved": true,
+      "scores": {
+        "verifiable": 0.92,
+        "well_specified": 0.9,
+        "solvable": 0.9,
+        "difficult": 0.78,
+        "interesting": 0.84,
+        "outcome_verified": 0.9,
+        "spec_alignment": 0.88
+      },
+      "checks": {
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Migrated yaml must parse, retain zero Autoconf placeholders, list rule-files, and mirror into /results/etc; pkg-config fields are system-checkable. Decoy partial yaml does not satisfy the deliverable paths."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "Template and supporting snippets under /data are fixed; placeholder resolution and directory layout are deterministic."
+        },
+        "essential_difficulty": {
+          "outcome": "pass",
+          "explanation": "Large suricata.yaml.in migration with path layout, eve/fast enablement, hardware plugin comments, and HOME_NET wiring is substantive hard configuration work."
+        },
+        "novel": {
+          "outcome": "pass",
+          "explanation": "Turning Autoconf-substituted IDS config into a concrete offline install layout is realistic packager work."
+        },
+        "agentic": {
+          "outcome": "pass",
+          "explanation": "Agent explores the template, resolves tokens, stages rules/etc, and validates YAML without a fixed substitution script prescribed."
+        },
+        "instruction_concision": {
+          "outcome": "pass",
+          "explanation": "Layout targets, feature requirements, and migration-report schema fit a short instruction."
+        },
+        "structured_data_schema": {
+          "outcome": "pass",
+          "explanation": "migration-report.json keys and types are complete; placeholder_remaining semantics count Autoconf @IDENTIFIER@ tokens only."
+        },
+        "task_security": {
+          "outcome": "pass",
+          "explanation": "Local configuration migration only; no unsafe network or privilege goals."
+        },
+        "typos": {
+          "outcome": "pass",
+          "explanation": "No spelling or encoding issues in instruction or task.toml."
+        }
+      },
+      "edits": [
+        {
+          "path": "/synthesis/output/candidates/c4/instruction.md",
+          "reason": "Clarified placeholder_remaining counts Autoconf @IDENTIFIER@ tokens, not unrelated @ in comments"
+        }
+      ],
+      "blocking_issues": []
+    },
+    {
+      "candidate_id": "c5",
+      "approved": false,
+      "scores": {
+        "verifiable": 0.88,
+        "well_specified": 0.9,
+        "solvable": 0.95,
+        "difficult": 0.55,
+        "interesting": 0.7,
+        "outcome_verified": 0.88,
+        "spec_alignment": 0.92
+      },
+      "checks": {
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Decode counters and controlled_sids can be recomputed from the fixed pcap and threshold file; dual path copy of decode text is checkable."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "incident.pcap is a fixed 18-frame fixture; tcpdump counts and top-talker ordering with lexicographic ties are deterministic."
+        },
+        "essential_difficulty": {
+          "outcome": "fail",
+          "explanation": "Core work is counting frames in a tiny pcap and adding three suppress/limit lines for known sids. That is checklist/formatting work, not hard-band essential difficulty (target hard is 3-6h compound systems effort)."
+        },
+        "novel": {
+          "outcome": "pass",
+          "explanation": "Thresholding noisy decoder sids during IR is a plausible Suricata ops task even though the scope is small."
+        },
+        "agentic": {
+          "outcome": "pass",
+          "explanation": "Still requires tool use (tcpdump) and file authorship, but with little multi-step diagnosis."
+        },
+        "instruction_concision": {
+          "outcome": "pass",
+          "explanation": "Decode format and JSON schema are concise and complete."
+        },
+        "structured_data_schema": {
+          "outcome": "pass",
+          "explanation": "pcap-decode line prefixes and incident-report.json key types are fully specified."
+        },
+        "task_security": {
+          "outcome": "pass",
+          "explanation": "Offline pcap analysis and local threshold config only."
+        },
+        "typos": {
+          "outcome": "pass",
+          "explanation": "Clean ASCII instruction and task.toml."
+        }
+      },
+      "edits": [],
+      "blocking_issues": [
+        "difficult score 0.55 and essential_difficulty fail: hard-band task reduces to tiny-pcap tcpdump counters plus three known decoder sid threshold lines, lacking compound interacting hard parts required for target.difficulty=hard"
+      ]
+    },
+    {
+      "candidate_id": "c6",
+      "approved": true,
+      "scores": {
+        "verifiable": 0.92,
+        "well_specified": 0.91,
+        "solvable": 0.8,
+        "difficult": 0.95,
+        "interesting": 0.95,
+        "outcome_verified": 0.84,
+        "spec_alignment": 0.96
+      },
+      "checks": {
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Requires a built binary, exit-0 pcap run, eve.json with at least one tls event, derived jsonl, and ssl_source_touched consistent with app-layer-ssl changes. Fake summaries without TLS eve records fail."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "Planted SURICATA_INCIDENT_TLS_REGRESSION and fixed tls-session.pcap make repair and replay outcomes stable on the sealed toolchain."
+        },
+        "essential_difficulty": {
+          "outcome": "pass",
+          "explanation": "Interacting hard parts: diagnose TLS app-layer C regression, full Suricata rebuild, correct eve/tls config, and prove classification on a real TLS capture."
+        },
+        "novel": {
+          "outcome": "pass",
+          "explanation": "Decoder regression repair in app-layer-ssl with IR-style eve extraction is distinctive Suricata engine work."
+        },
+        "agentic": {
+          "outcome": "pass",
+          "explanation": "Agent must locate the planted regression, fix C sources, drive autotools build, and validate TLS eve output without a prescribed patch."
+        },
+        "instruction_concision": {
+          "outcome": "pass",
+          "explanation": "Single-screen instruction covering repair goal, run command, jsonl schema, and repair-summary constraints."
+        },
+        "structured_data_schema": {
+          "outcome": "pass",
+          "explanation": "decoder-event-log.jsonl object keys and repair-summary.json types are explicit, including eve_tls_count >= 1."
+        },
+        "task_security": {
+          "outcome": "pass",
+          "explanation": "Local decoder repair and offline pcap only; no malicious network use."
+        },
+        "typos": {
+          "outcome": "pass",
+          "explanation": "ASCII instruction/task.toml with consistent paths and key names."
+        }
+      },
+      "edits": [
+        {
+          "path": "/synthesis/output/candidates/c6/instruction.md",
+          "reason": "Required at least one eve tls record and eve_tls_count >= 1 so TLS classification is objectively verified"
+        }
+      ],
+      "blocking_issues": []
+    }
+  ],
+  "approved_candidate_ids": [
+    "c1",
+    "c2",
+    "c3",
+    "c4",
+    "c6"
+  ]
+}

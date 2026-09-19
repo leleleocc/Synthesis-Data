@@ -1,0 +1,66 @@
+{
+  "source_repo": {
+    "path": "/synthesis/input/repository",
+    "url": "https://github.com/fluent/fluent-bit",
+    "commit": "66910c10a4d7eafa810b84229cf2dcf7b0f26f97"
+  },
+  "target": {
+    "languages": [
+      "c",
+      "shell",
+      "python"
+    ],
+    "domains": [
+      "operations",
+      "software"
+    ],
+    "subdomains": [
+      "observability",
+      "systems",
+      "sre"
+    ],
+    "tags": [
+      "observability",
+      "logging",
+      "log-analysis",
+      "monitoring",
+      "opentelemetry",
+      "prometheus",
+      "data-pipeline",
+      "etl",
+      "cli",
+      "configuration",
+      "ops",
+      "sre",
+      "deployment",
+      "troubleshooting",
+      "debugging",
+      "repair",
+      "performance",
+      "performance-tuning",
+      "networking",
+      "http",
+      "json",
+      "serialization",
+      "build",
+      "cmake",
+      "linux",
+      "docker",
+      "container",
+      "alerting",
+      "resource-management",
+      "testing"
+    ],
+    "difficulty": "hard",
+    "oracle_types": [
+      "result",
+      "state",
+      "behavior"
+    ]
+  },
+  "generation": {
+    "allow_external_assets": false,
+    "max_candidates": 6,
+    "min_repo_score": 0.2
+  }
+}

@@ -1,0 +1,1 @@
+- [TLS eve record cert gate](tls-eve-record-cert-gate.md) — why client-only TLS handshakes produce no `event_type: tls` record, and how to get the metadata anyway

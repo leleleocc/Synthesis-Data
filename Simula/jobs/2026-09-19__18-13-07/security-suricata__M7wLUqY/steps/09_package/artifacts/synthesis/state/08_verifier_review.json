@@ -1,0 +1,235 @@
+{
+  "reviews": [
+    {
+      "candidate_id": "c1",
+      "approved": true,
+      "syntax_ok": true,
+      "checks": {
+        "verifiable": {
+          "outcome": "pass",
+          "explanation": "Success conditions map to concrete artifacts: working /app/configure size, repair-report.json schema with cross-checked bindings header path/size, live rustc/cbindgen versions, and configure.stdout evidence of Rust enablement."
+        },
+        "test_instruction_alignment": {
+          "outcome": "pass",
+          "explanation": "Checks cover autogen/configure repair, PATH toolchains, rust-bindings.h under /app/rust/gen or dist, exact JSON keys and trailing newline, configure.stdout, and /data non-modification as stated in instruction.md."
+        },
+        "functional_verification": {
+          "outcome": "pass",
+          "explanation": "Beyond file existence: rejects cleanup stub and cbindgen 99.x/Cython damage, validates header content/C markers and byte match, cross-checks version strings and have_rust/configure_ok booleans against stdout/config.log heuristics."
+        },
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Cannot pass with stub configure, empty header, Cython garbage, fabricated report keys, or results under /data; Suricata configure.ac identity and non-trivial configure size are enforced."
+        },
+        "outcome_verified": {
+          "outcome": "pass",
+          "explanation": "Judges end-state artifacts and live toolchain identity rather than intermediate make steps; does not require a full src link of suricata, matching the instruction."
+        },
+        "binary_reward": {
+          "outcome": "pass",
+          "explanation": "Writes only 0 or 1 to /logs/verifier/reward.txt; defaults to 0 at start; exits 0 on pass and 1 on fail."
+        },
+        "do_not_modify_enforced": {
+          "outcome": "pass",
+          "explanation": "Fails if results artifacts appear under /data; instruction forbid is checked."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "No unpinned installs or curl|sh; uses sealed-base rustc/cbindgen/python3 only; assertions are path/content deterministic."
+        }
+      },
+      "edits": [
+        {
+          "path": "/synthesis/output/candidates/c1/tests/test.sh",
+          "reason": "Default reward.txt to 0 at start; require C header markers on rust-bindings.h so a non-empty stub cannot pass"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "candidate_id": "c2",
+      "approved": true,
+      "syntax_ok": true,
+      "checks": {
+        "verifiable": {
+          "outcome": "pass",
+          "explanation": "Requires /app/src/suricata that prints Suricata on -V, live -T exit 0 with shipped yaml/logdir, and build-info.json fields cross-checked to binary size and config_test_exit."
+        },
+        "test_instruction_alignment": {
+          "outcome": "pass",
+          "explanation": "Covers binary path, -V Suricata substring, minimal /results/suricata.yaml and log dir, -T exit 0, exact build-info keys including configure_args with prefix=/usr/local, trailing newline, and /data immutability."
+        },
+        "functional_verification": {
+          "outcome": "pass",
+          "explanation": "Re-executes suricata -V and -T rather than trusting report alone; binary_bytes must match stat; version_line must contain Suricata."
+        },
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Empty or non-Suricata binary fails; config_test_exit must be 0 and match live -T; results under /data rejected; optional file(1) ELF check when -V fails."
+        },
+        "outcome_verified": {
+          "outcome": "pass",
+          "explanation": "End-state binary behavior and config test are verified; does not hard-require a specific SUBDIRS patch as long as the Suricata binary works, matching instruction flexibility."
+        },
+        "binary_reward": {
+          "outcome": "pass",
+          "explanation": "reward.txt is exclusively 0/1 with early default 0 and final write on both paths."
+        },
+        "do_not_modify_enforced": {
+          "outcome": "pass",
+          "explanation": "Fails if build-info.json or suricata.yaml appear under /data."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "No network installs; uses base gcc/make/python3; -T and -V outcomes are stable for a fixed binary and yaml."
+        }
+      },
+      "edits": [
+        {
+          "path": "/synthesis/output/candidates/c2/tests/test.sh",
+          "reason": "Default reward.txt to 0; require configure_args to reflect --prefix=/usr/local instead of a soft NOTE"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "candidate_id": "c3",
+      "approved": true,
+      "syntax_ok": true,
+      "checks": {
+        "verifiable": {
+          "outcome": "pass",
+          "explanation": "Repaired rules, yaml profile, eve.json JSONL, and audit-summary counters are all machine-checkable against stock/broken goldens and parsed eve records."
+        },
+        "test_instruction_alignment": {
+          "outcome": "pass",
+          "explanation": "Enforces stock HTTP/TLS sid retention, removal of bogus 2221099, fix of 2221003/2221015/2221000/2221014 corruptions, eve types alert/http/tls with extended yes, paths, summary keys including eve_records>=1, tls_extended_fields_present true, rules_load_ok true."
+        },
+        "functional_verification": {
+          "outcome": "pass",
+          "explanation": "Parses rules and YAML structure, requires >=1 eve records with TLS extended metadata fields, and cross-checks every summary counter to artifacts rather than existence-only checks."
+        },
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Rejects unbroken copy of damaged golden, missing stock sids, fabricated summary counts, and /data hash mutations via tests/data.sha256."
+        },
+        "outcome_verified": {
+          "outcome": "pass",
+          "explanation": "Judges deliverable rules/yaml/eve/summary end state; does not mandate re-running the engine when eve evidence already proves a successful load/run."
+        },
+        "binary_reward": {
+          "outcome": "pass",
+          "explanation": "Binary 0/1 reward with early default 0 and single final write."
+        },
+        "do_not_modify_enforced": {
+          "outcome": "pass",
+          "explanation": "SHA-256 goldens enforce /data rules and pcap immutability."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "Pinned goldens and stock rule fixtures; python3-yaml from base image; no unpinned installs."
+        }
+      },
+      "edits": [
+        {
+          "path": "/synthesis/output/candidates/c3/tests/test.sh",
+          "reason": "Default reward.txt to 0 at verifier start"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "candidate_id": "c4",
+      "approved": true,
+      "syntax_ok": true,
+      "checks": {
+        "verifiable": {
+          "outcome": "pass",
+          "explanation": "Migrated yaml placeholder count, directory layout, mirrored etc copy, rule install counts, pkg-config versions, and eve/fast/HOME_NET settings are all objectively checked."
+        },
+        "test_instruction_alignment": {
+          "outcome": "pass",
+          "explanation": "Covers @IDENTIFIER@ resolution, /results/{etc,log,rules,run,data}, etc config copies, rules install, eve types alert/http/tls/stats, fast.log, HOME_NET/EXTERNAL_NET, hardware plugins not enabled, migration-report exact keys, yaml mirror bytes."
+        },
+        "functional_verification": {
+          "outcome": "pass",
+          "explanation": "YAML parse via pyyaml, regex placeholder scan, cmp of dual yaml paths and etc goldens, live pkg-config cross-check, and report field consistency."
+        },
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Partial decoy yaml without layout fails path checks; remaining Autoconf tokens fail; /data sha256 goldens block mutation; report cannot lie about pkg-config or rule counts."
+        },
+        "outcome_verified": {
+          "outcome": "pass",
+          "explanation": "End-state filesystem and parsed config are verified; HOME_NET check allows equivalent YAML list forms without over-constraining quoting."
+        },
+        "binary_reward": {
+          "outcome": "pass",
+          "explanation": "reward.txt only 0 or 1 with early default 0."
+        },
+        "do_not_modify_enforced": {
+          "outcome": "pass",
+          "explanation": "tests/data.sha256 verifies /data etc and rules unchanged."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "Uses base pkg-config and python3-yaml only; fixtures and goldens are fixed; no network package installs."
+        }
+      },
+      "edits": [
+        {
+          "path": "/synthesis/output/candidates/c4/tests/test.sh",
+          "reason": "Default reward.txt to 0 at verifier start"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "candidate_id": "c6",
+      "approved": true,
+      "syntax_ok": true,
+      "checks": {
+        "verifiable": {
+          "outcome": "pass",
+          "explanation": "SSL regression removal, built binary -V, yaml eve/tls extended profile, eve tls records >=1, decoder-event-log.jsonl schema derived from eve, and repair-summary counters are all checkable."
+        },
+        "test_instruction_alignment": {
+          "outcome": "pass",
+          "explanation": "Covers app-layer-ssl repair, /app/src/suricata, yaml default-log-dir and rule-files, eve tls>=1, jsonl exact keys and no blank lines, summary run_exit=0 eve_tls_count>=1 ssl_source_touched true, trailing newlines, /data immutability."
+        },
+        "functional_verification": {
+          "outcome": "pass",
+          "explanation": "Compares ssl.c to damaged golden, greps regression markers, runs -V, parses eve/jsonl with sequence and field cross-checks, validates summary against live counts."
+        },
+        "anti_cheat_robustness": {
+          "outcome": "pass",
+          "explanation": "Identical-to-damaged source fails; fabricated eve without tls fails; jsonl must match filtered eve event_type sequence; /data pcap/rules hashes enforced; ssl_source_touched must be true after real repair."
+        },
+        "outcome_verified": {
+          "outcome": "pass",
+          "explanation": "Accepts eve TLS evidence as proof of successful pcap classification; optional full re-run skipped only after PASS artifacts already validate TLS classification, within verifier timeout."
+        },
+        "binary_reward": {
+          "outcome": "pass",
+          "explanation": "Binary 0/1 reward with early default 0 and final write on both outcomes."
+        },
+        "do_not_modify_enforced": {
+          "outcome": "pass",
+          "explanation": "SHA-256 goldens for pcap and rules under /data."
+        },
+        "deterministic_reproducible": {
+          "outcome": "pass",
+          "explanation": "Fixed damaged/pristine goldens and pcap; no unpinned installs; uses base python3-yaml and built binary only."
+        }
+      },
+      "edits": [
+        {
+          "path": "/synthesis/output/candidates/c6/tests/test.sh",
+          "reason": "Default reward.txt to 0 at verifier start"
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "approved_candidate_ids": ["c1", "c2", "c3", "c4", "c6"]
+}

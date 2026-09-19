@@ -1,0 +1,20 @@
+# Replace this with the actual task instruction.
+instruction = """
+TODO: describe what the agent must accomplish.
+"""
+
+[environment]
+network_mode = "public"
+
+[verifier]
+environment_mode = "separate"
+network_mode = "public"
+
+[[artifacts]]
+# Collect the entire agent workspace for grading.
+source = "/workspace"
+
+[[verifier.checks]]
+# Each check invokes Reward Kit inside the verifier image.
+# Replace with the actual criterion modules for this task.
+module = "reward_kit.criteria.example"

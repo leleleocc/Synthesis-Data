@@ -1,0 +1,1 @@
+master SET failed while replica is up: OOM command not allowed when used memory > 'maxmemory'.

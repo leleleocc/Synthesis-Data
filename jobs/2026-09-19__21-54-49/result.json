@@ -1,0 +1,67 @@
+{
+    "id": "1abbf94d-2f1b-4890-8723-c929ee14c824",
+    "started_at": "2026-09-19T21:54:53.470604",
+    "updated_at": "2026-09-19T22:23:38.868948",
+    "finished_at": "2026-09-19T22:23:38.868948",
+    "n_total_trials": 24,
+    "stats": {
+        "n_completed_trials": 24,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "claude-code__claude-opus-5__suricata-TT": {
+                "n_trials": 24,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.75
+                    }
+                ],
+                "pass_at_k": {
+                    "2": 0.8055555555555555,
+                    "4": 0.8333333333333334
+                },
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "classtype-config-audit__8uKter5",
+                            "dns-name-decode__aWBJZsh",
+                            "host-os-policy__a2wowz3",
+                            "ipv4-decoder-events__cYnr7tH",
+                            "ja3-ja4-fingerprints__Nu9v6S4",
+                            "classtype-config-audit__muY7NJg",
+                            "dns-name-decode__FgLS5eX",
+                            "host-os-policy__njd4KWe",
+                            "ipv4-decoder-events__wmjQiXX",
+                            "ja3-ja4-fingerprints__nspyBfZ",
+                            "classtype-config-audit__XyeLQo2",
+                            "dns-name-decode__77MZVVS",
+                            "host-os-policy__SkqfLu9",
+                            "ipv4-decoder-events__B94WXi7",
+                            "classtype-config-audit__SbR5Jtd",
+                            "dns-name-decode__GVQdank",
+                            "host-os-policy__n9atjKa",
+                            "ipv4-decoder-events__LZY6VLK"
+                        ],
+                        "0.0": [
+                            "community-id-calculator__J2RFqAu",
+                            "community-id-calculator__Zn9uRoL",
+                            "community-id-calculator__yJiEcFv",
+                            "ja3-ja4-fingerprints__PXPWtQg",
+                            "community-id-calculator__nQXFGwT",
+                            "ja3-ja4-fingerprints__KGzAD9h"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null
+    }
+}

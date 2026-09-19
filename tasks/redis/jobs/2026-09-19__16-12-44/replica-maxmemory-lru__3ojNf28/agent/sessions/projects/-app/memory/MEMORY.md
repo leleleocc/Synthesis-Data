@@ -1,0 +1,2 @@
+- [Replica ignore-maxmemory causes silent divergence](replica-ignore-maxmemory-divergence.md) — `replica-ignore-maxmemory no` makes the replica reject the master's writes instead of evicting, while the link still reads `up`.
+- [Small maxmemory + repl backlog = permanent OOM](redis-small-maxmemory-backlog-oom.md) — a 2 MiB master cap is exhausted by startup overhead plus the 1 MiB replication backlog at zero keys.

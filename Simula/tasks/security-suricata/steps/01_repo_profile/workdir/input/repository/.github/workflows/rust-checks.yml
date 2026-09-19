@@ -1,0 +1,97 @@
+name: Cargo Audit
+
+on:
+  schedule:
+    # Run on Monday mornings, 11AM UTC.
+    - cron: '0 11 * * 1'
+  pull_request:
+  # Enable push for testing when working on this file.
+  #push:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: read-all
+
+jobs:
+
+  # This job runs `cargo audit` and will exit with a failure code if
+  # any warnings are raised.
+  audit:
+    name: Cargo Audit
+    runs-on: ubuntu-latest
+    container: almalinux:9
+    steps:
+      - name: Cache cargo registry
+        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57
+        with:
+          path: ~/.cargo
+          key: ${{ github.job }}-cargo
+
+      - name: Install system packages
+        run: |
+          dnf -y install dnf-plugins-core epel-release
+          dnf config-manager --set-enabled crb
+          dnf -y install \
+                autoconf \
+                automake \
+                cbindgen \
+                diffutils \
+                numactl-devel \
+                dpdk-devel \
+                file-devel \
+                gcc \
+                gcc-c++ \
+                git \
+                jansson-devel \
+                jq \
+                libtool \
+                libyaml-devel \
+                libnfnetlink-devel \
+                libnetfilter_queue-devel \
+                libnet-devel \
+                libcap-ng-devel \
+                libevent-devel \
+                libmaxminddb-devel \
+                libpcap-devel \
+                libtool \
+                lz4-devel \
+                make \
+                pcre2-devel \
+                pkgconfig \
+                python3-devel \
+                python3-sphinx \
+                python3-yaml \
+                sudo \
+                which \
+                zlib-devel
+      - name: Install Rust
+        run: |
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+      - name: Install Cargo Audit
+        run: cargo install cargo-audit
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+      - name: Configure Suricata
+        run: |
+          ./autogen.sh
+          ./configure --enable-warnings
+      - name: Run Cargo Audit
+        working-directory: rust
+        run: |
+          IGNORES=()
+
+          # failure, via bendy
+          IGNORES+=(--ignore RUSTSEC-2020-0036)
+          # failure, via bendy
+          IGNORES+=(--ignore RUSTSEC-2019-0036)
+          # time crate update
+          IGNORES+=(--ignore RUSTSEC-2026-0009)
+          # rand, vla tls-parser
+          IGNORES+=(--ignore RUSTSEC-2026-0097)
+          # lru, doesn't affect us
+          IGNORES+=(--ignore RUSTSEC-2026-0253)
+
+          cargo audit -D warnings "${IGNORES[@]}"

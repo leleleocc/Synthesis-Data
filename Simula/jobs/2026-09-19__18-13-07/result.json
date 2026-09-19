@@ -1,0 +1,42 @@
+{
+    "id": "21c50a6e-9617-46e3-a1e6-29affbd7591c",
+    "started_at": "2026-09-19T18:13:11.847930",
+    "updated_at": "2026-09-19T19:30:35.781986",
+    "finished_at": "2026-09-19T19:30:35.781986",
+    "n_total_trials": 2,
+    "stats": {
+        "n_completed_trials": 2,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "claude-code__claude-opus-5__tasks": {
+                "n_trials": 2,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.9
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.8": [
+                            "deeplearning-llamacpp__WBeRSXt"
+                        ],
+                        "1.0": [
+                            "security-suricata__M7wLUqY"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null
+    }
+}
