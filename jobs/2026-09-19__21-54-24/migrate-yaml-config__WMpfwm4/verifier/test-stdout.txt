@@ -1,5 +1,0 @@
-OK: yaml mirrored to etc
-OK: rules_dir_count=6
-OK: no @IDENTIFIER@ placeholders remain
-OK: c4 checks passed
-VERIFIER_PASS

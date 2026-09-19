@@ -1,1 +1,0 @@
-- [Redis cache tier maxmemory floor](redis-cache-tier-maxmemory-floor.md) — the 2 MiB/1 MiB caps sit below Redis 7.2.16's ~866 KB overhead floor, so the replica caches nothing

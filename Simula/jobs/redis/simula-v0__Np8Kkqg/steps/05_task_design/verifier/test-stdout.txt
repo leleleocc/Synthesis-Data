@@ -1,1 +1,0 @@
-candidate instruction.md, task.toml, and overlay environment/ are present

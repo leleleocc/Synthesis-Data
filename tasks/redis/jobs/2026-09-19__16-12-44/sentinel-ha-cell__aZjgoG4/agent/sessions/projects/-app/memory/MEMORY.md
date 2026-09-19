@@ -1,1 +1,0 @@
-- [/app vs /src build layout](app-vs-src-build-layout.md) — build in /app; top-level /src is a separate pristine copy, don't modify it

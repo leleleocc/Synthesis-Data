@@ -1,5 +1,0 @@
-OK: http alert rules=56 sids=[2221000, 2221001, 2221002, 2221003, 2221004]...
-OK: tls alert rules=30
-OK: eve records=6 http=1 tls=1 alert=0
-OK: c3 artifact checks passed
-VERIFIER_PASS

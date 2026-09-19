@@ -1,6 +1,0 @@
-OK: http alert rules=56 sids=[2221000, 2221001, 2221002, 2221003, 2221004]...
-OK: tls alert rules=31
-OK: eve records=2 http=1 tls=0 alert=1
-FAIL: no tls eve record with tls.sni/version/subject (extended TLS metadata required)
-FAIL: summary claims tls_extended_fields_present but eve lacks fields
-VERIFIER_FAIL

@@ -1,2 +1,15 @@
 # Local credential / env snippets — never commit
 CMD
+
+# Harbor job trees — keep only Simula/jobs/redis_ top-level summaries
+/jobs/
+TerminalTraj/jobs/
+tasks/**/jobs/
+
+Simula/jobs/*
+!Simula/jobs/redis_/
+Simula/jobs/redis_/*
+!Simula/jobs/redis_/config.json
+!Simula/jobs/redis_/job.log
+!Simula/jobs/redis_/lock.json
+!Simula/jobs/redis_/result.json

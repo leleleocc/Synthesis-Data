@@ -1,566 +1,0 @@
-BUILD_START=2026-09-19T10:20:01Z
-DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
-            Install the buildx component to build images with BuildKit:
-            https://docs.docker.com/go/buildx/
-
-Sending build context to Docker daemon  17.41kB
-Step 1/11 : FROM ubuntu:24.04
-24.04: Pulling from library/ubuntu
-edd1ed89f0d4: Pulling fs layer
-edd1ed89f0d4: Verifying Checksum
-edd1ed89f0d4: Download complete
-edd1ed89f0d4: Pull complete
-Digest: sha256:008173c23f95b170204355c12626cb5a965d779a7e1283b09e9cffbb1bf33ca3
-Status: Downloaded newer image for ubuntu:24.04
- ---> 6232b3879100
-Step 2/11 : ENV DEBIAN_FRONTEND=noninteractive     LANG=C.UTF-8     CARGO_HOME=/opt/cargo     RUSTUP_HOME=/opt/rustup     PATH=/opt/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin     WORKDIR_PATH=/app     DATA_DIR=/data     RESULTS_DIR=/results
- ---> Running in e52a9b2b62e6
- ---> Removed intermediate container e52a9b2b62e6
- ---> 4a47cfa46f57
-Step 3/11 : RUN apt-get update && apt-get install -y --no-install-recommends         ca-certificates         curl         git         bash     && rm -rf /var/lib/apt/lists/*
- ---> Running in 61805481c3ed
-Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
-Get:2 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
-Get:3 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [50.0 kB]
-Get:4 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1533 kB]
-Get:5 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
-Get:6 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
-Get:7 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1801 kB]
-Get:8 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1245 kB]
-Get:9 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
-Get:10 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
-Get:11 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
-Get:12 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1808 kB]
-Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1580 kB]
-Get:14 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2149 kB]
-Get:15 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1960 kB]
-Get:16 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [56.2 kB]
-Get:17 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [40.4 kB]
-Get:18 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [78.5 kB]
-Get:19 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [671 B]
-Fetched 32.7 MB in 3s (12.8 MB/s)
-Reading package lists...
-Reading package lists...
-Building dependency tree...
-Reading state information...
-bash is already the newest version (5.2.21-2ubuntu4).
-The following additional packages will be installed:
-  git-man libbrotli1 libcurl3t64-gnutls libcurl4t64 liberror-perl libexpat1
-  libgdbm-compat4t64 libgdbm6t64 libgssapi-krb5-2 libk5crypto3 libkeyutils1
-  libkrb5-3 libkrb5support0 libldap2 libnghttp2-14 libperl5.38t64 libpsl5t64
-  librtmp1 libsasl2-2 libsasl2-modules-db libssh-4 openssl perl perl-base
-  perl-modules-5.38
-Suggested packages:
-  gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
-  gitk gitweb git-cvs git-mediawiki git-svn gdbm-l10n krb5-doc krb5-user
-  perl-doc libterm-readline-gnu-perl | libterm-readline-perl-perl make
-  libtap-harness-archive-perl
-Recommended packages:
-  patch less ssh-client krb5-locales libldap-common publicsuffix
-  libsasl2-modules netbase
-The following NEW packages will be installed:
-  ca-certificates curl git git-man libbrotli1 libcurl3t64-gnutls libcurl4t64
-  liberror-perl libexpat1 libgdbm-compat4t64 libgdbm6t64 libgssapi-krb5-2
-  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap2 libnghttp2-14
-  libperl5.38t64 libpsl5t64 librtmp1 libsasl2-2 libsasl2-modules-db libssh-4
-  openssl perl perl-modules-5.38
-The following packages will be upgraded:
-  perl-base
-1 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
-Need to get 18.6 MB of archives.
-After this operation, 84.6 MB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 perl-base amd64 5.38.2-3.2ubuntu0.6 [1826 kB]
-Get:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 perl-modules-5.38 all 5.38.2-3.2ubuntu0.6 [3110 kB]
-Get:3 http://archive.ubuntu.com/ubuntu noble/main amd64 libgdbm6t64 amd64 1.23-5.1build1 [34.4 kB]
-Get:4 http://archive.ubuntu.com/ubuntu noble/main amd64 libgdbm-compat4t64 amd64 1.23-5.1build1 [6710 B]
-Get:5 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libperl5.38t64 amd64 5.38.2-3.2ubuntu0.6 [4864 kB]
-Get:6 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 perl amd64 5.38.2-3.2ubuntu0.6 [231 kB]
-Get:7 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 openssl amd64 3.0.13-0ubuntu3.15 [1003 kB]
-Get:8 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 ca-certificates all 20260601~24.04.1 [139 kB]
-Get:9 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libexpat1 amd64 2.6.1-2ubuntu0.4 [88.2 kB]
-Get:10 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libkrb5support0 amd64 1.20.1-6ubuntu2.10 [34.9 kB]
-Get:11 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libk5crypto3 amd64 1.20.1-6ubuntu2.10 [81.9 kB]
-Get:12 http://archive.ubuntu.com/ubuntu noble/main amd64 libkeyutils1 amd64 1.6.3-3build1 [9490 B]
-Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libkrb5-3 amd64 1.20.1-6ubuntu2.10 [348 kB]
-Get:14 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libgssapi-krb5-2 amd64 1.20.1-6ubuntu2.10 [143 kB]
-Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libnghttp2-14 amd64 1.59.0-1ubuntu0.4 [74.6 kB]
-Get:16 http://archive.ubuntu.com/ubuntu noble/main amd64 libpsl5t64 amd64 0.21.2-1.1build1 [57.1 kB]
-Get:17 http://archive.ubuntu.com/ubuntu noble/main amd64 libbrotli1 amd64 1.1.0-2build2 [331 kB]
-Get:18 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-5ubuntu3.1 [20.4 kB]
-Get:19 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-5ubuntu3.1 [53.2 kB]
-Get:20 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libldap2 amd64 2.6.10+dfsg-0ubuntu0.24.04.1 [198 kB]
-Get:21 http://archive.ubuntu.com/ubuntu noble/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2build7 [56.3 kB]
-Get:22 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libssh-4 amd64 0.10.6-2ubuntu0.5 [191 kB]
-Get:23 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libcurl4t64 amd64 8.5.0-2ubuntu10.13 [343 kB]
-Get:24 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 curl amd64 8.5.0-2ubuntu10.13 [226 kB]
-Get:25 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libcurl3t64-gnutls amd64 8.5.0-2ubuntu10.13 [335 kB]
-Get:26 http://archive.ubuntu.com/ubuntu noble/main amd64 liberror-perl all 0.17029-2 [25.6 kB]
-Get:27 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git-man all 1:2.43.0-1ubuntu7.3 [1100 kB]
-Get:28 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git amd64 1:2.43.0-1ubuntu7.3 [3680 kB]
-[91mdebconf: delaying package configuration, since apt-utils is not installed
-[0mFetched 18.6 MB in 2s (10.6 MB/s)
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4381 files and directories currently installed.)
-Preparing to unpack .../perl-base_5.38.2-3.2ubuntu0.6_amd64.deb ...
-Unpacking perl-base (5.38.2-3.2ubuntu0.6) over (5.38.2-3.2ubuntu0.4) ...
-Setting up perl-base (5.38.2-3.2ubuntu0.6) ...
-Selecting previously unselected package perl-modules-5.38.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4381 files and directories currently installed.)
-Preparing to unpack .../00-perl-modules-5.38_5.38.2-3.2ubuntu0.6_all.deb ...
-Unpacking perl-modules-5.38 (5.38.2-3.2ubuntu0.6) ...
-Selecting previously unselected package libgdbm6t64:amd64.
-Preparing to unpack .../01-libgdbm6t64_1.23-5.1build1_amd64.deb ...
-Unpacking libgdbm6t64:amd64 (1.23-5.1build1) ...
-Selecting previously unselected package libgdbm-compat4t64:amd64.
-Preparing to unpack .../02-libgdbm-compat4t64_1.23-5.1build1_amd64.deb ...
-Unpacking libgdbm-compat4t64:amd64 (1.23-5.1build1) ...
-Selecting previously unselected package libperl5.38t64:amd64.
-Preparing to unpack .../03-libperl5.38t64_5.38.2-3.2ubuntu0.6_amd64.deb ...
-Unpacking libperl5.38t64:amd64 (5.38.2-3.2ubuntu0.6) ...
-Selecting previously unselected package perl.
-Preparing to unpack .../04-perl_5.38.2-3.2ubuntu0.6_amd64.deb ...
-Unpacking perl (5.38.2-3.2ubuntu0.6) ...
-Selecting previously unselected package openssl.
-Preparing to unpack .../05-openssl_3.0.13-0ubuntu3.15_amd64.deb ...
-Unpacking openssl (3.0.13-0ubuntu3.15) ...
-Selecting previously unselected package ca-certificates.
-Preparing to unpack .../06-ca-certificates_20260601~24.04.1_all.deb ...
-Unpacking ca-certificates (20260601~24.04.1) ...
-Selecting previously unselected package libexpat1:amd64.
-Preparing to unpack .../07-libexpat1_2.6.1-2ubuntu0.4_amd64.deb ...
-Unpacking libexpat1:amd64 (2.6.1-2ubuntu0.4) ...
-Selecting previously unselected package libkrb5support0:amd64.
-Preparing to unpack .../08-libkrb5support0_1.20.1-6ubuntu2.10_amd64.deb ...
-Unpacking libkrb5support0:amd64 (1.20.1-6ubuntu2.10) ...
-Selecting previously unselected package libk5crypto3:amd64.
-Preparing to unpack .../09-libk5crypto3_1.20.1-6ubuntu2.10_amd64.deb ...
-Unpacking libk5crypto3:amd64 (1.20.1-6ubuntu2.10) ...
-Selecting previously unselected package libkeyutils1:amd64.
-Preparing to unpack .../10-libkeyutils1_1.6.3-3build1_amd64.deb ...
-Unpacking libkeyutils1:amd64 (1.6.3-3build1) ...
-Selecting previously unselected package libkrb5-3:amd64.
-Preparing to unpack .../11-libkrb5-3_1.20.1-6ubuntu2.10_amd64.deb ...
-Unpacking libkrb5-3:amd64 (1.20.1-6ubuntu2.10) ...
-Selecting previously unselected package libgssapi-krb5-2:amd64.
-Preparing to unpack .../12-libgssapi-krb5-2_1.20.1-6ubuntu2.10_amd64.deb ...
-Unpacking libgssapi-krb5-2:amd64 (1.20.1-6ubuntu2.10) ...
-Selecting previously unselected package libnghttp2-14:amd64.
-Preparing to unpack .../13-libnghttp2-14_1.59.0-1ubuntu0.4_amd64.deb ...
-Unpacking libnghttp2-14:amd64 (1.59.0-1ubuntu0.4) ...
-Selecting previously unselected package libpsl5t64:amd64.
-Preparing to unpack .../14-libpsl5t64_0.21.2-1.1build1_amd64.deb ...
-Unpacking libpsl5t64:amd64 (0.21.2-1.1build1) ...
-Selecting previously unselected package libbrotli1:amd64.
-Preparing to unpack .../15-libbrotli1_1.1.0-2build2_amd64.deb ...
-Unpacking libbrotli1:amd64 (1.1.0-2build2) ...
-Selecting previously unselected package libsasl2-modules-db:amd64.
-Preparing to unpack .../16-libsasl2-modules-db_2.1.28+dfsg1-5ubuntu3.1_amd64.deb ...
-Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg1-5ubuntu3.1) ...
-Selecting previously unselected package libsasl2-2:amd64.
-Preparing to unpack .../17-libsasl2-2_2.1.28+dfsg1-5ubuntu3.1_amd64.deb ...
-Unpacking libsasl2-2:amd64 (2.1.28+dfsg1-5ubuntu3.1) ...
-Selecting previously unselected package libldap2:amd64.
-Preparing to unpack .../18-libldap2_2.6.10+dfsg-0ubuntu0.24.04.1_amd64.deb ...
-Unpacking libldap2:amd64 (2.6.10+dfsg-0ubuntu0.24.04.1) ...
-Selecting previously unselected package librtmp1:amd64.
-Preparing to unpack .../19-librtmp1_2.4+20151223.gitfa8646d.1-2build7_amd64.deb ...
-Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2build7) ...
-Selecting previously unselected package libssh-4:amd64.
-Preparing to unpack .../20-libssh-4_0.10.6-2ubuntu0.5_amd64.deb ...
-Unpacking libssh-4:amd64 (0.10.6-2ubuntu0.5) ...
-Selecting previously unselected package libcurl4t64:amd64.
-Preparing to unpack .../21-libcurl4t64_8.5.0-2ubuntu10.13_amd64.deb ...
-Unpacking libcurl4t64:amd64 (8.5.0-2ubuntu10.13) ...
-Selecting previously unselected package curl.
-Preparing to unpack .../22-curl_8.5.0-2ubuntu10.13_amd64.deb ...
-Unpacking curl (8.5.0-2ubuntu10.13) ...
-Selecting previously unselected package libcurl3t64-gnutls:amd64.
-Preparing to unpack .../23-libcurl3t64-gnutls_8.5.0-2ubuntu10.13_amd64.deb ...
-Unpacking libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.13) ...
-Selecting previously unselected package liberror-perl.
-Preparing to unpack .../24-liberror-perl_0.17029-2_all.deb ...
-Unpacking liberror-perl (0.17029-2) ...
-Selecting previously unselected package git-man.
-Preparing to unpack .../25-git-man_1%3a2.43.0-1ubuntu7.3_all.deb ...
-Unpacking git-man (1:2.43.0-1ubuntu7.3) ...
-Selecting previously unselected package git.
-Preparing to unpack .../26-git_1%3a2.43.0-1ubuntu7.3_amd64.deb ...
-Unpacking git (1:2.43.0-1ubuntu7.3) ...
-Setting up libexpat1:amd64 (2.6.1-2ubuntu0.4) ...
-Setting up libkeyutils1:amd64 (1.6.3-3build1) ...
-Setting up libgdbm6t64:amd64 (1.23-5.1build1) ...
-Setting up libgdbm-compat4t64:amd64 (1.23-5.1build1) ...
-Setting up libbrotli1:amd64 (1.1.0-2build2) ...
-Setting up libpsl5t64:amd64 (0.21.2-1.1build1) ...
-Setting up libnghttp2-14:amd64 (1.59.0-1ubuntu0.4) ...
-Setting up libkrb5support0:amd64 (1.20.1-6ubuntu2.10) ...
-Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg1-5ubuntu3.1) ...
-Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2build7) ...
-Setting up perl-modules-5.38 (5.38.2-3.2ubuntu0.6) ...
-Setting up libk5crypto3:amd64 (1.20.1-6ubuntu2.10) ...
-Setting up libsasl2-2:amd64 (2.1.28+dfsg1-5ubuntu3.1) ...
-Setting up git-man (1:2.43.0-1ubuntu7.3) ...
-Setting up libkrb5-3:amd64 (1.20.1-6ubuntu2.10) ...
-Setting up libperl5.38t64:amd64 (5.38.2-3.2ubuntu0.6) ...
-Setting up openssl (3.0.13-0ubuntu3.15) ...
-Setting up libldap2:amd64 (2.6.10+dfsg-0ubuntu0.24.04.1) ...
-Setting up ca-certificates (20260601~24.04.1) ...
-Updating certificates in /etc/ssl/certs...
-121 added, 0 removed; done.
-Setting up perl (5.38.2-3.2ubuntu0.6) ...
-Setting up libgssapi-krb5-2:amd64 (1.20.1-6ubuntu2.10) ...
-Setting up libssh-4:amd64 (0.10.6-2ubuntu0.5) ...
-Setting up libcurl4t64:amd64 (8.5.0-2ubuntu10.13) ...
-Setting up libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.13) ...
-Setting up liberror-perl (0.17029-2) ...
-Setting up git (1:2.43.0-1ubuntu7.3) ...
-Setting up curl (8.5.0-2ubuntu10.13) ...
-Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
-Processing triggers for ca-certificates (20260601~24.04.1) ...
-Updating certificates in /etc/ssl/certs...
-0 added, 0 removed; done.
-Running hooks in /etc/ca-certificates/update.d...
-done.
- ---> Removed intermediate container 61805481c3ed
- ---> fd6ccf106de2
-Step 4/11 : COPY setup.sh setup-overlay.sh smoke_test.sh /opt/env/
- ---> 9b6cf59a898a
-Step 5/11 : COPY assets/ /data/
- ---> fbfe7096854a
-Step 6/11 : ARG SURICATA_REPO=https://github.com/OISF/suricata
- ---> Running in bd6ef1393069
- ---> Removed intermediate container bd6ef1393069
- ---> 1a1f28dd0b81
-Step 7/11 : ARG SURICATA_COMMIT=d681600f3648030a67f7d618d30742bfd5fe7169
- ---> Running in d4e0c3cc4094
- ---> Removed intermediate container d4e0c3cc4094
- ---> 8e6c62098922
-Step 8/11 : RUN git clone --filter=blob:none "${SURICATA_REPO}" /app     && git -C /app checkout --detach "${SURICATA_COMMIT}"     && git -C /app submodule update --init --recursive || true     && test "$(git -C /app rev-parse HEAD)" = "${SURICATA_COMMIT}"
- ---> Running in 22cf7f8c2351
-[91mCloning into '/app'...
-[0m[91mUpdating files:   0% (2/2352)[0m[91mUpdating files:   1% (24/2352)[0m[91mUpdating files:   2% (48/2352)[0m[91mUpdating files:   3% (71/2352)[0m[91mUpdating files:   4% (95/2352)[0m[91mUpdating files:   5% (118/2352)[0m[91mUpdating files:   6% (142/2352)[0m[91mUpdating files:   7% (165/2352)[0m[91mUpdating files:   8% (189/2352)[0m[91mUpdating files:   9% (212/2352)[0m[91mUpdating files:  10% (236/2352)[0m[91mUpdating files:  11% (259/2352)[0m[91mUpdating files:  12% (283/2352)[0m[91mUpdating files:  13% (306/2352)[0m[91mUpdating files:  14% (330/2352)[0m[91mUpdating files:  15% (353/2352)[0m[91mUpdating files:  16% (377/2352)[0m[91mUpdating files:  17% (400/2352)[0m[91mUpdating files:  18% (424/2352)[0m[91mUpdating files:  19% (447/2352)[0m[91mUpdating files:  20% (471/2352)[0m[91mUpdating files:  21% (494/2352)[0m[91mUpdating files:  22% (518/2352)[0m[91mUpdating files:  23% (541/2352)[0m[91mUpdating files:  24% (565/2352)[0m[91mUpdating files:  25% (588/2352)[0m[91mUpdating files:  26% (612/2352)[0m[91mUpdating files:  27% (636/2352)[0m[91mUpdating files:  28% (659/2352)[0m[91mUpdating files:  29% (683/2352)[0m[91mUpdating files:  30% (706/2352)[0m[91mUpdating files:  31% (730/2352)[0m[91mUpdating files:  32% (753/2352)[0m[91mUpdating files:  33% (777/2352)[0m[91mUpdating files:  34% (800/2352)[0m[91mUpdating files:  35% (824/2352)[0m[91mUpdating files:  36% (847/2352)[0m[91mUpdating files:  37% (871/2352)[0m[91mUpdating files:  38% (894/2352)[0m[91mUpdating files:  39% (918/2352)[0m[91mUpdating files:  40% (941/2352)[0m[91mUpdating files:  41% (965/2352)[0m[91mUpdating files:  42% (988/2352)[0m[91mUpdating files:  43% (1012/2352)[0m[91mUpdating files:  44% (1035/2352)[0m[91mUpdating files:  45% (1059/2352)[0m[91mUpdating files:  46% (1082/2352)[0m[91mUpdating files:  47% (1106/2352)[0m[91mUpdating files:  48% (1129/2352)[0m[91mUpdating files:  49% (1153/2352)[0m[91mUpdating files:  50% (1176/2352)[0m[91mUpdating files:  51% (1200/2352)[0m[91mUpdating files:  52% (1224/2352)[0m[91mUpdating files:  53% (1247/2352)[0m[91mUpdating files:  54% (1271/2352)[0m[91mUpdating files:  55% (1294/2352)[0m[91mUpdating files:  56% (1318/2352)[0m[91mUpdating files:  57% (1341/2352)[0m[91mUpdating files:  58% (1365/2352)[0m[91mUpdating files:  59% (1388/2352)[0m[91mUpdating files:  60% (1412/2352)[0m[91mUpdating files:  61% (1435/2352)[0m[91mUpdating files:  62% (1459/2352)[0m[91mUpdating files:  63% (1482/2352)[0m[91mUpdating files:  64% (1506/2352)[0m[91mUpdating files:  65% (1529/2352)[0m[91mUpdating files:  66% (1553/2352)[0m[91mUpdating files:  67% (1576/2352)[0m[91mUpdating files:  68% (1600/2352)[0m[91mUpdating files:  69% (1623/2352)[0m[91mUpdating files:  70% (1647/2352)[0m[91mUpdating files:  71% (1670/2352)[0m[91mUpdating files:  72% (1694/2352)[0m[91mUpdating files:  73% (1717/2352)[0m[91mUpdating files:  74% (1741/2352)[0m[91mUpdating files:  75% (1764/2352)[0m[91mUpdating files:  76% (1788/2352)[0m[91mUpdating files:  77% (1812/2352)[0m[91mUpdating files:  78% (1835/2352)[0m[91mUpdating files:  79% (1859/2352)[0m[91mUpdating files:  80% (1882/2352)[0m[91mUpdating files:  81% (1906/2352)[0m[91mUpdating files:  82% (1929/2352)[0m[91mUpdating files:  83% (1953/2352)[0m[91mUpdating files:  84% (1976/2352)[0m[91mUpdating files:  85% (2000/2352)[0m[91mUpdating files:  86% (2023/2352)[0m[91mUpdating files:  87% (2047/2352)[0m[91mUpdating files:  88% (2070/2352)[0m[91mUpdating files:  89% (2094/2352)[0m[91mUpdating files:  90% (2117/2352)[0m[91mUpdating files:  91% (2141/2352)[0m[91mUpdating files:  92% (2164/2352)[0m[91mUpdating files:  93% (2188/2352)[0m[91mUpdating files:  94% (2211/2352)[0m[91mUpdating files:  95% (2235/2352)[0m[91mUpdating files:  96% (2258/2352)[0m[91mUpdating files:  97% (2282/2352)[0m[91mUpdating files:  98% (2305/2352)[0m[91mUpdating files:  99% (2329/2352)[0m[91mUpdating files: 100% (2352/2352)Updating files: 100% (2352/2352), done.
-[0m[91mHEAD is now at d681600f3 release: 8.0.7; update changelog
-[0m ---> Removed intermediate container 22cf7f8c2351
- ---> a9a60e424a60
-Step 9/11 : RUN bash /opt/env/setup.sh
- ---> Running in 63476ceb6a79
-Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
-Get:2 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
-Get:3 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1245 kB]
-Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
-Get:5 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1533 kB]
-Get:6 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [50.0 kB]
-Get:7 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1801 kB]
-Get:8 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
-Get:9 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
-Get:10 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
-Get:11 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1808 kB]
-Get:12 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
-Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1580 kB]
-Get:14 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [56.2 kB]
-Get:15 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1960 kB]
-Get:16 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2149 kB]
-Get:17 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [78.5 kB]
-Get:18 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [40.4 kB]
-Get:19 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [671 B]
-Fetched 32.7 MB in 3s (12.0 MB/s)
-Reading package lists...
-Reading package lists...
-Building dependency tree...
-Reading state information...
-Package python3-distutils is not available, but is referred to by another package.
-This may mean that the package is missing, has been obsoleted, or
-is only available from another source
-
-[91mE: Package 'python3-distutils' has no installation candidate
-[0mHit:1 http://security.ubuntu.com/ubuntu noble-security InRelease
-Hit:2 http://archive.ubuntu.com/ubuntu noble InRelease
-Hit:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease
-Hit:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease
-Reading package lists...
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following additional packages will be installed:
-  libpython3-stdlib libpython3.12-minimal libpython3.12-stdlib libreadline8t64
-  libsqlite3-0 media-types netbase python3 python3-minimal
-  python3-pkg-resources python3.12 python3.12-minimal readline-common tzdata
-Suggested packages:
-  python3-doc python3-tk python3-venv python-setuptools-doc python3.12-venv
-  python3.12-doc binutils binfmt-support readline-doc
-The following NEW packages will be installed:
-  libpython3-stdlib libpython3.12-minimal libpython3.12-stdlib libreadline8t64
-  libsqlite3-0 media-types netbase python3 python3-minimal
-  python3-pkg-resources python3-setuptools python3.12 python3.12-minimal
-  readline-common tzdata
-0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
-Need to get 7751 kB of archives.
-After this operation, 30.6 MB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpython3.12-minimal amd64 3.12.3-1ubuntu0.17 [839 kB]
-Get:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3.12-minimal amd64 3.12.3-1ubuntu0.17 [2335 kB]
-Get:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3-minimal amd64 3.12.3-0ubuntu2.1 [27.4 kB]
-Get:4 http://archive.ubuntu.com/ubuntu noble/main amd64 media-types all 10.1.0 [27.5 kB]
-Get:5 http://archive.ubuntu.com/ubuntu noble/main amd64 netbase all 6.4 [13.1 kB]
-Get:6 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 tzdata all 2026c-0ubuntu0.24.04.1 [280 kB]
-Get:7 http://archive.ubuntu.com/ubuntu noble/main amd64 readline-common all 8.2-4build1 [56.5 kB]
-Get:8 http://archive.ubuntu.com/ubuntu noble/main amd64 libreadline8t64 amd64 8.2-4build1 [153 kB]
-Get:9 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libsqlite3-0 amd64 3.45.1-1ubuntu2.8 [702 kB]
-Get:10 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpython3.12-stdlib amd64 3.12.3-1ubuntu0.17 [2071 kB]
-Get:11 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3.12 amd64 3.12.3-1ubuntu0.17 [651 kB]
-Get:12 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpython3-stdlib amd64 3.12.3-0ubuntu2.1 [10.1 kB]
-Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3 amd64 3.12.3-0ubuntu2.1 [23.0 kB]
-Get:14 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3-pkg-resources all 68.1.2-2ubuntu1.2 [168 kB]
-Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3-setuptools all 68.1.2-2ubuntu1.2 [397 kB]
-Fetched 7751 kB in 1s (5684 kB/s)
-Selecting previously unselected package libpython3.12-minimal:amd64.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8057 files and directories currently installed.)
-Preparing to unpack .../libpython3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb ...
-Unpacking libpython3.12-minimal:amd64 (3.12.3-1ubuntu0.17) ...
-Selecting previously unselected package python3.12-minimal.
-Preparing to unpack .../python3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb ...
-Unpacking python3.12-minimal (3.12.3-1ubuntu0.17) ...
-Setting up libpython3.12-minimal:amd64 (3.12.3-1ubuntu0.17) ...
-Setting up python3.12-minimal (3.12.3-1ubuntu0.17) ...
-Selecting previously unselected package python3-minimal.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8368 files and directories currently installed.)
-Preparing to unpack .../0-python3-minimal_3.12.3-0ubuntu2.1_amd64.deb ...
-Unpacking python3-minimal (3.12.3-0ubuntu2.1) ...
-Selecting previously unselected package media-types.
-Preparing to unpack .../1-media-types_10.1.0_all.deb ...
-Unpacking media-types (10.1.0) ...
-Selecting previously unselected package netbase.
-Preparing to unpack .../2-netbase_6.4_all.deb ...
-Unpacking netbase (6.4) ...
-Selecting previously unselected package tzdata.
-Preparing to unpack .../3-tzdata_2026c-0ubuntu0.24.04.1_all.deb ...
-Unpacking tzdata (2026c-0ubuntu0.24.04.1) ...
-Selecting previously unselected package readline-common.
-Preparing to unpack .../4-readline-common_8.2-4build1_all.deb ...
-Unpacking readline-common (8.2-4build1) ...
-Selecting previously unselected package libreadline8t64:amd64.
-Preparing to unpack .../5-libreadline8t64_8.2-4build1_amd64.deb ...
-Adding 'diversion of /lib/x86_64-linux-gnu/libhistory.so.8 to /lib/x86_64-linux-gnu/libhistory.so.8.usr-is-merged by libreadline8t64'
-Adding 'diversion of /lib/x86_64-linux-gnu/libhistory.so.8.2 to /lib/x86_64-linux-gnu/libhistory.so.8.2.usr-is-merged by libreadline8t64'
-Adding 'diversion of /lib/x86_64-linux-gnu/libreadline.so.8 to /lib/x86_64-linux-gnu/libreadline.so.8.usr-is-merged by libreadline8t64'
-Adding 'diversion of /lib/x86_64-linux-gnu/libreadline.so.8.2 to /lib/x86_64-linux-gnu/libreadline.so.8.2.usr-is-merged by libreadline8t64'
-Unpacking libreadline8t64:amd64 (8.2-4build1) ...
-Selecting previously unselected package libsqlite3-0:amd64.
-Preparing to unpack .../6-libsqlite3-0_3.45.1-1ubuntu2.8_amd64.deb ...
-Unpacking libsqlite3-0:amd64 (3.45.1-1ubuntu2.8) ...
-Selecting previously unselected package libpython3.12-stdlib:amd64.
-Preparing to unpack .../7-libpython3.12-stdlib_3.12.3-1ubuntu0.17_amd64.deb ...
-Unpacking libpython3.12-stdlib:amd64 (3.12.3-1ubuntu0.17) ...
-Selecting previously unselected package python3.12.
-Preparing to unpack .../8-python3.12_3.12.3-1ubuntu0.17_amd64.deb ...
-Unpacking python3.12 (3.12.3-1ubuntu0.17) ...
-Selecting previously unselected package libpython3-stdlib:amd64.
-Preparing to unpack .../9-libpython3-stdlib_3.12.3-0ubuntu2.1_amd64.deb ...
-Unpacking libpython3-stdlib:amd64 (3.12.3-0ubuntu2.1) ...
-Setting up python3-minimal (3.12.3-0ubuntu2.1) ...
-Selecting previously unselected package python3.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 9374 files and directories currently installed.)
-Preparing to unpack .../python3_3.12.3-0ubuntu2.1_amd64.deb ...
-Unpacking python3 (3.12.3-0ubuntu2.1) ...
-Selecting previously unselected package python3-pkg-resources.
-Preparing to unpack .../python3-pkg-resources_68.1.2-2ubuntu1.2_all.deb ...
-Unpacking python3-pkg-resources (68.1.2-2ubuntu1.2) ...
-Selecting previously unselected package python3-setuptools.
-Preparing to unpack .../python3-setuptools_68.1.2-2ubuntu1.2_all.deb ...
-Unpacking python3-setuptools (68.1.2-2ubuntu1.2) ...
-Setting up media-types (10.1.0) ...
-Setting up libsqlite3-0:amd64 (3.45.1-1ubuntu2.8) ...
-Setting up tzdata (2026c-0ubuntu0.24.04.1) ...
-
-Current default time zone: 'Etc/UTC'
-Local time is now:      Sat Sep 19 10:20:34 UTC 2026.
-Universal Time is now:  Sat Sep 19 10:20:34 UTC 2026.
-Run 'dpkg-reconfigure tzdata' if you wish to change it.
-
-Setting up netbase (6.4) ...
-Setting up readline-common (8.2-4build1) ...
-Setting up libreadline8t64:amd64 (8.2-4build1) ...
-Setting up libpython3.12-stdlib:amd64 (3.12.3-1ubuntu0.17) ...
-Setting up python3.12 (3.12.3-1ubuntu0.17) ...
-Setting up libpython3-stdlib:amd64 (3.12.3-0ubuntu2.1) ...
-Setting up python3 (3.12.3-0ubuntu2.1) ...
-Setting up python3-pkg-resources (68.1.2-2ubuntu1.2) ...
-Setting up python3-setuptools (68.1.2-2ubuntu1.2) ...
-Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
-[91minfo: downloading installer
-[0m[91minfo: profile set to minimal
-info: default host tuple is x86_64-unknown-linux-gnu
-[0m[91minfo: syncing channel updates for 1.98.0-x86_64-unknown-linux-gnu
-[0m[91minfo: latest update on 2026-08-20 for version 1.98.0 (88d9e12ae 2026-08-18)
-info: downloading 3 components
-[0m[91minfo: default toolchain set to 1.98.0-x86_64-unknown-linux-gnu
-[0m
-  1.98.0-x86_64-unknown-linux-gnu installed - rustc 1.98.0 (88d9e12ae 2026-08-18)
-
-
-Rust is installed now. Great!
-
-To get started you may need to restart your current shell.
-This would reload your PATH environment variable to include
-Cargo's bin directory (/opt/cargo/bin).
-
-To configure your current shell, you need to source the
-corresponding env file under /opt/cargo.
-
-Consider running the right command for your shell (note the leading DOT):
-. "/opt/cargo/env" # For sh/ash/dash/pdksh/bash
-cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
-CC_x86_64-unknown-linux-gnu = None
-cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
-CC_x86_64_unknown_linux_gnu = None
-cargo:rerun-if-env-changed=HOST_CC
-HOST_CC = None
-cargo:rerun-if-env-changed=CC
-CC = None
-cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
-cargo:warning=Compiler family detection failed due to error: ToolNotFound: failed to find tool "cc": No such file or directory (os error 2)
-cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
-CRATE_CC_NO_DEFAULTS = None
-cargo:rerun-if-env-changed=CFLAGS
-CFLAGS = None
-cargo:rerun-if-env-changed=HOST_CFLAGS
-HOST_CFLAGS = None
-cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
-CFLAGS_x86_64_unknown_linux_gnu = None
-cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
-CFLAGS_x86_64-unknown-linux-gnu = None
-[91mwarn: no default linker (`cc`) was found in your PATH
-warn: many Rust crates require a system C toolchain to build
-[0m[91minfo: using existing install for 1.98.0-x86_64-unknown-linux-gnu
-[0m
-[91minfo: default toolchain set to 1.98.0-x86_64-unknown-linux-gnu
-[0m  1.98.0-x86_64-unknown-linux-gnu unchanged - rustc 1.98.0 (88d9e12ae 2026-08-18)
-
-rustc 1.98.0 (88d9e12ae 2026-08-18)
-cargo 1.98.0 (797e8a9bc 2026-08-05)
-[91m    Updating crates.io index
-[0m[91m Downloading crates ...
-[0m[91m  Downloaded cbindgen v0.27.0
-[0m[91m  Installing cbindgen v0.27.0
-[0m[91m    Updating crates.io index
-[0m[91m    Updating crates.io index
-[0m[91m Downloading crates ...
-[0m[91m  Downloaded anstream v0.6.15
-[0m[91m  Downloaded anstyle-parse v0.2.5
-[0m[91m  Downloaded cfg-if v1.0.0
-[0m[91m  Downloaded anstyle-query v1.1.1
-[0m[91m  Downloaded colorchoice v1.0.2
-[0m[91m  Downloaded anstyle v1.0.8
-[0m[91m  Downloaded bitflags v2.6.0
-[0m[91m  Downloaded errno v0.3.9
-[0m[91m  Downloaded equivalent v1.0.1
-[0m[91m  Downloaded clap v4.5.15
-[0m[91m  Downloaded clap_builder v4.5.15
-[0m[91m  Downloaded heck v0.4.1
-[0m[91m  Downloaded hashbrown v0.14.5
-[0m[91m  Downloaded is_terminal_polyfill v1.70.1
-[0m[91m  Downloaded log v0.4.22
-[0m[91m  Downloaded itoa v1.0.11
-[0m[91m  Downloaded fastrand v2.1.0
-[0m[91m  Downloaded clap_lex v0.7.2
-[0m[91m  Downloaded indexmap v2.3.0
-[0m[91m  Downloaded memchr v2.7.4
-[0m[91m  Downloaded strsim v0.11.1
-[0m[91m  Downloaded quote v1.0.36
-[0m[91m  Downloaded serde_spanned v0.6.7
-[0m[91m  Downloaded serde v1.0.205
-[0m[91m  Downloaded once_cell v1.19.0
-[0m[91m  Downloaded proc-macro2 v1.0.86
-[0m[91m  Downloaded ryu v1.0.18
-[0m[91m  Downloaded toml_edit v0.22.20
-[0m[91m  Downloaded utf8parse v0.2.2
-[0m[91m  Downloaded toml_datetime v0.6.8
-[0m[91m  Downloaded tempfile v3.12.0
-[0m[91m  Downloaded unicode-ident v1.0.12
-[0m[91m  Downloaded serde_derive v1.0.205
-[0m[91m  Downloaded toml v0.8.19
-[0m[91m  Downloaded syn v2.0.72
-[0m[91m  Downloaded serde_json v1.0.122
-[0m[91m  Downloaded winnow v0.6.18
-[0m[91m  Downloaded rustix v0.38.34
-[0m[91m  Downloaded libc v0.2.155
-[0m[91m  Downloaded linux-raw-sys v0.4.14
-[0m[91m   Compiling proc-macro2 v1.0.86
-[0m[91m   Compiling unicode-ident v1.0.12
-[0m[91m   Compiling serde v1.0.205
-[0m[91m   Compiling utf8parse v0.2.2
-[0m[91m   Compiling anstyle-query v1.1.1
-[0m[91m   Compiling equivalent v1.0.1
-[0m[91m   Compiling rustix v0.38.34
-[0m[91m   Compiling anstyle v1.0.8
-[0m[91m   Compiling hashbrown v0.14.5
-[0m[91m   Compiling is_terminal_polyfill v1.70.1
-   Compiling colorchoice v1.0.2
-   Compiling serde_json v1.0.122
-[0m[91m   Compiling clap_lex v0.7.2
-[0m[91m   Compiling strsim v0.11.1
-[0m[91m   Compiling bitflags v2.6.0
-[0m[91m   Compiling winnow v0.6.18
-[0m[91m   Compiling linux-raw-sys v0.4.14
-[0m[91m   Compiling fastrand v2.1.0
-[0m[91m   Compiling cbindgen v0.27.0
-[0m[91m   Compiling once_cell v1.19.0
-[0m[91m   Compiling itoa v1.0.11
-[0m[91m   Compiling ryu v1.0.18
-[0m[91m   Compiling memchr v2.7.4
-[0m[91m   Compiling cfg-if v1.0.0
-[0m[91m   Compiling log v0.4.22
-[0m[91m   Compiling heck v0.4.1
-[0m[91m   Compiling anstyle-parse v0.2.5
-[0m[91merror: linker `cc` not found
-  |
-  = note: No such file or directory (os error 2)
-
-[0m[91merror: could not compile `serde_json` (build script) due to 1 previous error
-warning: build failed, waiting for other jobs to finish...
-[0m[91merror: could not compile `serde` (build script) due to 1 previous error
-[0m[91merror: could not compile `proc-macro2` (build script) due to 1 previous error
-[0m[91merror: could not compile `rustix` (build script) due to 1 previous error
-[0m[91merror: could not compile `cbindgen` (build script) due to 1 previous error
-[0m[91merror: failed to compile `cbindgen v0.27.0`, intermediate artifacts can be found at `/tmp/cargo-installq7xVZL`.
-To reuse those artifacts with a future compilation, set the environment variable `CARGO_BUILD_BUILD_DIR` to that path.
-[0mThe command '/bin/sh -c bash /opt/env/setup.sh' returned a non-zero code: 101
-BUILD_EXIT=101 BUILD_SECONDS=47
-[0m[91m   Compiling proc-macro2 v1.0.86
-[0m[91m   Compiling unicode-ident v1.0.12
-[0m[91m   Compiling serde v1.0.205
-[0m[91m   Compiling utf8parse v0.2.2
-[0m[91m   Compiling anstyle-query v1.1.1
-[0m[91m   Compiling equivalent v1.0.1
-[0m[91m   Compiling rustix v0.38.34
-[0m[91m   Compiling anstyle v1.0.8
-[0m[91m   Compiling hashbrown v0.14.5
-[0m[91m   Compiling is_terminal_polyfill v1.70.1
-   Compiling colorchoice v1.0.2
-   Compiling serde_json v1.0.122
-[0m[91m   Compiling clap_lex v0.7.2
-[0m[91m   Compiling strsim v0.11.1
-[0m[91m   Compiling bitflags v2.6.0
-[0m[91m   Compiling winnow v0.6.18
-[0m[91m   Compiling linux-raw-sys v0.4.14
-[0m[91m   Compiling fastrand v2.1.0
-[0m[91m   Compiling cbindgen v0.27.0
-[0m[91m   Compiling once_cell v1.19.0
-[0m[91m   Compiling itoa v1.0.11
-[0m[91m   Compiling ryu v1.0.18
-[0m[91m   Compiling memchr v2.7.4
-[0m[91m   Compiling cfg-if v1.0.0
-[0m[91m   Compiling log v0.4.22
-[0m[91m   Compiling heck v0.4.1
-[0m[91m   Compiling anstyle-parse v0.2.5
-[0m[91merror: linker `cc` not found
-  |
-  = note: No such file or directory (os error 2)
-
-[0m[91merror: could not compile `serde_json` (build script) due to 1 previous error
-warning: build failed, waiting for other jobs to finish...
-[0m[91merror: could not compile `serde` (build script) due to 1 previous error
-[0m[91merror: could not compile `proc-macro2` (build script) due to 1 previous error
-[0m[91merror: could not compile `rustix` (build script) due to 1 previous error
-[0m[91merror: could not compile `cbindgen` (build script) due to 1 previous error
-[0m[91merror: failed to compile `cbindgen v0.27.0`, intermediate artifacts can be found at `/tmp/cargo-installq7xVZL`.
-To reuse those artifacts with a future compilation, set the environment variable `CARGO_BUILD_BUILD_DIR` to that path.
-[0mThe command '/bin/sh -c bash /opt/env/setup.sh' returned a non-zero code: 101

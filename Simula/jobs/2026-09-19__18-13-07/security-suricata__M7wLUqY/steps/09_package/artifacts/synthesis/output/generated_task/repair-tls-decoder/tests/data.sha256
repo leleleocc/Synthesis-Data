@@ -1,5 +1,0 @@
-b9c3c8283cd558fd19cf534ded2ab004c35e111b8d0ae9095bb8e32c8e51e665  tls-session.pcap
-ec4837816f040a21b87d570669f323a2fcae95fd2fe03b8a8d2de3b2bbf63eb7  tls-events.rules.golden
-87881c9f2bb48b7df6dfba6a17b53690dcfc66bff4f990825fa115ce90b02f38  decoder-events.rules.golden
-f78b17cf902f48d9489dbd5079a32275a73d315ef867000bf78770e56065acf5  app-layer-ssl.c.pristine
-8745e05fc9f26c86e4af83d13a096078280f69a135743d5816ac0e3d00f487f9  app-layer-ssl.h.pristine
