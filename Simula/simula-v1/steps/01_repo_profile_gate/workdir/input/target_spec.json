@@ -1,0 +1,32 @@
+{
+  "source_repo": {
+    "url": "https://github.com/redis/redis",
+    "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "target": {
+    "languages": [
+      "c"
+    ],
+    "domains": [
+      "software"
+    ],
+    "subdomains": [
+      "systems"
+    ],
+    "tags": [
+      "cli",
+      "redis"
+    ],
+    "difficulty": "hard",
+    "oracle_types": [
+      "result",
+      "state",
+      "behavior"
+    ]
+  },
+  "generation": {
+    "allow_external_assets": false,
+    "max_candidates": 3,
+    "min_repo_score": 0.2
+  }
+}

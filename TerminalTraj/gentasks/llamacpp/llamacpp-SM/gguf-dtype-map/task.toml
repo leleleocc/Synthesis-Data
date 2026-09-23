@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/gguf-dtype-map"
+description = "Extract Hugging Face to GGUF dtype maps while keeping BPE vocab tensors valid under ternary file types."
+authors = [{ name = "terminaltraj" }]
+keywords = ["ml", "inference", "kernels", "quantization", "llm", "python3", "gguf", "bpe"]
+
+[metadata]
+candidate_id = "c3"
+package_slug = "gguf-dtype-map"
+difficulty = "hard"
+category = "ML"
+subcategory = "Inference"
+tags = ["quantization", "inference", "llm"]
+domains = ["ml", "software"]
+subdomains = ["inference", "kernels"]
+languages = ["cpp", "python"]
+oracle_types = ["result", "state"]
+expert_time_estimate_min = 240
+junior_time_estimate_min = 480
+
+[agent]
+timeout_sec = 14400
+
+[verifier]
+timeout_sec = 180
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

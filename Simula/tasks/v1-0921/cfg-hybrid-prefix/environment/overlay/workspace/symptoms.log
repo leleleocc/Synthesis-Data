@@ -1,0 +1,9 @@
+prefix_match_unit=24 with hybrid groups block_size=[16, 32]: coordinator constructed
+  expected: Invalid prefix_match_unit=24; prefix-cacheable KV cache group
+  block sizes must be divisible by prefix_match_unit
+VLLM_KV_CACHE_LAYOUT=LHBNC with mixed HNC specs: layout accepted
+  expected: Specs with mixed HNC shapes need a block-compact layout
+NHD requested: Unknown KV cache layout 'NHD'
+  expected alias NHD -> LBNHC; HND -> LBHNC
+legal unit=16 groups=[16, 32] layout=LBNHC: HybridKVCacheCoordinator never reached
+  because hash granularity and layout are not jointly valid

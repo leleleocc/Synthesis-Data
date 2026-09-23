@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/tls-jemalloc-prefix"
+description = "Build Redis 7.2 with built-in OpenSSL TLS and jemalloc and install the binaries under PREFIX=/opt/redis72."
+authors = [{ name = "terminaltraj" }]
+keywords = ["software", "systems", "redis", "build", "makefile", "tls", "jemalloc"]
+
+[metadata]
+candidate_id = "c5"
+package_slug = "tls-jemalloc-prefix"
+difficulty = "hard"
+category = "Software"
+subcategory = "Systems"
+tags = ["build", "build-system", "makefile", "redis", "linux"]
+domains = ["software"]
+subdomains = ["systems", "databases"]
+languages = ["c", "shell"]
+oracle_types = ["result", "state", "behavior"]
+expert_time_estimate_min = 240
+junior_time_estimate_min = 480
+
+[agent]
+timeout_sec = 14400
+
+[verifier]
+timeout_sec = 180
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

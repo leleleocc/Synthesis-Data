@@ -1,0 +1,33 @@
+version = "1.0"
+
+[task]
+name = "vllm/serving-prefix-fault"
+description = "Restore OpenAI-compatible prefix-cache fingerprints together with tokenizer replica offsets so shared-prefix chat queries stay aligned on the true token-id window."
+
+[metadata]
+difficulty = "hard"
+category = "ML"
+subcategory = "Inference"
+tags = ["llm", "serving", "api", "tokenization", "huggingface"]
+expert_time_estimate_min = 180
+junior_time_estimate_min = 360
+
+[environment]
+build_timeout_sec = 600
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+gpus = 1
+gpu_types = ["H100"]
+network_mode = "public"
+allowed_hosts = []
+
+[agent]
+timeout_sec = 7200
+network_mode = "public"
+allowed_hosts = []
+
+[verifier]
+timeout_sec = 600
+network_mode = "no-network"
+allowed_hosts = []

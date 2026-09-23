@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/host-os-policy"
+description = "Stand up Suricata host-OS policy lookup and CIDR helpers as a CLI plus a resolved policy table."
+authors = [{ name = "terminaltraj" }]
+keywords = ["host-os-policy", "cidr", "suricata", "tcp", "configuration"]
+
+[metadata]
+candidate_id = "c6"
+package_slug = "host-os-policy"
+difficulty = "hard"
+category = "Software"
+subcategory = "Systems"
+tags = ["configuration", "networking", "tcp", "linux", "troubleshooting", "repair"]
+domains = ["security", "software"]
+subdomains = ["systems", "network-security"]
+languages = ["c", "python", "shell"]
+oracle_types = ["result", "state", "behavior"]
+expert_time_estimate_min = 250
+junior_time_estimate_min = 500
+
+[agent]
+timeout_sec = 15000
+
+[verifier]
+timeout_sec = 360
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

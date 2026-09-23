@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/jemalloc-libc-builds"
+description = "Ship jemalloc and libc Redis builds side by side and enable activedefrag only on the jemalloc instance."
+keywords = ["software", "systems", "redis", "jemalloc", "makefile", "memory-management", "build"]
+authors = [{ name = "terminaltraj" }]
+
+[metadata]
+candidate_id = "c6"
+package_slug = "jemalloc-libc-builds"
+difficulty = "hard"
+category = "Software"
+subcategory = "Systems"
+tags = ["build", "build-system", "makefile", "memory-management", "optimization", "redis"]
+domains = ["software"]
+subdomains = ["systems", "databases"]
+languages = ["c", "shell"]
+oracle_types = ["result", "state", "behavior"]
+expert_time_estimate_min = 240
+junior_time_estimate_min = 480
+
+[agent]
+timeout_sec = 14400.0
+
+[verifier]
+timeout_sec = 600.0
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

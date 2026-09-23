@@ -1,0 +1,12 @@
+Incident: CUDA workstation cmake cache reused on this CPU-only image.
+
+Last configure (failed):
+  cmake -S /app -B /app/build -G "Unix Makefiles" \
+    -DGGML_CUDA=ON \
+    -DGGML_CPU=OFF \
+    -DGGML_NATIVE=OFF \
+    -DCMAKE_CUDA_COMPILER=/usr/local/cuda/bin/nvcc \
+    -DCMAKE_CXX_COMPILER=/usr/local/cuda/bin/nvcc
+
+CMakeCache.txt and CMakeFiles/ are the leftover tree. nvcc is not installed here.
+Do not copy this cache into /app/build unchanged.

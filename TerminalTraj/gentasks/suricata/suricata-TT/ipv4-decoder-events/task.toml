@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/ipv4-decoder-events"
+description = "Classify raw IPv4 datagrams using this tree's decoder events, including option and ICMPv6-in-IPv4 cases."
+authors = [{ name = "terminaltraj" }]
+keywords = ["ipv4", "decoder-events", "suricata", "forensics", "parsing"]
+
+[metadata]
+candidate_id = "c5"
+package_slug = "ipv4-decoder-events"
+difficulty = "hard"
+category = "Security"
+subcategory = "Forensics"
+tags = ["networking", "protocol", "tcp", "network-forensics", "parsing", "troubleshooting"]
+domains = ["security", "software"]
+subdomains = ["network-security", "forensics"]
+languages = ["python", "c"]
+oracle_types = ["result", "behavior"]
+expert_time_estimate_min = 225
+junior_time_estimate_min = 450
+
+[agent]
+timeout_sec = 13500
+
+[verifier]
+timeout_sec = 300
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

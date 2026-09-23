@@ -1,0 +1,37 @@
+# Harbor local job configuration.
+#
+# Before running, export the credentials used below and replace model_name with
+# the model id exposed by your Anthropic-compatible endpoint:
+#
+#   export DAYTONA_API_KEY=...
+#   export ANTHROPIC_BASE_URL=https://your-endpoint.example/v1
+#   export ANTHROPIC_AUTH_TOKEN=...
+
+job_name: synthesis-data-glm
+jobs_dir: jobs
+n_attempts: 4
+n_concurrent_trials: 64
+
+environment:
+  # Change to docker for a local Docker daemon.
+  type: daytona
+  delete: true
+  override_cpus: 4
+  override_memory_mb: 8192
+  override_storage_mb: 10240
+
+agents:
+  - name: claude-code
+    # Harbor passes model_name directly; replace this with your model id.
+    model_name: glm-5.3
+    env:
+      ANTHROPIC_BASE_URL: "${ANTHROPIC_BASE_URL}"
+      ANTHROPIC_AUTH_TOKEN: "${ANTHROPIC_AUTH_TOKEN}"
+
+datasets:
+  - path: tasks/llamacpp/llamacpp-SM
+  - path: tasks/llamacpp/llamacpp-TT
+  - path: tasks/redis/redis-SM
+  - path: tasks/redis/redis-TT
+  - path: tasks/suricata/suricata-SM
+  - path: tasks/suricata/suricata-TT

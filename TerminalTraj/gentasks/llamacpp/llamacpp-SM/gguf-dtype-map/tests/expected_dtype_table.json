@@ -1,0 +1,362 @@
+[
+  {
+    "ftype": "ALL_F32",
+    "tensor": "token_embd.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "ALL_F32",
+    "tensor": "per_layer_token_embd.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "ALL_F32",
+    "tensor": "output.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "ALL_F32",
+    "tensor": "output.bias",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "ALL_F32",
+    "tensor": "blk.0.attn_q.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "ALL_F32",
+    "tensor": "blk.0.attn_norm.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "ALL_F32",
+    "tensor": "blk.0.ffn_gate_inp.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "ALL_F32",
+    "tensor": "blk.0.ffn_down.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "ALL_F32",
+    "tensor": "blk.0.attn_q.lora_a",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "ALL_F32",
+    "tensor": "tokenizer.ggml.tokens",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "ALL_F32",
+    "tensor": "tokenizer.ggml.merges",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "ALL_F32",
+    "tensor": "tokenizer.ggml.token_type",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "token_embd.weight",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "per_layer_token_embd.weight",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "output.weight",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "output.bias",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "blk.0.attn_q.weight",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "blk.0.attn_norm.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "blk.0.ffn_gate_inp.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "blk.0.ffn_down.weight",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "blk.0.attn_q.lora_a",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "tokenizer.ggml.tokens",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "tokenizer.ggml.merges",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_F16",
+    "tensor": "tokenizer.ggml.token_type",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "token_embd.weight",
+    "ggml_type": "BF16"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "per_layer_token_embd.weight",
+    "ggml_type": "BF16"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "output.weight",
+    "ggml_type": "BF16"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "output.bias",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "blk.0.attn_q.weight",
+    "ggml_type": "BF16"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "blk.0.attn_norm.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "blk.0.ffn_gate_inp.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "blk.0.ffn_down.weight",
+    "ggml_type": "BF16"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "blk.0.attn_q.lora_a",
+    "ggml_type": "BF16"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "tokenizer.ggml.tokens",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "tokenizer.ggml.merges",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_BF16",
+    "tensor": "tokenizer.ggml.token_type",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "token_embd.weight",
+    "ggml_type": "Q8_0"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "per_layer_token_embd.weight",
+    "ggml_type": "Q8_0"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "output.weight",
+    "ggml_type": "Q8_0"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "output.bias",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "blk.0.attn_q.weight",
+    "ggml_type": "Q8_0"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "blk.0.attn_norm.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "blk.0.ffn_gate_inp.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "blk.0.ffn_down.weight",
+    "ggml_type": "Q8_0"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "blk.0.attn_q.lora_a",
+    "ggml_type": "Q8_0"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "tokenizer.ggml.tokens",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "tokenizer.ggml.merges",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_Q8_0",
+    "tensor": "tokenizer.ggml.token_type",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "token_embd.weight",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "per_layer_token_embd.weight",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "output.weight",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "output.bias",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "blk.0.attn_q.weight",
+    "ggml_type": "TQ1_0"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "blk.0.attn_norm.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "blk.0.ffn_gate_inp.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "blk.0.ffn_down.weight",
+    "ggml_type": "TQ1_0"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "blk.0.attn_q.lora_a",
+    "ggml_type": "TQ1_0"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "tokenizer.ggml.tokens",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "tokenizer.ggml.merges",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_TQ1_0",
+    "tensor": "tokenizer.ggml.token_type",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "token_embd.weight",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "per_layer_token_embd.weight",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "output.weight",
+    "ggml_type": "F16"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "output.bias",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "blk.0.attn_q.weight",
+    "ggml_type": "TQ2_0"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "blk.0.attn_norm.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "blk.0.ffn_gate_inp.weight",
+    "ggml_type": "F32"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "blk.0.ffn_down.weight",
+    "ggml_type": "TQ2_0"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "blk.0.attn_q.lora_a",
+    "ggml_type": "TQ2_0"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "tokenizer.ggml.tokens",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "tokenizer.ggml.merges",
+    "ggml_type": "NA"
+  },
+  {
+    "ftype": "MOSTLY_TQ2_0",
+    "tensor": "tokenizer.ggml.token_type",
+    "ggml_type": "NA"
+  }
+]

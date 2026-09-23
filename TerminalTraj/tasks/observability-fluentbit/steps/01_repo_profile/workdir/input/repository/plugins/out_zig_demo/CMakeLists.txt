@@ -1,1 +1,0 @@
-FLB_ZIG_PLUGIN(out_zig_demo "")

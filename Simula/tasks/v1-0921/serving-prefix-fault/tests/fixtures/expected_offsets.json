@@ -1,0 +1,6 @@
+{
+  "initial_incremental_detokenization_offset": 5,
+  "extra_tail": 2,
+  "hash_window_skip": 0,
+  "hash_must_include_extra_keys": true
+}

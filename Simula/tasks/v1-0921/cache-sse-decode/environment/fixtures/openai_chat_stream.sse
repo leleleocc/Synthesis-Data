@@ -1,0 +1,24 @@
+: keep-alive
+
+data: {"id":"chatcmpl-sse-roundtrip","object":"chat.completion.chunk","created":1700000000,"model":"local-replica","choices":[{"index":0,"delta":{"role":"assistant","content":""},"finish_reason":null}]}
+
+data: {"id":"chatcmpl-sse-roundtrip","object":"chat.completion.chunk","created":1700000000,"model":"local-replica","choices":[{"index":0,"delta":{"content":"<|im_start|>"},"finish_reason":null,"token_index":1,"is_special":true}]}
+
+data: {"id":"chatcmpl-sse-roundtrip","object":"chat.completion.chunk","created":1700000000,"model":"local-replica","choices":[{"index":0,"delta":{"content":"assistant"},"finish_reason":null,"token_index":2,"is_special":false}]}
+
+data: {"id":"chatcmpl-sse-roundtrip","object":"chat.completion.chunk","created":1700000000,"model":"local-replica","choices":[{"index":0,"delta":{"content":"<|im_sep|>"},"finish_reason":null,"token_index":3,"is_special":true}]}
+
+: keep-alive
+
+data: {"id":"chatcmpl-sse-roundtrip","object":"chat.completion.chunk","created":1700000000,"model":"local-replica","choices":[{"index":0,"delta":{"content":"Hello"},"finish_reason":null,"token_index":4,"is_special":false}]}
+
+data: {"id":"chatcmpl-sse-roundtrip","object":"chat.completion.chunk","created":1700000000,"model":"local-replica","choices":[{"index":0,"delta":{"content":" world"},"finish_reason":null,"token_index":5,"is_special":false}]}
+
+data: {"id":"chatcmpl-sse-roundtrip","object":"chat.completion.chunk","created":1700000000,"model":"local-replica","choices":[{"index":0,"delta":{"content":"<"},"finish_reason":null,"token_index":6,"is_special":false}]}
+
+data: {"id":"chatcmpl-sse-roundtrip","object":"chat.completion.chunk","created":1700000000,"model":"local-replica","choices":[{"index":0,"delta":{"content":"|im_end|>"},"finish_reason":null,"token_index":7,"is_special":true}]}
+
+data: {"id":"chatcmpl-sse-roundtrip","object":"chat.completion.chunk","created":1700000000,"model":"local-replica","choices":[{"index":0,"delta":{},"finish_reason":"stop","token_index":8,"is_special":false}]}
+
+data: [DONE]
+

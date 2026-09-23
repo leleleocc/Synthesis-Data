@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/replica-maxmemory-lru"
+description = "Run a Redis cache master/replica pair where the replica honors maxmemory LRU and the master requires a replica for writes."
+keywords = ["software", "systems", "redis", "caching", "replication", "memory-management", "configuration"]
+authors = [{ name = "terminaltraj" }]
+
+[metadata]
+candidate_id = "c4"
+package_slug = "replica-maxmemory-lru"
+difficulty = "hard"
+category = "Software"
+subcategory = "Systems"
+tags = ["configuration", "caching", "replication", "redis", "memory-management", "performance"]
+domains = ["software"]
+subdomains = ["systems", "databases"]
+languages = ["c", "shell"]
+oracle_types = ["result", "state", "behavior"]
+expert_time_estimate_min = 180
+junior_time_estimate_min = 360
+
+[agent]
+timeout_sec = 10800.0
+
+[verifier]
+timeout_sec = 600.0
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/migrate-yaml-config"
+description = "Migrate suricata.yaml.in placeholders into a concrete offline runtime configuration."
+authors = [{ name = "terminaltraj", email = "terminaltraj@example.com" }]
+keywords = ["security", "network-security", "configuration", "yaml", "pkg-config", "http", "tls", "suricata"]
+
+[metadata]
+candidate_id = "c4"
+package_slug = "migrate-yaml-config"
+difficulty = "hard"
+category = "Security"
+subcategory = "network-security"
+tags = ["protocol", "http", "tls", "alerting", "log-analysis"]
+domains = ["security", "software"]
+subdomains = ["network-security", "forensics"]
+languages = ["c", "python"]
+oracle_types = ["state", "result"]
+expert_time_estimate_min = 200
+junior_time_estimate_min = 400
+
+[agent]
+timeout_sec = 12000
+
+[verifier]
+timeout_sec = 300
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

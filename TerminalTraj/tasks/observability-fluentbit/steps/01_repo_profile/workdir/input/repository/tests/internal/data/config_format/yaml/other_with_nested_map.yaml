@@ -1,6 +1,0 @@
-service:
-    flush: 1
-
-custom_info:
-    nested:
-        key: value

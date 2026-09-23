@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/compile-commands"
+description = "Configure the x64-linux-gcc-release CMake preset and publish a Ninja compilation database for ggml-cpu and llama."
+authors = [{ name = "terminaltraj" }]
+keywords = ["ml", "systems", "kernels", "debugging", "repair", "cmake", "ninja", "compile-commands"]
+
+[metadata]
+candidate_id = "c2"
+package_slug = "compile-commands"
+difficulty = "hard"
+category = "Software"
+subcategory = "Systems"
+tags = ["debugging", "repair", "cmake"]
+domains = ["ml", "software"]
+subdomains = ["systems", "kernels"]
+languages = ["cpp", "c"]
+oracle_types = ["state", "behavior"]
+expert_time_estimate_min = 180
+junior_time_estimate_min = 360
+
+[agent]
+timeout_sec = 10800
+
+[verifier]
+timeout_sec = 300
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

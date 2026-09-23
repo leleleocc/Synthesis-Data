@@ -1,0 +1,33 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/gguf-repair"
+description = "Repair a rejected GGUF shard so ggml can load it, then emit an inventory and a GGUF audit CLI."
+authors = [{ name = "terminaltraj" }]
+keywords = ["software", "systems", "gguf", "repair", "cli", "cpp"]
+
+[metadata]
+difficulty = "hard"
+category = "Software"
+subcategory = "Systems"
+expert_time_estimate_min = 210
+junior_time_estimate_min = 420
+tags = ["repair", "debugging", "cli", "cpp", "configuration"]
+domains = ["ml", "software"]
+subdomains = ["systems", "inference"]
+languages = ["cpp", "c", "python"]
+oracle_types = ["result", "behavior"]
+
+[agent]
+timeout_sec = 12600
+
+[verifier]
+timeout_sec = 300
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 1800
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

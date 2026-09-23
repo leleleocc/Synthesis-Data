@@ -1,0 +1,33 @@
+# Project-scoped volumes give the factory and its Docker daemon identical
+# /synthesis paths for build contexts, bind mounts, and nested Harbor jobs.
+services:
+  main:
+    env_file:
+      - path: ./host.env
+      - path: ../.env
+        required: false
+    environment:
+      DOCKER_HOST: tcp://docker:2375
+      SIMULA_JOBS_DIR: /synthesis/jobs
+    depends_on:
+      docker:
+        condition: service_healthy
+    volumes:
+      - synthesis:/synthesis
+  docker:
+    image: docker:28.3.3-dind
+    privileged: true
+    environment:
+      DOCKER_TLS_CERTDIR: ""
+    command: ["dockerd", "--host=tcp://0.0.0.0:2375", "--host=unix:///var/run/docker.sock", "--tls=false"]
+    healthcheck:
+      test: ["CMD", "docker", "info"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+    volumes:
+      - synthesis:/synthesis
+      - docker-data:/var/lib/docker
+volumes:
+  synthesis:
+  docker-data:

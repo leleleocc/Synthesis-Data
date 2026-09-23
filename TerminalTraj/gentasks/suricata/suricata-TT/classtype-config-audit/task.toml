@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/classtype-config-audit"
+description = "Parse Suricata classification.config with engine line rules and report classtype usage across shipped rules."
+authors = [{ name = "terminaltraj" }]
+keywords = ["classification", "suricata", "configuration", "alerting", "rules"]
+
+[metadata]
+candidate_id = "c4"
+package_slug = "classtype-config-audit"
+difficulty = "hard"
+category = "Security"
+subcategory = "Systems"
+tags = ["configuration", "alerting", "log-analysis", "parsing", "cli", "network-security"]
+domains = ["security", "software"]
+subdomains = ["network-security", "systems"]
+languages = ["python", "shell"]
+oracle_types = ["result", "state"]
+expert_time_estimate_min = 180
+junior_time_estimate_min = 360
+
+[agent]
+timeout_sec = 10800
+
+[verifier]
+timeout_sec = 240
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

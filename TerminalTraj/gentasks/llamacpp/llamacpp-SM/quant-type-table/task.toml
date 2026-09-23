@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/quant-type-table"
+description = "Audit llama.cpp quantization ftypes into a CSV table and a ftype-to-ggml-type probe binary."
+authors = [{ name = "terminaltraj" }]
+keywords = ["ml", "inference", "kernels", "quantization", "llm", "g++", "llama-quant"]
+
+[metadata]
+candidate_id = "c4"
+package_slug = "quant-type-table"
+difficulty = "hard"
+category = "ML"
+subcategory = "Kernels"
+tags = ["quantization", "inference", "llm"]
+domains = ["ml", "software"]
+subdomains = ["inference", "kernels"]
+languages = ["cpp", "python"]
+oracle_types = ["result", "state"]
+expert_time_estimate_min = 200
+junior_time_estimate_min = 400
+
+[agent]
+timeout_sec = 12000
+
+[verifier]
+timeout_sec = 180
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

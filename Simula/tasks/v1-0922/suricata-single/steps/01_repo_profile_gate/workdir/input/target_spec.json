@@ -1,0 +1,71 @@
+{
+  "source_repo": {
+    "url": "https://github.com/OISF/suricata",
+    "commit": "9b7938aec3c66cf4b467d281069b913b586bdf8d"
+  },
+  "target": {
+    "languages": [
+      "c",
+      "python",
+      "shell"
+    ],
+    "domains": [
+      "security",
+      "software"
+    ],
+    "subdomains": [
+      "forensics",
+      "systems"
+    ],
+    "tags": [
+      "network-security",
+      "networking",
+      "protocol",
+      "tcp",
+      "dns",
+      "http",
+      "tls",
+      "log-analysis",
+      "alerting",
+      "configuration",
+      "cli",
+      "debugging",
+      "repair",
+      "build",
+      "linux",
+      "parsing",
+      "forensics",
+      "incident-response",
+      "testing",
+      "troubleshooting"
+    ],
+    "difficulty": "hard",
+    "oracle_types": [
+      "result",
+      "state",
+      "behavior"
+    ],
+    "deployment_dimensions": {
+      "container_mode": [
+        "single"
+      ],
+      "step_mode": [
+        "single"
+      ],
+      "verifier_mode": [
+        "inline"
+      ],
+      "gpu": [
+        "none"
+      ],
+      "mcp": [
+        "none"
+      ]
+    }
+  },
+  "generation": {
+    "allow_external_assets": false,
+    "max_candidates": 3,
+    "min_repo_score": 0.2
+  }
+}

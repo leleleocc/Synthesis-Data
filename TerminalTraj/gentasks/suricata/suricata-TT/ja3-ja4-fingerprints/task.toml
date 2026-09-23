@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/ja3-ja4-fingerprints"
+description = "Emit Suricata-compatible JA3 and JA4 fingerprints for a ClientHello corpus, plus a reusable probe script."
+authors = [{ name = "terminaltraj" }]
+keywords = ["ja3", "ja4", "tls", "suricata", "fingerprinting"]
+
+[metadata]
+candidate_id = "c2"
+package_slug = "ja3-ja4-fingerprints"
+difficulty = "hard"
+category = "Security"
+subcategory = "Forensics"
+tags = ["tls", "ssl", "protocol", "parsing", "network-security", "cli"]
+domains = ["security", "software"]
+subdomains = ["network-security", "forensics"]
+languages = ["python", "c"]
+oracle_types = ["result", "behavior"]
+expert_time_estimate_min = 240
+junior_time_estimate_min = 480
+
+[agent]
+timeout_sec = 14400
+
+[verifier]
+timeout_sec = 360
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

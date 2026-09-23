@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/sentinel-failover"
+description = "Reproduce a three-Sentinel quorum failover of cachemaster and leave the promoted master plus Sentinels running."
+authors = [{ name = "terminaltraj" }]
+keywords = ["software", "systems", "caching", "linux", "redis", "configuration", "cli", "sentinel"]
+
+[metadata]
+candidate_id = "c6"
+package_slug = "sentinel-failover"
+difficulty = "hard"
+category = "Software"
+subcategory = "Databases"
+tags = ["caching", "linux", "redis", "configuration", "cli"]
+domains = ["software"]
+subdomains = ["systems", "databases"]
+languages = ["c", "shell"]
+oracle_types = ["result", "state"]
+expert_time_estimate_min = 210
+junior_time_estimate_min = 420
+
+[agent]
+timeout_sec = 12600.0
+
+[verifier]
+timeout_sec = 600.0
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 1800.0
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

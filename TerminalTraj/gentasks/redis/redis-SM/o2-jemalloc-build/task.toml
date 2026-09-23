@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/o2-jemalloc-build"
+description = "Migrate Redis to -O2 with frame pointers while keeping the Linux jemalloc zmalloc invariant."
+keywords = ["software", "systems", "build", "makefile", "optimization", "jemalloc", "gcc"]
+authors = [{ name = "TerminalTraj Synthesis" }]
+
+[metadata]
+candidate_id = "c3"
+package_slug = "o2-jemalloc-build"
+difficulty = "hard"
+category = "Software"
+subcategory = "Systems"
+tags = ["build", "makefile", "optimization"]
+domains = ["software"]
+subdomains = ["systems", "databases"]
+languages = ["c", "shell"]
+oracle_types = ["result", "behavior"]
+expert_time_estimate_min = 240
+junior_time_estimate_min = 360
+
+[agent]
+timeout_sec = 14400
+
+[verifier]
+timeout_sec = 300
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

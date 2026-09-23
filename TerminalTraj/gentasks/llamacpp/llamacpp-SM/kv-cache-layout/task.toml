@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/kv-cache-layout"
+description = "Predict llama.cpp KV cache tensor shapes and ggml byte sizes across unified, MLA, and padded V layouts."
+authors = [{ name = "terminaltraj" }]
+keywords = ["ml", "inference", "systems", "memory-management", "tokenization", "profiling", "g++", "kv-cache"]
+
+[metadata]
+candidate_id = "c5"
+package_slug = "kv-cache-layout"
+difficulty = "hard"
+category = "ML"
+subcategory = "Inference"
+tags = ["memory-management", "tokenization", "profiling"]
+domains = ["ml", "software"]
+subdomains = ["inference", "systems"]
+languages = ["cpp", "shell"]
+oracle_types = ["result", "behavior"]
+expert_time_estimate_min = 210
+junior_time_estimate_min = 420
+
+[agent]
+timeout_sec = 12600
+
+[verifier]
+timeout_sec = 180
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

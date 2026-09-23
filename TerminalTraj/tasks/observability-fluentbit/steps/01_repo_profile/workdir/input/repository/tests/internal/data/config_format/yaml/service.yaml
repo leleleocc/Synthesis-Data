@@ -1,5 +1,0 @@
-env:
-    observability: calyptia
-
-includes:
-    - test/nested.yaml

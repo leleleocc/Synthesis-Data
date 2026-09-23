@@ -1,0 +1,11 @@
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/local/cuda/bin/nvcc
+Build flags:
+Id flags: --keep;--keep-dir;tmp
+
+The output was:
+No such file or directory
+ /usr/local/cuda/bin/nvcc
+
+ggml CUDA backend probe failed; GGML_CPU was forced OFF by the workstation cache.
+GGML_CPU_ALL_VARIANTS=ON requires GGML_BACKEND_DL and is not valid without a CUDA toolkit.

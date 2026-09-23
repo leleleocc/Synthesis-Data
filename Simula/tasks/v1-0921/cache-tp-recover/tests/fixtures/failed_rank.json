@@ -1,0 +1,5 @@
+{
+  "failed_rank": 1,
+  "pre_failure_world_size": 2,
+  "surviving_ranks": [0]
+}

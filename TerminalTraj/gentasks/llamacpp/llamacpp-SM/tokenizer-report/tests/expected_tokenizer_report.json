@@ -1,0 +1,385 @@
+{
+  "architecture": "llama",
+  "name": "llama-bpe",
+  "gguf_version": 3,
+  "n_tensors": 0,
+  "tokenizer_model": "gpt2",
+  "tokenizer_pre": "llama-bpe",
+  "vocab_size": 128256,
+  "n_merges": 280147,
+  "bos_token_id": 128000,
+  "eos_token_id": 128001,
+  "n_cases": 46,
+  "cases": [
+    {
+      "index": 0,
+      "input_bytes": 15,
+      "n_tokens": 6,
+      "first_token": 1142,
+      "last_token": 4038,
+      "token_sum": 32793
+    },
+    {
+      "index": 1,
+      "input_bytes": 6,
+      "n_tokens": 3,
+      "first_token": 88075,
+      "last_token": 301,
+      "token_sum": 104652
+    },
+    {
+      "index": 2,
+      "input_bytes": 0,
+      "n_tokens": 0,
+      "first_token": 0,
+      "last_token": 0,
+      "token_sum": 0
+    },
+    {
+      "index": 3,
+      "input_bytes": 1,
+      "n_tokens": 1,
+      "first_token": 220,
+      "last_token": 220,
+      "token_sum": 220
+    },
+    {
+      "index": 4,
+      "input_bytes": 2,
+      "n_tokens": 1,
+      "first_token": 256,
+      "last_token": 256,
+      "token_sum": 256
+    },
+    {
+      "index": 5,
+      "input_bytes": 3,
+      "n_tokens": 1,
+      "first_token": 262,
+      "last_token": 262,
+      "token_sum": 262
+    },
+    {
+      "index": 6,
+      "input_bytes": 1,
+      "n_tokens": 1,
+      "first_token": 197,
+      "last_token": 197,
+      "token_sum": 197
+    },
+    {
+      "index": 7,
+      "input_bytes": 1,
+      "n_tokens": 1,
+      "first_token": 198,
+      "last_token": 198,
+      "token_sum": 198
+    },
+    {
+      "index": 8,
+      "input_bytes": 2,
+      "n_tokens": 1,
+      "first_token": 271,
+      "last_token": 271,
+      "token_sum": 271
+    },
+    {
+      "index": 9,
+      "input_bytes": 3,
+      "n_tokens": 1,
+      "first_token": 1432,
+      "last_token": 1432,
+      "token_sum": 1432
+    },
+    {
+      "index": 10,
+      "input_bytes": 2,
+      "n_tokens": 1,
+      "first_token": 1602,
+      "last_token": 1602,
+      "token_sum": 1602
+    },
+    {
+      "index": 11,
+      "input_bytes": 11,
+      "n_tokens": 2,
+      "first_token": 9906,
+      "last_token": 1917,
+      "token_sum": 11823
+    },
+    {
+      "index": 12,
+      "input_bytes": 12,
+      "n_tokens": 2,
+      "first_token": 22691,
+      "last_token": 1917,
+      "token_sum": 24608
+    },
+    {
+      "index": 13,
+      "input_bytes": 11,
+      "n_tokens": 2,
+      "first_token": 9906,
+      "last_token": 4435,
+      "token_sum": 14341
+    },
+    {
+      "index": 14,
+      "input_bytes": 12,
+      "n_tokens": 2,
+      "first_token": 22691,
+      "last_token": 4435,
+      "token_sum": 27126
+    },
+    {
+      "index": 15,
+      "input_bytes": 13,
+      "n_tokens": 3,
+      "first_token": 22691,
+      "last_token": 0,
+      "token_sum": 27126
+    },
+    {
+      "index": 16,
+      "input_bytes": 13,
+      "n_tokens": 4,
+      "first_token": 9906,
+      "last_token": 0,
+      "token_sum": 11834
+    },
+    {
+      "index": 17,
+      "input_bytes": 14,
+      "n_tokens": 4,
+      "first_token": 22691,
+      "last_token": 0,
+      "token_sum": 24619
+    },
+    {
+      "index": 18,
+      "input_bytes": 17,
+      "n_tokens": 7,
+      "first_token": 420,
+      "last_token": 11055,
+      "token_sum": 23618
+    },
+    {
+      "index": 19,
+      "input_bytes": 18,
+      "n_tokens": 10,
+      "first_token": 86,
+      "last_token": 17156,
+      "token_sum": 101126
+    },
+    {
+      "index": 20,
+      "input_bytes": 32,
+      "n_tokens": 8,
+      "first_token": 79862,
+      "last_token": 80112,
+      "token_sum": 490047
+    },
+    {
+      "index": 21,
+      "input_bytes": 57,
+      "n_tokens": 34,
+      "first_token": 21549,
+      "last_token": 231,
+      "token_sum": 619449
+    },
+    {
+      "index": 22,
+      "input_bytes": 99,
+      "n_tokens": 29,
+      "first_token": 9468,
+      "last_token": 8,
+      "token_sum": 508425
+    },
+    {
+      "index": 23,
+      "input_bytes": 5,
+      "n_tokens": 1,
+      "first_token": 9906,
+      "last_token": 9906,
+      "token_sum": 9906
+    },
+    {
+      "index": 24,
+      "input_bytes": 6,
+      "n_tokens": 1,
+      "first_token": 22691,
+      "last_token": 22691,
+      "token_sum": 22691
+    },
+    {
+      "index": 25,
+      "input_bytes": 7,
+      "n_tokens": 2,
+      "first_token": 220,
+      "last_token": 22691,
+      "token_sum": 22911
+    },
+    {
+      "index": 26,
+      "input_bytes": 8,
+      "n_tokens": 2,
+      "first_token": 256,
+      "last_token": 22691,
+      "token_sum": 22947
+    },
+    {
+      "index": 27,
+      "input_bytes": 9,
+      "n_tokens": 2,
+      "first_token": 262,
+      "last_token": 22691,
+      "token_sum": 22953
+    },
+    {
+      "index": 28,
+      "input_bytes": 19,
+      "n_tokens": 5,
+      "first_token": 262,
+      "last_token": 22691,
+      "token_sum": 46104
+    },
+    {
+      "index": 29,
+      "input_bytes": 2,
+      "n_tokens": 1,
+      "first_token": 320,
+      "last_token": 320,
+      "token_sum": 320
+    },
+    {
+      "index": 30,
+      "input_bytes": 3,
+      "n_tokens": 2,
+      "first_token": 198,
+      "last_token": 284,
+      "token_sum": 482
+    },
+    {
+      "index": 31,
+      "input_bytes": 5,
+      "n_tokens": 2,
+      "first_token": 6,
+      "last_token": 11639,
+      "token_sum": 11645
+    },
+    {
+      "index": 32,
+      "input_bytes": 65,
+      "n_tokens": 21,
+      "first_token": 9906,
+      "last_token": 21909,
+      "token_sum": 477462
+    },
+    {
+      "index": 33,
+      "input_bytes": 6,
+      "n_tokens": 2,
+      "first_token": 17523,
+      "last_token": 3001,
+      "token_sum": 20524
+    },
+    {
+      "index": 34,
+      "input_bytes": 1,
+      "n_tokens": 1,
+      "first_token": 18,
+      "last_token": 18,
+      "token_sum": 18
+    },
+    {
+      "index": 35,
+      "input_bytes": 2,
+      "n_tokens": 1,
+      "first_token": 1644,
+      "last_token": 1644,
+      "token_sum": 1644
+    },
+    {
+      "index": 36,
+      "input_bytes": 3,
+      "n_tokens": 1,
+      "first_token": 8765,
+      "last_token": 8765,
+      "token_sum": 8765
+    },
+    {
+      "index": 37,
+      "input_bytes": 4,
+      "n_tokens": 2,
+      "first_token": 8765,
+      "last_token": 18,
+      "token_sum": 8783
+    },
+    {
+      "index": 38,
+      "input_bytes": 5,
+      "n_tokens": 2,
+      "first_token": 8765,
+      "last_token": 1644,
+      "token_sum": 10409
+    },
+    {
+      "index": 39,
+      "input_bytes": 6,
+      "n_tokens": 2,
+      "first_token": 8765,
+      "last_token": 8765,
+      "token_sum": 17530
+    },
+    {
+      "index": 40,
+      "input_bytes": 7,
+      "n_tokens": 3,
+      "first_token": 8765,
+      "last_token": 18,
+      "token_sum": 17548
+    },
+    {
+      "index": 41,
+      "input_bytes": 8,
+      "n_tokens": 3,
+      "first_token": 8765,
+      "last_token": 1644,
+      "token_sum": 19174
+    },
+    {
+      "index": 42,
+      "input_bytes": 9,
+      "n_tokens": 3,
+      "first_token": 8765,
+      "last_token": 8765,
+      "token_sum": 26295
+    },
+    {
+      "index": 43,
+      "input_bytes": 12,
+      "n_tokens": 3,
+      "first_token": 34,
+      "last_token": 101798,
+      "token_sum": 192995
+    },
+    {
+      "index": 44,
+      "input_bytes": 9,
+      "n_tokens": 2,
+      "first_token": 2624,
+      "last_token": 2402,
+      "token_sum": 5026
+    },
+    {
+      "index": 45,
+      "input_bytes": 431,
+      "n_tokens": 167,
+      "first_token": 198,
+      "last_token": 43,
+      "token_sum": 2680826
+    }
+  ],
+  "tokens_payload_bytes": 2099493,
+  "merges_payload_bytes": 5204765
+}

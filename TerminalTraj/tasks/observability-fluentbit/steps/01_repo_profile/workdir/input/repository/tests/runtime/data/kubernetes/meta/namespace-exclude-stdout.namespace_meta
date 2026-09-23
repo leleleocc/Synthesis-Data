@@ -1,8 +1,0 @@
-{
-    "metadata": {
-        "annotations": {
-            "fluentbit.io/exclude_stdout": "true"
-        },
-        "name": "namespace-exclude-stdout"
-    }
-}

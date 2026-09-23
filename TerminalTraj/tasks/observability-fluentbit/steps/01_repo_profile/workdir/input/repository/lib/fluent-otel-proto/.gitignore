@@ -1,6 +1,0 @@
-include/opentelemetry/*
-src/opentelemetry/*
-build/*
-include/*.in
-*sublime*
-

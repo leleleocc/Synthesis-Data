@@ -1,0 +1,33 @@
+schema_version = "1.1"
+version = "1.0"
+
+[task]
+name = "vllm/proto-logprobs-stream"
+description = "Restore ChatCompletionRequest guards for streaming prompt_logprobs and logprobs flags, and map echo plus merged stop_token_ids into SamplingParams."
+
+[metadata]
+difficulty = "hard"
+category = "ML"
+subcategory = "Inference"
+tags = ["serving", "http", "api"]
+expert_time_estimate_min = 200
+junior_time_estimate_min = 400
+
+[agent]
+timeout_sec = 7200.0
+network_mode = "public"
+allowed_hosts = []
+
+[verifier]
+timeout_sec = 600.0
+network_mode = "no-network"
+allowed_hosts = []
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+allowed_hosts = []
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+gpus = 0

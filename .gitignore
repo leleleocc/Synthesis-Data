@@ -13,3 +13,4 @@ Simula/jobs/redis_/*
 !Simula/jobs/redis_/job.log
 !Simula/jobs/redis_/lock.json
 !Simula/jobs/redis_/result.json
+runs/

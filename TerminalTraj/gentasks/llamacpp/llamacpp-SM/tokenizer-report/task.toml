@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "terminaltraj/tokenizer-report"
+description = "Reproduce a Llama BPE vocab fixture report from the GGUF tokenizer tables and test-tokenizer-0 case pairing."
+authors = [{ name = "terminaltraj" }]
+keywords = ["ml", "inference", "systems", "memory-management", "tokenization", "profiling", "python3", "gguf"]
+
+[metadata]
+candidate_id = "c6"
+package_slug = "tokenizer-report"
+difficulty = "hard"
+category = "ML"
+subcategory = "Inference"
+tags = ["memory-management", "tokenization", "profiling"]
+domains = ["ml", "software"]
+subdomains = ["inference", "systems"]
+languages = ["cpp", "shell"]
+oracle_types = ["result", "behavior"]
+expert_time_estimate_min = 180
+junior_time_estimate_min = 360
+
+[agent]
+timeout_sec = 10800
+
+[verifier]
+timeout_sec = 180
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

@@ -1,8 +1,0 @@
----
-pipeline:
-  inputs:
-    - name: http
-      success_header:
-        - foo bar
-        - bar foo
-        - foobar barfoo

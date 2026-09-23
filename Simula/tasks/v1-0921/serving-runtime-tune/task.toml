@@ -1,0 +1,33 @@
+version = "1.0"
+
+[task]
+name = "vllm/serving-runtime-tune"
+description = "Retune the non-root vLLM launcher so one live serve worker is both identity-dropped and held under the GPU memory watermark."
+
+[metadata]
+difficulty = "hard"
+category = "ML"
+subcategory = "Inference"
+tags = ["serving", "configuration", "cli", "llm"]
+expert_time_estimate_min = 200
+junior_time_estimate_min = 420
+
+[environment]
+build_timeout_sec = 600
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+gpus = 1
+gpu_types = ["H100"]
+network_mode = "public"
+allowed_hosts = []
+
+[agent]
+timeout_sec = 7200
+network_mode = "public"
+allowed_hosts = []
+
+[verifier]
+timeout_sec = 600
+network_mode = "no-network"
+allowed_hosts = []
