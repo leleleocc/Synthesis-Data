@@ -50,9 +50,9 @@ are design options, not a checklist every candidate must satisfy.
 - `hard`: the agent reconstructs a causal chain, reasons across a component
   boundary, or resolves a substantive constraint conflict. Both coupled
   constraints are load-bearing: a plausible local fix can leave a secondary
-  failure or break another invariant. The instruction provides observable
-  evidence; the agent discovers the repair locus and validates the joint
-  outcome.
+  failure or break another invariant. The instruction states the broken
+  outcome. The agent finds the evidence, the reproduction, and the repair
+  locus in the environment, then validates the joint outcome.
 - `ultra`: interacting hard parts share state. A naive fix to one changes the
   conditions of the other, so the agent must reason about their feedback and
   preserve a joint invariant across relevant operations or transitions.
@@ -81,9 +81,10 @@ Express both observable outcomes in the instruction so neither is optional.
 Confirm that the coupled behavior is present in the actual design and that
 the planned reasoning, rather than accidental setup friction, is necessary.
 
-Include real symptom logs, failing commands, reproduction conditions, and
-relevant operating constraints when they help define the problem. A log may
-naturally contain a path or error string; that is not a diagnosis. For hard
-and ultra, do not identify a file as the known defect site, reveal a planted
-fault, or prescribe a repair. Explain enough to make the task actionable
-without telling the solver which hypothesis is correct.
+State the broken outcome. Do not include a command, a path, or a reproduction
+procedure the agent can discover in the environment. A quoted log is allowed
+only for a symptom that stays invisible until the task is solved; a path or
+error string inside that log is not a reason to name the file or the command.
+For hard and ultra, do not identify a file as the known defect site, reveal a
+planted fault, or prescribe a repair. The task is actionable because the
+environment exhibits the failure, not because the instruction maps it.

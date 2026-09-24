@@ -33,6 +33,11 @@ identity in the package. TOML repairs must preserve the parsed candidate
 configuration apart from that name. Nop may require repairs to the assembled
 environment; the final copy gate allows these while preserving instructions,
 tests, steps, and task configuration. Preserve all slot deployment dimensions.
+An environment repair must stay self-contained: keep the candidate `FROM` line
+and the pinned source checkout. Do not retag a factory-local image or `FROM` a
+tag that exists only on this host (`suricata-base:02`, `synth-env`, or any
+other image a clean sandbox cannot pull). A nop pass against such a base is
+not a successful package.
 
 ## Nop
 
@@ -47,7 +52,10 @@ Packages whose actual `[environment].gpus > 0` add `-e daytona` and inherit
 image built and a no-op agent did not complete the task. Any exception,
 missing reward, or nonzero reward fails the package. Repair within the phase's
 ownership and rerun; phase 06 cannot repair an already-solved task by changing
-its instruction or tests. A missing GPU key is a failure, not a skipped
+its instruction or tests. A build failure is not fixed by deleting the source
+checkout or compile steps, or by basing the package on an image already built
+in this factory. Restore the self-contained Dockerfile and rebuild from the
+candidate base. A missing GPU key is a failure, not a skipped
 trial. Keep the key in the factory environment; do not copy `.env` into an
 image or package.
 

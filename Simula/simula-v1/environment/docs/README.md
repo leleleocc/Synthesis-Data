@@ -10,6 +10,7 @@ Copied into the factory image at `/opt/terminaltraj/docs/`:
 | File | Used for |
 | --- | --- |
 | `difficulty.md` | Shared difficulty bands for phase 03 planning and every phase 04 candidate subagent; advisory context for phase 07 |
+| `failure-mode.md` | Failure modes a phase 04 candidate may and may not cause |
 | `static-checks.md` | Named mechanical checks on the packaged task |
 | `task-implementation.toml` | Implementation rubric (`[[criteria]]`) |
 | `taxonomy.md` | `[metadata].category` / `subcategory` |

@@ -215,6 +215,7 @@ def check_phase04() -> None:
         "references/instruction.md",
         "references/environment.md",
         "docs/difficulty.md",
+        "docs/failure-mode.md",
         "deployment_dimensions",
         "instruction diversity",
         "Wait for every candidate subagent",
@@ -234,7 +235,7 @@ def check_phase04() -> None:
     for needle in ("Do not disclose", "root cause", "repair recipes"):
         if needle.lower() not in instruction_ref.lower():
             error(f"phase 04 instruction-quality reference missing {needle}")
-    for needle in ("Markdown headings", "Absolute input and output paths", "Terminal-Bench suffix"):
+    for needle in ("Markdown headings", "absolute path only for an artifact the agent must create", "Terminal-Bench suffix"):
         if needle.lower() not in format_ref.lower():
             error(f"phase 04 format reference missing {needle}")
     for needle in ("require_handoff 04_task_design", "check-design"):
@@ -357,7 +358,7 @@ def check_phase07() -> None:
     if "returns the candidate to phase 05" in instruction or "return the candidate to phase 05" in instruction:
         error("phase 07 must not bounce too-loose/too-strict repairs to phase 05")
     docs = ROOT / "environment" / "docs"
-    for name in ("static-checks.md", "task-implementation.toml", "taxonomy.md", "difficulty.md"):
+    for name in ("static-checks.md", "task-implementation.toml", "taxonomy.md", "difficulty.md", "failure-mode.md"):
         if not (docs / name).is_file():
             error(f"missing environment/docs/{name}")
     dockerfile = read(ROOT / "environment" / "Dockerfile")

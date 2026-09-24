@@ -1,8 +1,0 @@
-{
-  "keep_alive_comment": ": keep-alive\n\n",
-  "done_frame": "data: [DONE]\n\n",
-  "special_contents": ["<|im_start|>", "<|im_sep|>", "|im_end|>"],
-  "min_data_events": 8,
-  "offset": 5,
-  "extra_tail": 2
-}

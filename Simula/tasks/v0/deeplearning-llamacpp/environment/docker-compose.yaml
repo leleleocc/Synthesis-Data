@@ -1,7 +1,0 @@
-# Harbor merges this onto its base compose. The file's presence is what
-# switches Daytona from _DaytonaDirect to DinD (docker:28.3.3-dind).
-# Mount the host dockerd socket so step 03 can docker-build the sealed base.
-services:
-  main:
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock

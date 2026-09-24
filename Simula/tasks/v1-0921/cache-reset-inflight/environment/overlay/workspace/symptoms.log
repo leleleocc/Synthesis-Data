@@ -1,7 +1,0 @@
-# python3 /workspace/repro_cache_reset.py
-holders live: reset_prefix_cache returned True
-  inflight block_ids=[2, 4] ref_cnt=[1, 1]
-  hash map emptied while holders still own pages
-after free: reset_prefix_cache returned True
-  block.block_hash still set on previously cached pages
-post-reset shared prefix: get_computed_blocks hit_tokens=8 (stale pages reused)

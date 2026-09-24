@@ -49,6 +49,10 @@ agent和env必须都是public，verifier可以为no
 
 ### todo
 failure mode挖掘并融去产线
+
+- subagent试运行，让主agent看思路，agent in the loop
+
+
 披漏task-proposal
 solution生成+ rollout loop 探讨
 reasoning-effort

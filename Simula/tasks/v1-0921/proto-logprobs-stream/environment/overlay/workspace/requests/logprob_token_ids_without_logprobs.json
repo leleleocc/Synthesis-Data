@@ -1,6 +1,0 @@
-{
-  "model": "dummy",
-  "messages": [{"role": "user", "content": "hi"}],
-  "logprob_token_ids": [11, 13],
-  "logprobs": false
-}

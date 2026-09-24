@@ -50,7 +50,9 @@ Create the environment tree and then write `/synthesis/state/02_environment.json
 The tree contains exactly a buildable `Dockerfile` or `docker-compose.yaml`,
 plus any setup files required by that image. If `assets/` exists, the base
 Dockerfile must COPY it. Phase 04 copies this tree per candidate and edits
-the copy; do not add a merge hook. The state shape is:
+the copy; do not add a merge hook. The image is built on Daytona, so do not
+use any local mount: no host bind, no compose host volume, no
+`RUN --mount`. COPY the file instead. The state shape is:
 
 ```json
 {

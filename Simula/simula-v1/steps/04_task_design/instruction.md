@@ -29,6 +29,7 @@ Read these resources under `/opt/terminaltraj/` before delegating:
 - `skills/simula-synthesis/references/instruction.md`
 - `skills/simula-synthesis/references/environment.md`, candidate-copy section
 - `docs/difficulty.md`, the shared difficulty definition
+- `docs/failure-mode.md`, the failure modes a candidate may and may not cause
 
 `complexity_delta` is a list of `{"axis": "<kebab>", "text": "<non-empty>"}`
 items. For `hard` and `ultra` it carries 3 or 4 items, always including
@@ -75,9 +76,13 @@ observation distinguishes them.
   whose stdio `command` exists in the candidate environment. Agent network is
   `public`, so an HTTP MCP url is reachable.
 
-`plan.difficulty` is the work band from `docs/difficulty.md`. Apply it, and do
-not relabel it. Difficulty is the reasoning required before the method is known;
-enlarging the environment or adding edits does not raise it.
+`plan.difficulty` is the work band from `docs/difficulty.md`. Read that document
+and use it as the primary standard for the candidate. The band decides what the
+agent must reason through, what the environment must make load-bearing, and how
+much the instruction may reveal. A candidate that is solvable without the
+reasoning its band requires is not done, even if every slot field is present.
+Do not relabel the band. Difficulty is the reasoning required before the method
+is known; enlarging the environment or adding edits does not raise it.
 
 For Harbor layout examples, consult
 https://github.com/harbor-framework/harbor/tree/main/examples/tasks.
@@ -123,6 +128,7 @@ assignment, so the subagent does not re-read or truncate them:
 - the full parent global row
 - `plan.difficulty`
 - the complete text of `docs/difficulty.md`
+- the complete text of `docs/failure-mode.md`
 - the complete text of `references/instruction.md`
 - the environment-contract excerpts the slot uses: source URL and commit,
   paths, entrypoints, topology, and resource limits
@@ -133,16 +139,27 @@ documents is not full context.
 
 ### Step 02: design the candidate
 
-Each subagent completes its assigned instruction and environment:
+Each subagent completes its assigned instruction and environment. Design to
+`plan.difficulty` first, then satisfy the slot fields in a way that band allows.
+`docs/difficulty.md` is the standard for that decision; do not substitute the
+slot prose for it. Use `docs/failure-mode.md` to decide which failure the
+candidate may cause. A hard or ultra candidate induces a false premise, a
+false shortcut, or a capability limitation. It must not depend on an
+environment blocker, a knowledge gap, an untested requirement, or a first step
+the agent cannot verify.
 
 - Use `mechanism` and `scenario_angle` to establish the current situation as
   observable phenomena. Use `output_shape` and parent `oracle_types` to define
-  acceptance criteria with concrete inputs, outputs, and operating constraints.
+  the end state. Name an output path only when the agent must create that
+  artifact. Do not copy environment paths, commands, or fixture layout into
+  the instruction.
 - Realize each item of `complexity_delta` in the environment and require its
   outcome in the instruction. The list has 3 or 4 items for `hard` and `ultra`;
   realize exactly those `axis` values and no others. Apply `plan.difficulty`
-  using the shared definition and its disclosure rules, retaining useful symptom
-  logs, failing commands, and reproduction conditions. Each item's `text` is a
+  using the shared definition and its disclosure rules. Keep a symptom the agent
+  cannot observe without already solving the task. Do not add the command,
+  path, or reproduction steps that produce it; those stay in the environment.
+  Each item's `text` is a
   design input, not phrasing to copy: do not quote it, paraphrase it, or let the
   instruction reveal which repair fails, which shortcut is tempting, which
   explanation is wrong, or which observation distinguishes them. Show phenomena
@@ -167,6 +184,18 @@ complete unfinished work before proceeding. Inspect the actual files against
 the assigned slot, the environment contract, and the referenced quality rules;
 record each candidate's `oracle_tools` and native step order in the design index.
 
+Check each candidate against `docs/difficulty.md` and its `plan.difficulty`
+before the slot checklist. The environment must require the reasoning that band
+names, and the instruction must stay inside that band's disclosure. A candidate
+solvable by a shallower band goes back to the subagent. Do not relabel it.
+
+Check each candidate against `docs/failure-mode.md`. Send it back when the
+correct repair is blocked by the environment, when difficulty comes from a fact
+the repository does not contain, when the instruction states a requirement the
+verifier will not check, or when the first visible symptom is the root cause.
+The verifier must reject both a fabricated success and a repair of the wrong
+cause.
+
 Check each candidate against its slot's `complexity_delta` item by item. For
 every `axis` in the list, the environment must realize that item's `text` and
 the instruction must make its outcome observable as phenomena. An axis in the
@@ -174,7 +203,12 @@ list with no corresponding phenomenon, or a phenomenon that adds an axis the
 list does not contain, goes back to the subagent. Confirm the instruction does
 not quote or paraphrase the item's `text` and does not reveal which repair
 fails, which shortcut is tempting, which explanation is wrong, or which
-observation distinguishes them.
+observation distinguishes them. Send it back when it names a path, command,
+flag, socket, or helper that the agent can find by inspecting the environment,
+or when it gives the steps that reproduce the symptom. An output path is
+allowed only for an artifact the agent must create. Send it back when a sentence does not change the broken outcome or the end
+state, or when the same point is said twice. Concision is required; do not
+enforce it with a word cap.
 
 Check each candidate against all five `deployment_dimensions`: the copy keeps
 the sealed `container_mode`, the recorded verifier choice matches

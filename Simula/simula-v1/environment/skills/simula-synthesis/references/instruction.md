@@ -11,24 +11,34 @@ Design from the sealed slot fields. The agent never sees the labels.
 - `complexity_delta` is a list of `{"axis", "text"}` items. Realize each item's
   `text` as phenomena. Read the `axis` to know which kind of difficulty it is;
   do not guess axes from the prose.
-- `primary_entrypoint` / `primary_input` are the absolute paths.
+- `primary_entrypoint` / `primary_input` are absolute paths for the environment
+  and the verifier. They are not a list to copy into the instruction.
 - `plan.difficulty` is the work band, not silence.
 
 The instruction describes phenomena, not the specific problem. The agent
-inherits a situation they can observe. They do not inherit a diagnosis.
+inherits a situation they can observe. They do not inherit a diagnosis, a map
+of the environment, or a procedure.
+
+Be concise. Say what is broken and what end state must hold, and nothing
+more. Do not add a preamble, a heading, a role, background the agent can
+read in the repo, or a sentence that restates another sentence. If a
+sentence does not change what the verifier checks, delete it.
 
 ## Write
 
 - The current situation as what is happening: a service that will not stay
   up, a replica that lags, a file that is missing, an invariant that no
   longer holds. Name the starting state, not the cause.
-- Acceptance criteria as the healthy phenomena a verifier can observe:
-  processes, ports, invariants, artifacts, absolute input and output paths.
+- Acceptance criteria as the healthy end state a verifier can observe:
+  processes, ports, invariants, and artifacts. Name an output path only when
+  the agent must create that artifact and no running system already determines
+  where it lands.
 - Both coupled constraints from the `coupling` item of `complexity_delta`, also
   as phenomena (rewrite and replica offset both hold), not as a second output
   file. Realize every other item in that list the same way, one phenomenon per
   `axis`.
-- Permitted tools and do-not-modify constraints if necessary.
+- A do-not-modify constraint only when violating it would still satisfy the
+  end state. State the protected artifact, not the surrounding layout.
 
 A verifier must turn every acceptance criterion into an assertion. Vague
 goals, unbounded network work, and requirements with no observable output
@@ -53,14 +63,20 @@ disclosure and format rules to root and step instructions.
   difficulty band's rules for identifying the affected area; hard/ultra
   instructions must not name a diagnosed defect site.
 - Possible solutions, approaches, algorithms, or repair recipes.
-- Irrelevant environment internals (unused files, internal APIs, flags,
-  layout trivia).
-- A tour of the tree or a walkthrough of how to succeed.
+- Anything the agent can learn by inspecting the environment: config paths,
+  socket paths, helper scripts, binary paths, flags, ports, file layouts,
+  fixture schemas, internal APIs, and which command to run. The agent has a
+  shell. Discovery is part of the task, not preamble to delete.
+- A tour of the tree, a walkthrough of how to succeed, or a checklist that
+  restates the verifier.
 
-Real symptom logs, failing commands, reproduction conditions, and operating
-constraints are allowed at every band. Paths and error strings in genuine
-evidence are clues, not automatically a diagnosis. Do not annotate them
-with the known cause or a repair recipe.
+Real symptom logs and the observable failure are allowed at every band. Quote
+only the symptom the agent cannot see without already having solved the task,
+such as a wrong value, a missing record, or a broken invariant. Do not paste a
+failing command, a reproduction recipe, or the path of the evidence. A path or
+error string that appears inside a genuine quoted log is a clue, not a license
+to name the file that holds it or the command that produced it. Do not annotate
+evidence with the known cause or a repair recipe.
 
 ## Difficulty
 
@@ -133,9 +149,14 @@ without looking at paths.
 
 ## Shape
 
-- Use absolute input and output paths and an exact, verifiable output format.
+- Use an absolute path only for an artifact the agent must create, or for an
+  input that is not present in the environment until the agent produces it.
+  Do not use a relative path. Do not use a path for a file, socket, config, or
+  binary the environment already contains.
+- When the agent must write a file, state the exact output format. Do not
+  restate a schema the agent can read from a fixture, a sample, or the source.
 - Do not use Markdown headings (`#`, `===`, `---`) outside fenced code,
-  relative paths, or evaluation mechanics such as "Submit your answer".
+  or evaluation mechanics such as "Submit your answer".
 - Do not mention `tests/`, `solution/`, `test.sh`, `solve.sh`, or `reward.txt`.
 - End with the Terminal-Bench suffix as its own last paragraph, followed by
   one newline. `N` is 7200 for a single-step task and 1800 for each step of

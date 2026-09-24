@@ -1,9 +1,0 @@
-gather_and_maybe_dequant_cache: seq_starts=[128], page_size=16
-  first logical page should be seq_starts/page_size = 8
-  dest rows 0..15 copied from page 0 instead of page 8 (wrong token rows)
-cudaErrorIllegalAddress when block_table stride is 4 and
-  logical_block = seq_starts/page_size + page exceeds stride
-  (batch_block_table[req * stride + logical_block] OOB)
-fp8 cache -> fp16 dest, scale=2.0: dest.view(float16) is raw fp8 bit
-  patterns, not scaled_convert values
-head_dim=128 currently launches; expected reject 320 or 576 only

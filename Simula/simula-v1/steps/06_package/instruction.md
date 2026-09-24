@@ -12,6 +12,8 @@ and run nop against the assembled package. Own
 - Do not modify candidate files; repair assembly defects in packaged copies.
 - Do not change a slot's deployment dimensions to bypass a package failure.
 - Do not add a Simula wrapper around Harbor APIs or skip required nop trials.
+- Do not retarget `FROM`, drop the source checkout, or depend on an image that
+  exists only in this factory. A package must build on a clean host.
 
 ## INPUTS
 
@@ -86,10 +88,21 @@ failed trial, or missing reward fails the package. Repair only assembled
 environment or copy defects, then repeat validation and nop. Retain the
 candidate contract and manifest order throughout repairs.
 
+A nop build failure is not a reason to shorten the Dockerfile. Keep the
+candidate `FROM` line and its source checkout (`git clone` of the pinned
+commit, or a vendored `repository/`). Do not retag a local image and use it as
+the package base, and do not `FROM` a factory tag such as `suricata-base:02`,
+`synth-env`, or any other image that will not exist on a clean sandbox. Those
+tags are factory cache. If a rebuild fails because a checkout path already
+exists inside such an image, restore the self-contained Dockerfile and build
+from the original base; do not delete the clone or compile steps to make nop
+pass here.
+
 ## GATE
 
 Finish only when every package has the declared Harbor layout, README, and no
 extra top-level files; assembly and Harbor validation succeed; and actual nop
 returns reward `0` for every package. The final assembly check allows
 environment-only nop repairs while preserving instructions, tests, steps, and
-task configuration.
+task configuration. A repair that still passes here is invalid if the
+Dockerfile no longer builds without this factory's local images.

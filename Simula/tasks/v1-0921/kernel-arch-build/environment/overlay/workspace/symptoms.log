@@ -1,7 +1,0 @@
-TORCH_CUDA_ARCH_LIST=9.0
-nvcc -c cooperative_topk.cu -arch=sm_75
-  error: #error "cooperative groups require sm_90 or higher"
-  nvcc fatal: Unsupported gpu architecture 'compute_75' for this source
-loading a 9.0-only cache_kernels binary on sm_80:
-  Illegal instruction (SIGILL) at gather_and_maybe_dequant_cache
-gather head_dim=128 currently accepted; expected reject outside {320, 576}

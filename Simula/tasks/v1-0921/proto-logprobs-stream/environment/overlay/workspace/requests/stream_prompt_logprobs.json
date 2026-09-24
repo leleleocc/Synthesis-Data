@@ -1,6 +1,0 @@
-{
-  "model": "dummy",
-  "messages": [{"role": "user", "content": "hi"}],
-  "stream": true,
-  "prompt_logprobs": 1
-}

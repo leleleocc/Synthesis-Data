@@ -18,9 +18,17 @@ inside the environment build context. Copy `assets/` when it exists. Do not copy
 Topology belongs to this sealed base and follows phase 01 compose evidence,
 not a later slot wish. If the repo has observed compose files, the base is
 compose with primary service `main`. Otherwise prefer a single Dockerfile.
-One batch cannot mix single and multiple container bases. Do not bind-mount
-host paths. Health-check dependencies the agent needs. Verifier dependencies
-are added in phase 05 as defined in `tests.md`.
+One batch cannot mix single and multiple container bases. Health-check
+dependencies the agent needs. Verifier dependencies are added in phase 05 as
+defined in `tests.md`.
+
+The packaged image is built on Daytona, not on this factory's Docker. Do not
+use any local mount. That includes host bind mounts, compose `volumes:` that
+point at the host, `RUN --mount=type=bind`, `RUN --mount=type=cache`, and
+`COPY --from` a local stage. Daytona checksums a bind-mount `target=/plant`
+as a context path and fails the build with that path not found. `COPY` the
+file into the image, run it, then delete it in the same `RUN` if it must not
+remain.
 
 Set resources to exactly 4 CPU, 8192 MB memory, and 10240 MB storage. GPU
 stays 0 or 1. When phase 01
@@ -47,6 +55,8 @@ Dockerfile, do not add compose. Do not docker build a candidate image;
   `instruction.md`; customize stage-specific assets in this same copy.
 - Slot extras the sealed base lacks (plants, a command binary, a
   runtime pin) go in the copy: source files, setup scripts, or assets.
+  This copy is also built on Daytona. Bring extras in with `COPY`, not a
+  bind mount of any kind.
 - `mcp=required` or `optional`: stdio `command` must appear in the
   candidate environment. Agent network is `public`, so an HTTP MCP url
   is reachable.
